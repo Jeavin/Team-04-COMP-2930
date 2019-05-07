@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-</html>
-
 <head>
   <title>Emissions Planner</title>
   <meta charset="utf-8">
@@ -13,6 +11,7 @@
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
   crossorigin="anonymous"
   />
+
   <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
@@ -27,3 +26,42 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>
+</head>
+
+<body>
+
+  <Navbar bg="dark" variant="dark">
+  <Navbar.Brand href="#home">
+    <img
+      alt=""
+      src="../images/logo.png"
+      width="30"
+      height="30"
+      className="d-inline-block align-top"
+    />
+    {' Emissions Planner'}
+  </Navbar.Brand>
+</Navbar>
+
+
+  <script src="https://unpkg.com/react/umd/react.production.js" crossorigin />
+
+  <script
+    src="https://unpkg.com/react-dom/umd/react-dom.production.js"
+    crossorigin
+  />
+
+  <script
+    src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+    crossorigin
+  />
+
+  <script src="https://unpkg.com/babel-standalone"></script>
+  <script>var Alert = ReactBootstrap.Alert;</script>
+  <script src="index.js" type="text/jsx"></script>
+
+  </script>
+</body>
+
+
+</html>
