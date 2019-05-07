@@ -14,7 +14,7 @@ $(document).ready(function () {
     $("#register").click(function (e) {
         $("#name").show(400);
         $("#phoneNumber").show(400);
-        $("#profilephoto").show(400);
+
         e.preventDefault();
         $(this).html("Sign up");
         $("#signIn").removeClass("btn-primary");
@@ -105,15 +105,13 @@ function handleSignUp() {
     // [START createwithemail]
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
         var database = firebase.database();
+
         var name = document.getElementById('name').value;
-        var phonenumber = document.getElementById('phoneNumber').value;
-        var profilepic = $("#profilephoto").val();
         var user = firebase.auth().currentUser;
         console.log(user);
         database.ref('users/' + user.uid).set({
             username: name,
-            phonenumber: phonenumber,
-            photourl: profilepic,
+            email: email,
         }, function (error) {
             if (error) {
                 // The write failed...
