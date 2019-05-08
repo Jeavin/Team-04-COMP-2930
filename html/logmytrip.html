@@ -7,6 +7,7 @@
     <title>Emission Planner</title>
     <!-- CSS -->
     <link href="../css/logmytrip.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -14,9 +15,41 @@
     <div id="wrapepr">
         <!-- Navbar on the top -->
         <div id="header">
-
+            <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+                    aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <a class="navbar-brand text-success" href="#">
+                    <img src="../images/logo.png" width="30" height="30" alt="">
+                    EmissionPlanner
+                </a>
+            
+                <a href="#">
+                    <img class="mr-2" src="../images/avatar.png" width="30" height="30" alt="">
+                    Sign In
+                </a>
+            
+                <div class="collapse navbar-collapse" id="navbarsExample09">
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        <div id="titleOfPage">Log My Trip</div>
+        <div class="page-header"><h1>Log My Trip</h1></div>
 
         <!-- Content in center -->
         <div id="content">
@@ -34,9 +67,9 @@
                 <div class="collapse" id="collapseCar">
                     <div class="card bg-warning text-black card-body">
                         <div id="carYear">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3" style="width: 210px">
                                 <div class="input-group-prepend">
-                                  <label class="input-group-text" for="inputGroupSelect01">Year</label>
+                                  <label class="input-group-text" style="width: 70px" for="inputGroupSelect01">Year</label>
                                 </div>
                                 <select class="custom-select" id="inputGroupSelect01">
                                   <option selected>Choose...</option>
@@ -47,9 +80,9 @@
                             </div>
                         </div>
                         <div id="carMake">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3" style="width: 210px">
                                 <div class="input-group-prepend">
-                                  <label class="input-group-text" for="inputGroupSelect01">Year</label>
+                                  <label class="input-group-text" style="width: 70px" for="inputGroupSelect01">Make</label>
                                 </div>
                                 <select class="custom-select" id="inputGroupSelect01">
                                   <option selected>Choose...</option>
@@ -60,9 +93,9 @@
                             </div>
                         </div>
                         <div id="carModel">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3" style="width: 210px">
                                 <div class="input-group-prepend">
-                                  <label class="input-group-text" for="inputGroupSelect01">Year</label>
+                                  <label class="input-group-text" style="width: 70px" for="inputGroupSelect01">Model</label>
                                 </div>
                                 <select class="custom-select" id="inputGroupSelect01">
                                   <option selected>Choose...</option>
