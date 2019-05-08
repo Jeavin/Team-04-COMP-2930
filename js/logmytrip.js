@@ -11,8 +11,9 @@ for (var i = 0; i < btns.length; i++) {
 
 // Close collapse whenever you click outside of the box
 $(document).click(function(e) {
-    if (!($(e.target).is('.card') || $(e.target).is('.md-form') || $(e.target).is('#carYear') || $(e.target).is('#carMake')
-    || $(e.target).is('#carModel') || $(e.target).is('.card h4'))) {
+    if (!($(e.target).is('.card') || $(e.target).is('.input-group') || $(e.target).is('#carYear') || $(e.target).is('#carMake')
+    || $(e.target).is('#carModel') || $(e.target).is('.custom-select') || $(e.target).is('.input-group-prepend')
+    || $(e.target).is('.input-group-text'))) {
     	$('.collapse').collapse('hide');	    
     }
 });
