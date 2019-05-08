@@ -1,0 +1,176 @@
+/* Page */
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+*, 
+*:before, 
+*:after {
+    box-sizing: inherit;
+}
+
+
+.tabs {
+    margin:0 auto 0 auto;
+    width: 100%;
+    background-color: rgba(210, 235, 191, 1);
+
+}
+
+.tabs-content {
+    color: rgb(59, 59, 59);
+}
+
+/* Tabs */
+
+.tabs-nav {
+    overflow: hidden;
+}
+
+.tabs-nav-items {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    list-style: none;
+    border-bottom: 3px solid #ffffff;
+}
+
+.tabs-nav-items:before,
+.tabs-nav-items:after {
+    content: " ";
+    display: table;
+}
+
+.tabs-nav-items:after {
+    clear: both;
+}
+
+.tabs-nav-item {
+    float: left;
+    position: relative;
+    width: 25%;
+    padding: 0;
+    cursor: pointer;
+}
+
+.tabs-nav-item:last-of-type {
+    margin-right: 0;
+}
+
+.tabs-nav-item::before {
+   
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 3px 3px 0 0;
+    -webkit-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+    transition-property: transform;
+}
+
+.tabs-nav-btn {
+
+    position: relative;
+    display: block;
+    outline: 0 none;
+    text-decoration: none;
+    padding: 13px 0;
+    color: rgb(59, 59, 59);
+    font-family: segoe ui,Arial,sans-serif;
+    font-size: 2.5vw;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition-property: color;
+}
+
+.tabs-nav-item::before,
+.tabs-nav-btn {
+
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.tabs-content {
+    border-top: 0;
+    background-color: #fff;
+}
+
+.tabs-content-item {
+    display: none;
+    padding: 20px 0; 
+}
+
+.tabs-nav-item:hover .tabs-nav-btn {
+    color: #ffffff;
+}
+
+.active-tab-nav-item,
+.active-tab-nav-item:hover {
+    cursor: default;
+}
+
+.active-tab-nav-item:hover .tabs-nav-btn {
+    color: rgb(59, 59, 59);
+}
+
+.active-tab-nav-item::before {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.active-tab-nav-item .tabs-nav-btn {
+    cursor: default;
+    color: rgb(59, 59, 59);
+}
+
+.active-tab-content-item {
+    display: block;
+}
+
+#section-1 {
+
+    padding-left:30px;
+    padding-right:30px;
+
+}
+
+#year-label {
+    margin-top: 10px;
+    background-color: rgba(210, 235, 191, 1);
+    padding: 8px;
+    
+
+}
+
+#year-label2 {
+    margin-top: 30px;
+    background-color: rgba(210, 235, 191, 1);
+    padding: 8px;
+    
+
+}
+
+#year-box {
+    width: 100%;
+    height: 35px;
+    background-color: rgb(236, 233, 233);
+    border: none;
+    border-bottom: 2px solid rgb(143, 143, 143);
+    
+
+}
