@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Emission Planner</title>
+    <!-- CSS -->
+    <link href="../css/logmytrip.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div id="wrapepr">
+        <!-- Navbar on the top -->
+        <div id="header">
+
+        </div>
+        <div id="titleOfPage">Log My Trip</div>
+
+        <!-- Content in center -->
+        <div id="content">
+            <h3>Choose Your Transportation</h3>
+
+            <!-- 3 Circular Buttons -->
+            <div id="buttons">
+                <button class="button button1" style="background-image: url('../images/car.png')" type="button" data-toggle="collapse" data-target="#collapseCar" aria-expanded="false" aria-controls="collapseCar"></button>
+                <button class="button button2" style="background-image: url('../images/bus.png')"></button>
+                <button class="button button3" style="background-image: url('../images/train.png')"></button>
+                <button class="button nobutton active"></button>
+            </div>
+
+            <form>
+                <div class="collapse" id="collapseCar">
+                    <div class="card bg-warning text-black card-body">
+                        <div id="carYear">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputGroupSelect01">Year</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                  <option selected>Choose...</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="carMake">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputGroupSelect01">Year</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                  <option selected>Choose...</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="carModel">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputGroupSelect01">Year</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                  <option selected>Choose...</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>          
+                    </div>
+                </div>
+                <div id="location">
+                    <div class="form-group">
+                        <label for="start">A</label>
+                        <input type="text" class="form-control" id="start" placeholder="Start Location">
+                        </div>
+                        <div class="form-group">
+                        <label for="dest">B</label>
+                        <input type="text" class="form-control" id="dest" placeholder="Destination">
+                    </div>
+                </div>
+                <div id="impactBtn">
+                    <button type="submit" class="btn btn-primary btn-success">Let's See Our Impact!</button>
+                </div>
+            </form>       
+        </div>
+        <div id="footer">
+
+        </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- javascript for Log My Trip page -->
+    <script src="../js/logmytrip.js"></script>
+</body>
+</html>
