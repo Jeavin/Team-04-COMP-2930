@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>My Trip</title>
   <meta charset="utf-8">
@@ -18,8 +19,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
-      aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -58,23 +58,23 @@
   <hgroup class="speech-bubble">
     <div class="media">
       <div class="media-left media-middle">
-          <img class="media-object3" src="../images/startsmall.png" alt="start">
+        <img class="media-object3" src="../images/startsmall.png" alt="start">
       </div>
       <div class="media-body">
-        <p><br/>Start address here</p>
+        <p><br />Start address here</p>
       </div>
     </div>
     <div class="media">
       <div class="media-left media-middle">
-          <img class="media-object2" src="../images/arrow.png" alt="arrow">
+        <img class="media-object2" src="../images/arrow.png" alt="arrow">
       </div>
     </div>
     <div class="media">
       <div class="media-left media-middle">
-          <img class="media-object3" src="../images/destinationsmall.png" alt="destination">
+        <img class="media-object3" src="../images/destinationsmall.png" alt="destination">
       </div>
       <div class="media-body">
-        <p><br/>Destination address here</p>
+        <p><br />Destination address here</p>
       </div>
     </div>
     <div class="rcorners2">
@@ -84,32 +84,37 @@
   <div class="rcorners">
     <div class="media">
       <div class="media-left media-middle">
-          <img class="media-object" src="../images/carsmall.png" alt="car" style="filter: invert(100%)">
+        <img class="media-object" src="../images/carsmall.png" alt="car" style="filter: invert(100%)">
       </div>
       <div class="media-body">
-        <p><br/>Vehicle here</p>
+        <p><br />Vehicle here</p>
       </div>
     </div>
     <div class="media">
       <div class="media-left media-middle">
-          <img class="media-object" src="../images/clock.png" alt="clock">
+        <img class="media-object" src="../images/clock.png" alt="clock">
       </div>
       <div class="media-body">
-        <p><br/>Time here</p>
+        <p><br />Time here</p>
       </div>
     </div>
     <div class="media">
       <div class="media-left media-middle">
-          <img class="media-object" src="../images/co2.png" alt="co2">
+        <img class="media-object" src="../images/co2.png" alt="co2">
       </div>
       <div class="media-body">
-        <p><br/>CO2 emissions here</p>
+        <p><br />CO2 emissions here</p>
       </div>
     </div>
   </div>
 
-<div>
-  <button type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">SEE IT ON THE MAP</button>
+  <div class="buttondiv">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">SEE IT ON THE MAP</button>
+  </div>
+
+  <div class="collapse" id="collapseExample">
+    <div id="maps"></div>
+  </div>
 
 
 
@@ -117,13 +122,18 @@
     <a href="#" class=>FAQs</a>
   </footer>
 
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
   <!-- javascript for My Trip page -->
   <script src="../js/mytrip.js"></script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <!-- maps api -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&callback=initMap" async defer></script>
 </body>
 
 
