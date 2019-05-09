@@ -1,5 +1,51 @@
+$(document).ready(function () {
+    let db = firebase.database().ref().child("vehicleDatasets");
+    db.on("value", snap => {
+        snap.forEach(function(childSnap) {
+            year = childSnap.key;
+            let option = $("<option></option>");
+            option.attr("value", year);
+            option.attr("class", "data");
+            option.html(year);
+            $("#box1").append(option);
+        });
+    });
+    
+});
 
+function selectYear() {
+    let bds = firebase.database().ref().child("vehicleDatasets/"+$('#box1').val());
+    $("#box2").empty();
+    $("#box3").empty();
+    // let default = $("<option disabled selected value> -- select an option -- </option>");
+    $("#box2").append($("<option disabled selected value> -- select an option -- </option>"));
+    $("#box3").append($("<option disabled selected value> -- select an option -- </option>"));
+    bds.on("value", snap => {
+        snap.forEach(function(childSnap) {
+            make = childSnap.key;
+            let option = $("<option></option>");
+            option.attr("value", make);
+            option.html(make);
+            $("#box2").append(option);
+        });
+    });
+}
 
+function selectMake() {
+    let bd = firebase.database().ref().child("vehicleDatasets/"+$('#box1').val()+"/"+$('#box2').val());
+    $("#box3").empty();
+    // let default = $("<option disabled selected value> -- select an option -- </option>");
+    $("#box3").append($("<option disabled selected value> -- select an option -- </option>"));
+    bd.on("value", snap => {
+        snap.forEach(function(childSnap) {
+            make = childSnap.key;
+            let option = $("<option></option>");
+            option.attr("value", make);
+            option.html(make);
+            $("#box3").append(option);
+        });
+    });
+}
     
     var slice = [].slice;
     var tabs = document.querySelector('.tabs');
