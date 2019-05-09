@@ -17,6 +17,11 @@
       background-image: url("../images/green_backimage.png");
       background-repeat: no-repeat;
     }
+
+    .btn-primary {
+      background-color: #85D139 !important
+      
+    }
   </style>
 </head>
 
@@ -27,18 +32,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand text-success" href="#">
+    <a class="navbar-brand text-success mr-auto" href="#">
       <img src="../images/logo.png" width="30" height="30" alt="">
       EmissionPlanner
     </a>
 
-    <a href="#">
-      <img class="mr-2" src="../images/avatar.png" width="30" height="30" alt="">
-      Sign In
-    </a>
-
     <div class="collapse navbar-collapse" id="navbarsExample09">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -53,8 +53,12 @@
         </li>
       </ul>
     </div>
-  </nav>
 
+    <a class="" href="#">
+      <img class="mr-2" src="../images/avatar.png" width="30" height="30" alt="">
+      Sign In
+    </a>
+  </nav>
 
   <main class="d-lg-flex align-items-lg-center height-85vh--lg p-5">
     <div class="container space-2 space-0--lg mt-lg-8">
@@ -91,7 +95,7 @@
               </div>
               <!-- End Input -->
 
-              <button type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">Plan Your Trip
+              <button type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3" >Plan Your Trip
                 Now</button>
               <button type="submit" class="btn btn-lg btn-inline btn-primary bg-success text-white mr-1"
                 style="width: 48%">Sign In</button>
@@ -105,8 +109,8 @@
     </div>
   </main>
 
-  <footer class="footer-copyright text-right py-3" style="background-color: #64C255; ">
-    <a href="#" class=>FAQs</a>
+  <footer class="footer-copyright text-right py-3" style="background-color: #85D139;">
+    <a class="mr-3" href="#" class=>FAQs</a>
   </footer>
 
   <!-- Firebase init -->
