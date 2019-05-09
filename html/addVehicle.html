@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <title>Emission Planner</title>
   </head>
   
 	<body>
-
+            
 		<div>
 
                 <div class="tabs">
@@ -25,14 +26,17 @@
                             
                         </ul>
                     </nav>
+
                     <div class="tabs-content">
+                        <div id="first">
                         <section id="section-1" class="tabs-content-item active-tab-content-item">
+                           
                             <div id="year-label">
                                     <label for="year" >Year</label>
                                    
                             </div>
                             <div>
-                                    <select id="year-box">
+                                    <select class="year-box" id="box1">
                                             <option disabled selected value> -- select an option -- </option>
                                             <option value="2000">2000</option>
                                             <option value="2001">2001</option>
@@ -46,7 +50,7 @@
                                    
                             </div>
                             <div>
-                                    <select id="year-box">
+                                    <select class="year-box" id="box2">
                                             <option disabled selected value> -- select an option -- </option>
                                             <option value="Volvo">Volvo</option>
                                             <option value="Saab">Saab</option>
@@ -60,24 +64,29 @@
                                    
                             </div>
                             <div>
-                                    <select id="year-box">
+                                    <select class="year-box" id="box3">
                                             <option disabled selected value> -- select an option -- </option>
                                             <option value="Impreza">Impreza</option>
                                             <option value="240sx">240SX</option>
                                             <option value="AMG">AMG</option>
                                             <option value="R8">R8</option>
                                           </select>
+                                          <button onclick="newPerson()" class="button" style="vertical-align:middle"><span>ADD </span></button>
                             </div>
-                            
+
                         </section>
+                        </div>
                         <section id="section-2" class="tabs-content-item">
-                            <p>Orci vestibulum donec venenatis tempus gravida vestibulum parturient curabitur est ac est viverra scelerisque a inceptos leo a parturient purus a turpis lobortis semper condimentum phasellus vestibulum. Tempor conubia at ullamcorper lobortis feugiat purus ad eros a fermentum eu ultricies dolor eu. Fusce elit a rhoncus consequat egestas magnis eu vitae a a vivamus venenatis commodo condimentum torquent nec erat tempor vestibulum scelerisque tellus magna nulla eleifend suspendisse. Imperdiet nec nunc fusce torquent netus erat habitasse dictum dolor conubia a dignissim a venenatis ullamcorper congue. Egestas tempus a nam eleifend curabitur id augue odio ac a dui hendrerit a euismod lectus cum aliquet sit mattis elementum lobortis litora hac a non eu massa. Malesuada dui orci vestibulum a adipiscing vestibulum ipsum adipiscing scelerisque litora volutpat nam integer neque ultrices nam nulla tristique sociosqu leo lacinia ullamcorper ad sagittis.</p> 
-                
-                            <p>Platea porttitor egestas condimentum ullamcorper sociosqu donec blandit curae consequat mauris dictum nec parturient maecenas adipiscing. Nam etiam vestibulum eget habitasse scelerisque taciti consectetur nulla ut senectus a a phasellus senectus hac varius cum faucibus vitae viverra cras sed adipiscing parturient. Ornare a euismod dui sit suspendisse nisi enim pulvinar ultrices rhoncus a imperdiet suspendisse parturient nibh facilisi.</p>
+                            <div>
+                                <div id="why">
+                                        
+                                </div>
+                            </div>
                         </section>
 
                     </div>
                 </div>
+                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 		<script src="../js/addVehicle.js"></script>
   </body>
   </html>
