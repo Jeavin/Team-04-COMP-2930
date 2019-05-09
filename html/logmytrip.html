@@ -10,28 +10,6 @@
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#config-web-app -->
-    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
-
-    <script>
-    // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDd7Y3dwiIxCrCDlID9NvpTXDCHhiPDb6M",
-            authDomain: "team-04-comp-2930.firebaseapp.com",
-            databaseURL: "https://team-04-comp-2930.firebaseio.com",
-            projectId: "team-04-comp-2930",
-            storageBucket: "team-04-comp-2930.appspot.com",
-            messagingSenderId: "432244259664",
-            appId: "1:432244259664:web:77b09583bf537e23"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
 </head>
 <body>
     <div id="wrapper">
@@ -91,39 +69,30 @@
                         <div id="carYear">
                             <div class="input-group mb-3" style="width: 210px">
                                 <div class="input-group-prepend">
-                                  <label class="input-group-text" style="width: 70px" for="inputGroupSelect01">Year</label>
+                                  <label class="input-group-text" style="width: 70px" for="selectYear">Year</label>
                                 </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                  <option selected>Choose...</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                <select class="custom-select" id="selectYear" onchange="yearSelected()">
+                                  <option disabled selected>Choose...</option>
                                 </select>
                             </div>
                         </div>
                         <div id="carMake">
                             <div class="input-group mb-3" style="width: 210px">
                                 <div class="input-group-prepend">
-                                  <label class="input-group-text" style="width: 70px" for="inputGroupSelect01">Make</label>
+                                  <label class="input-group-text" style="width: 70px" for="selectMake">Make</label>
                                 </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                  <option selected>Choose...</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                <select class="custom-select" id="selectMake" onchange="makeSelected()">
+                                  <option disabled selected>Choose...</option>
                                 </select>
                             </div>
                         </div>
                         <div id="carModel">
                             <div class="input-group mb-3" style="width: 210px">
                                 <div class="input-group-prepend">
-                                  <label class="input-group-text" style="width: 70px" for="inputGroupSelect01">Model</label>
+                                  <label class="input-group-text" style="width: 70px" for="selectModel">Model</label>
                                 </div>
-                                <select class="custom-select" id="inputGroupSelect01">
-                                  <option selected>Choose...</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                <select class="custom-select" id="selectModel">
+                                  <option disabled selected>Choose...</option>
                                 </select>
                             </div>
                         </div>          
@@ -154,6 +123,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places"></script>
     <!-- javascript for Log My Trip page -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+    <script src="../js/firebase_init.js"></script>
     <script src="../js/logmytrip.js"></script>
+    <script src="../js/vehicle_data.js"></script>
 </body>
 </html>
