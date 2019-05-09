@@ -53,18 +53,18 @@ body {
 }
 
 #signIn {
-    background-color: rgba(133, 209, 57, 1);
-    border-color: rgba(133, 209, 57, 1);
+    background-color: rgba(210, 235, 191, 1);
+    border-color: rgba(210, 235, 191, 1);
 }
 
 #register {
-    background-color: rgba(133, 209, 57, 1);
-    border-color: rgba(133, 209, 57, 1);
+    background-color: rgba(210, 235, 191, 1);;
+    border-color: rgba(210, 235, 191, 1);
 }
 
 #signUpbtn {
-    background-color: rgba(133, 209, 57, 1);
-    border-color: rgba(133, 209, 57, 1);
+    background-color: rgba(210, 235, 191, 1);
+    border-color: rgba(210, 235, 191, 1);
 }
 
 * {
@@ -101,7 +101,7 @@ body {
     padding-top: 5px;
     padding-right: 20px;
     margin: 0;
-    background-color: rgba(133, 209, 57, 1);
+    background-color: rgba(210, 235, 191, 1);
   }
   
   h2 {
@@ -131,6 +131,13 @@ body {
 
 
   }
+
+  #header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  
   
   @media (max-width: 768px) {
     .top {

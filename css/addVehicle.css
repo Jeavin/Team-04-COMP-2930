@@ -7,6 +7,7 @@ html {
 
 body {
     margin: 0;
+ 
 }
 
 *, 
@@ -240,10 +241,12 @@ body {
       padding-bottom: 10px;
       padding-left: 10px;
     background-color: rgb(236, 233, 233); 
+    
   }
 
   .not{
       margin: 20px;
+      margin-bottom: 20px;
   }
 
   .button2{
@@ -263,3 +266,42 @@ body {
 .button2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
+
+  footer {
+    
+    width: 100%;
+    height: 37px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    padding-right: 20px;
+    margin-top: 20px;
+    background-color: rgba(210, 235, 191, 1);
+    position:fixed;
+    bottom: 0;
+
+  }
+  
+  h2 {
+    float: left;
+    height: 12px;
+    line-height: 12px;
+  }
+  
+  .footer-nav {
+    text-align: right;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .top, .footer-nav li:last-child {
+      margin: 0px;
+    padding: 0px;
+    margin-right: 0;
+  }
+  
+  
