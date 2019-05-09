@@ -1,3 +1,53 @@
+var autocomplete, autocomplete2;
+$(document).ready(function () {
+    /** 
+     * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
+     */
+    initAutocomplete();
+
+
+    $("#autocomplete").focus(geolocate());
+    $("#autocomplete2").focus(geolocate());
+});
+/** 
+ * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
+ */
+function geolocate() {
+
+    var geolocation = {
+        lat: 49.25,
+        lng: -122.8
+    };
+    var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: 80000
+    });
+    autocomplete.setBounds(circle.getBounds());
+    autocomplete2.setBounds(circle.getBounds());
+}
+
+function initAutocomplete() {
+    // Create the autocomplete object, restricting the search to geographical
+    // location types.
+    autocomplete = new google.maps.places.Autocomplete(
+        // /** @type {!HTMLInputElement} */
+        (document.getElementById('autocomplete')), {
+            types: ['geocode']
+        });
+    autocomplete.setFields(['address_components', 'geometry']);
+
+
+    //autocomplete.addListener('place_changed', fillInAddress);
+    autocomplete2 = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */
+        (document.getElementById('autocomplete2')), {
+            types: ['geocode']
+        });
+    autocomplete2.setFields(['address_components', 'geometry']);
+
+
+    //autocomplete2.addListener('place_changed', fillInAddress);
+}
 // To remain highlighted
 var div = document.getElementById("buttons");
 var btns = div.getElementsByClassName("button");
