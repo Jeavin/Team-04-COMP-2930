@@ -16,16 +16,13 @@ $(document).ready(function () {
         $("#phoneNumber").show(400);
 
         e.preventDefault();
-        $(this).html("Sign up");
+        $(this).html('<a href="home.html">Sign up</a>');
         $("#signIn").removeClass("btn-primary");
         $("#signIn").addClass("btn-secondary");
         $("#signIn").html("Back");
         $("h1").html("Please Register");
         $(this).attr("id", "signUpbtn");
         document.getElementById('signUpbtn').addEventListener('click', handleSignUp, false);
-
-
-
 
     });
     $("#signIn").click(function (e) {
@@ -143,9 +140,10 @@ function initApp() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             user.updateProfile({
-                photoURL: $("#profilephoto").val()
+                photoURL: $("#profilephoto").val(),
+                displayName: $('#name').val()
             }).then(function () {
-                window.location = '/pages/dashboard.html';
+                window.location = 'home.html';
             });
 
         }
