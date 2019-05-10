@@ -12,7 +12,8 @@ $(() => {
     } else {
       $('#settingIcon1, #settingIcon2').html('<button class="btn "'
       + 'type="button" id="signInButton" data-toggle="dropdown" '
-      + 'aria-haspopup="true" aria-expanded="false">Sign In/Up</button>');
+      + 'aria-haspopup="true" aria-expanded="false">'
+      + '<a class="nav-link" href="./html/login.html">Sign In/Up</a></button>');
       console.log('user: not log in');
     }
   });
