@@ -1,0 +1,60 @@
+body {
+  min-width: 320px;
+  height: 100vh;
+}
+
+main {
+  background-image: url("../images/green_backimage.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.btn-primary {
+  background-color: #85D139 !important
+}
+
+a.dropdown-item:hover {
+  background-color: #85D139;
+  color: white;
+}
+
+div#settingIcon1 {
+  display: none;
+}
+
+div#planTrip {
+  max-width: 570px;
+}
+
+div#settingIcon button, button#signInButton {
+  border-color: rgba(0, 0, 0, .1);
+}
+
+@media screen and (max-width: 992px) {
+  div#navbarsExample09 {
+    order: 4;
+  }
+
+  div#settingIcon1,
+  div#settingIcon2 {
+    order: 3;
+  }
+
+  div#settingIcon1 {
+    display: inline;
+  }
+
+  div#settingIcon2 {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  main {
+    padding: 2rem !important;
+  }
+
+  a#logo {
+    font-size: 0.98rem;
+  }
+}
