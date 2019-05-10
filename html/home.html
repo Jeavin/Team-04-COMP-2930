@@ -5,17 +5,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
   <title>Document</title>
   <style>
     body {
       min-width: 320px;
+      height: 100vh;
     }
 
     main {
       background-image: url("../images/green_backimage.png");
       background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .btn-primary {
+      background-color: #85D139 !important
+    }
+
+    a.dropdown-item:hover {
+      background-color: #85D139;
+      color: white;
+    }
+
+    div#planTrip {
+      max-width: 570px;
+    }
+
+    div#settingIcon button {
+      border-color: rgba(0, 0, 0, .1);
+    }
+
+    @media screen and (max-width: 992px) {
+      div#navbarsExample09 {
+        order: 4;
+      }
+
+      div#settingIcon {
+        order: 3;
+
+      }
+    }
+
+    @media (max-width: 576px) {
+      main {
+        padding: 2rem !important;
+      }
+
+      a#logo {
+        font-size: 0.98rem;
+      }
     }
   </style>
 </head>
@@ -24,21 +66,17 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
       aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <img src="../images/menu.png" />
     </button>
 
-    <a class="navbar-brand text-success" href="#">
+    <a id="logo" class="navbar-brand text-success ml-auto mr-auto" href="#">
       <img src="../images/logo.png" width="30" height="30" alt="">
       EmissionPlanner
     </a>
 
-    <a href="#">
-      <img class="mr-2" src="../images/avatar.png" width="30" height="30" alt="">
-      Sign In
-    </a>
 
     <div class="collapse navbar-collapse" id="navbarsExample09">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -53,20 +91,31 @@
         </li>
       </ul>
     </div>
+
+    <div id="settingIcon" class="dropdown">
+      <!-- <button class="btn " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <img src="../images/settingsIcon.png" />
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">History</a>
+        <a class="dropdown-item" href="#">Setting</a>
+        <a class="dropdown-item" href="#">Sign Out</a>
+      </div> -->
+    </div>
   </nav>
 
-
-  <main class="d-lg-flex align-items-lg-center height-85vh--lg p-5">
-    <div class="container space-2 space-0--lg mt-lg-8">
+  <main class="container d-lg-flex align-items-lg-center height-85vh--lg p-5">
+    <div class="space-2 space-0--lg mt-lg-8">
       <div class="row justify-content-lg-between align-items-lg-center text-success">
         <div class="col-lg-5 mb-7 mb-lg-0 ">
           <!-- Title -->
-          <span class="d-block text-uppercase mb-2">Join the change</span>
-          <h1 class="display-4 font-size-48--md-down  mb-0">Space service that moves work forward</h1>
+          <span class="d-block text-uppercase mb-2">Join Us</span>
+          <h1 class="display-4 font-size-48--md-down  mb-0">For the Change</h1>
           <!-- End Title -->
         </div>
 
-        <div class="col-lg-5">
+        <div id="planTrip" class="col-lg-5">
           <!-- Signup Form -->
           <div class="bg-white shadow-sm rounded p-3">
             <form class="js-validate" novalidate="novalidate">
@@ -76,8 +125,8 @@
                 <div class="js-focus-state input-group input-group form">
                   <input type="text" class="form-control form__input form-control-lg" name="username" required=""
                     placeholder="From" aria-label="Enter your username">
-                  <button type="button" style="margin-left: 10px; padding: 0"><img form-control
-                      src="../images/autolocate.png" width="35" height="30" alt=""></button>
+                  <button class="btn" type="button" style="margin-left: 10px; padding: 0"><img form-control
+                      src="../images/autolocate.png" alt=""></button>
                 </div>
               </div>
               <!-- End Input -->
@@ -105,8 +154,8 @@
     </div>
   </main>
 
-  <footer class="footer-copyright text-right py-3" style="background-color: #64C255; ">
-    <a href="#" class=>FAQs</a>
+  <footer class="footer-copyright text-right py-3" style="background-color: #85D139;">
+    <a class="mr-3" href="#" class=>FAQs</a>
   </footer>
 
   <!-- Firebase init -->
@@ -126,7 +175,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="../js/firebase_init.js"></script>
-  <script src="../js/index.js" type="text/jsx"></script>
+  <script src="../js/index.js" type="text/javascript"></script>
 </body>
 
 </html>

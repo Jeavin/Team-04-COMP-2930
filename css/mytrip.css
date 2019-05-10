@@ -32,13 +32,13 @@ body {
 }
 
 .media-object3 {
-  padding-left: 40%;
+  margin-left: 40%;
   padding-top: 20%;
   padding-bottom: 20%;
 }
 
 .media-object2 {
-  padding-left: 230%;
+  margin-left: 230%;
 }
 
 .rcorners {
@@ -61,4 +61,22 @@ body {
   width: 60%;
   height: 50px;
   line-height: 50px;
+}
+
+.buttondiv {
+  margin: 0 auto;
+  width: 43%;
+  padding-bottom: 5%;
+}
+
+.btn-primary {
+  background-color: #85D139 !important;
+  border-color: #85D139 !important;
+}
+
+#maps {
+  height: 450px;
+  margin: 5%;
+  border: 2px solid #5CC573;
+  border-radius: 25px;
 }
