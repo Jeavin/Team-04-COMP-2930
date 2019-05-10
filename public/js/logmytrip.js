@@ -48,7 +48,7 @@ function initAutocomplete() {
 
     //autocomplete2.addListener('place_changed', fillInAddress);
 }
-// To remain highlighted
+// To make a button remains highlighted
 var div = document.getElementById("buttons");
 var btns = div.getElementsByClassName("button");
 for (var i = 0; i < btns.length; i++) {
@@ -66,4 +66,18 @@ $(document).click(function(e) {
     || $(e.target).is('.input-group-text'))) {
     	$('.collapse').collapse('hide');	    
     }
+});
+
+$(document).on('click', '#impactBtn',
+  function redirect(e) {
+    e.preventDefault();
+    let year = $('#selectYear option:selected').val();
+    let make = $('#selectMake option:selected').val();
+    let model = $('#selectModel option:selected').val();
+    let startA = $('#autocomplete').val();
+    let destB = $('#autocomplete2').val();
+
+    console.log("worked");
+    window.location.href = "./mytrip.html" + "#" + year + "#" + make + "#"
+    + model + "#"+ startA + "#"+ destB;
 });
