@@ -8,14 +8,14 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="./css/index.css" />
 
   <title>Emission Planner</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-    <button id="navToggler" class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarsExample09"
+    <button id="navToggler" class="btn navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarsExample09"
       aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
       <img src="./images/menu.png" />
     </button>
@@ -52,7 +52,7 @@
         </h6>
         <a class="dropdown-item" href="#">Setting</a>
         <a class="dropdown-item" href="./html/history.html">History</a>
-        <a class="dropdown-item" href="./index.html">Sign Out</a>
+        <a class="signOutBtn dropdown-item" href="./index.html">Sign Out</a>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="#">Setting</a>
         <a class="dropdown-item" href="./html/history.html">History</a>
-        <a class="dropdown-item" href="./index.html">Sign Out</a>
+        <a class="signOutBtn dropdown-item" href="./index.html">Sign Out</a>
       </div>
     </div>
   </nav>
@@ -84,7 +84,7 @@
               <h1 class="display-4 text-success">Join Us</h1>
               <h1 class="display-4 text-success">See The Difference</h1>
               <hr class="my-4">
-            <form action="./html/mytrip.html" method="post" id="tripForm" class="js-validate" novalidate="novalidate">
+            <form id="tripForm" class="js-validate" novalidate="novalidate">
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
@@ -105,10 +105,10 @@
               <!-- End Input -->
               <button type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">Plan Your Trip
                 Now</button>
-              <button type="submit" class="btn btn-lg btn-inline btn-primary bg-success text-white mr-1"
-                style="width: 48%">Sign In</button>
-              <button type="submit" class="btn btn-lg btn-inline btn-primary bg-success text-white float-right"
-                style="width: 48%"><a href="./html/login.html">Sign Up</a></button>
+              <a class="btn btn-lg btn-inline btn-primary bg-success text-white mr-1"
+                style="width: 48%" href="html/login.html">Sign In</a>
+              <a class="btn btn-lg btn-inline btn-primary bg-success text-white float-right"
+                style="width: 48%" href="html/login.html">Sign Up</a>
             </form>
           </div>
           <!-- End Signup Form -->
@@ -142,7 +142,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="./js/firebase_init.js"></script>
-  <script src="./js/index.js" type="text/javascript"></script>
+  <script src="./js/index.js"></script>
 </body>
 
 </html>

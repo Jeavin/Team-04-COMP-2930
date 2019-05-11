@@ -10,15 +10,20 @@ $(() => {
       console.log('user: ' + user.displayName);
       console.log('uid: ' + user.uid);
     } else {
-      $('#settingIcon1, #settingIcon2').html('<button class="btn"'
-      + 'type="button" id="signInButton" data-toggle="dropdown" '
-      + 'aria-haspopup="true" aria-expanded="false">'
-      + 'Sign In/Up</button>');
+      $('#settingIcon1, #settingIcon2').html('<a class="btn" id="signInUpButton"'
+      + 'href="https://team-04-comp-2930.firebaseapp.com/html/login.html">'
+      + 'SIGN IN/UP</a>');
       console.log('user: not log in');
     }
   });
 
+ $('.signOutBtn').on('click', (e)=> {
+    e.preventDefault();
+    e.stopPropagation();
+    firebase.auth().signOut();
+    window.location.href = "https://team-04-comp-2930.firebaseapp.com/";
+});
+
   $('#tripForm').on('click', (e)=>{
-    e.preventDefault;
-  })
+  });
 })

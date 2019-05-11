@@ -15,6 +15,12 @@ div#backImageContainer {
   
 }
 
+div#contactBackImage {
+  background-image: url("../images/aboutUs.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .btn-primary {
   background-color: #85D139 !important
 }
@@ -32,9 +38,10 @@ div#planTrip {
   max-width: 570px;
 }
 
-div#settingIcon button, button#signInButton {
+div#settingIcon a, a#signInUpButton {
   border-color: rgba(0, 0, 0, .1);
 }
+
 @media screen and (max-width: 991px) {
   div#navbarsExample09 {
     order: 4;
@@ -54,11 +61,11 @@ div#settingIcon button, button#signInButton {
 }
 
 @media (max-width: 576px) {
-  nav, button.btn{
+  nav, .btn{
     padding:.2rem;
   }
 
-  button#signInButton {
+  a#signInButton {
     padding-top: .5rem;
     padding-bottom: .5rem;
   }
