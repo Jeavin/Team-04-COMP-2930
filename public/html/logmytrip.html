@@ -8,6 +8,7 @@
     <!-- CSS -->
     <link href="../css/logmytrip.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -16,38 +17,56 @@
         <!-- Navbar on the top -->
         <div id="header">
             <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
-                    aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button id="navToggler" class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarsExample09"
+                  aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                  <img src="../images/menu.png" />
                 </button>
-            
-                <a class="navbar-brand text-success" href="#">
-                    <img src="../images/logo.png" width="30" height="30" alt="">
-                    EmissionPlanner
+
+                <a id="logo" class="navbar-brand text-success ml-auto mr-auto" href="#">
+                  <img src="../images/logo.png" width="30" height="30" alt="">
+                  EmissionPlanner
                 </a>
-            
-                <a href="#">
-                    <img class="mr-2" src="../images/avatar.png" width="30" height="30" alt="">
-                    Sign In
-                </a>
-            
                 <div class="collapse navbar-collapse" id="navbarsExample09">
-                    <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <ul class="navbar-nav">
+                    <li class="nav-item active1">
+                      <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Map</a>
+                      <a class="nav-link" href="./mytrip.html">Map</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                      <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
+                      <a class="nav-link" href="#">Contact Us</a>
                     </li>
-                    </ul>
+                  </ul>
                 </div>
-            </nav>
+
+                <div id="settingIcon1" class="dropdown">
+                  <button class="btn " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="../images/settingsIcon.png" />
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <h6 class="userName text-uppercase" class="dropdown-header">
+                    </h6>
+                    <a class="dropdown-item" href="#">Setting</a>
+                    <a class="dropdown-item" href="./history.html">History</a>
+                    <a class="dropdown-item" href="../index.html">Sign Out</a>
+                  </div>
+                </div>
+
+                <div id="settingIcon2" class="dropdown">
+                  <button class="btn userName text-uppercase" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Setting</a>
+                    <a class="dropdown-item" href="./history.html">History</a>
+                    <a class="dropdown-item" href="../index.html">Sign Out</a>
+                  </div>
+                </div>
+              </nav>
         </div>
         <div class="page-header"><h1>Log My Trip</h1></div>
 
@@ -95,26 +114,34 @@
                                   <option disabled selected>Choose...</option>
                                 </select>
                             </div>
-                        </div>          
+                        </div>
                     </div>
                 </div>
                 <div id="location">
                     <div class="form-group">
-                        <label for="autocomplete">A</label>
-                        <input type="text" class="form-control" id="autocomplete" placeholder="Start Location"/>
+                        <label for="start">A</label>
+                        <input type="text" class="form-control" id="start" placeholder="Start Location"/>
                     </div>
                     <div class="form-group">
-                        <label for="autocomplete2">B</label>
-                        <input type="text" class="form-control" id="autocomplete2" placeholder="Destination"/>
+                        <label for="dest">B</label>
+                        <input type="text" class="form-control" id="dest" placeholder="Destination"/>
                     </div>
                 </div>
+
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Two way trip</label>
+                </div>
+                
                 <div id="impactBtn">
                     <button type="submit" class="btn btn-primary btn-success">Let's See Our Impact!</button>
                 </div>
-            </form>       
+            </form>
         </div>
         <div id="footer">
-
+            <footer class="footer-copyright text-right py-3" style="background-color: #85D139;">
+                <a class="mr-3" href="#" class>FAQs</a>
+            </footer>
         </div>
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -126,6 +153,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
     <script src="../js/firebase_init.js"></script>
     <script src="../js/logmytrip.js"></script>
+    <script src="../js/index.js"></script>
     <script src="../js/vehicle_data.js"></script>
 </body>
 </html>
