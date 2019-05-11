@@ -74,6 +74,10 @@ body {
   border-color: #85D139 !important;
 }
 
+.btn {
+  width: 100%;
+}
+
 #maps {
   height: 450px;
   margin: 5%;

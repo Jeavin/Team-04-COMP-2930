@@ -91,7 +91,7 @@
 #impactBtn {
     margin: 0 auto;
     width: 200px;
-    
+
 }
 
 .form-group {
@@ -115,3 +115,7 @@
     border-radius: 5%;
 }
 
+.form-check {
+  margin-bottom: 5%;
+  margin-left: 18%;
+}

@@ -1,10 +1,10 @@
-// var today = new Date();
-//   const year = today.getFullYear();
-//   const month = `${today.getMonth() + 1}`.padStart(2, 0);
-//   const day = `${today.getDate()}`.padStart(2, 0);
-//   const stringToday = [year, month, day].join('-');
-//   console.log(stringToday);
-//   document.getElementById("curdate").innerHTML = stringToday;
+var today = new Date();
+  const curyear = today.getFullYear();
+  const curmonth = `${today.getMonth() + 1}`.padStart(2, 0);
+  const curday = `${today.getDate()}`.padStart(2, 0);
+  const stringToday = [curyear, curmonth, curday].join('-');
+  console.log(stringToday);
+  document.getElementById("curdate").innerHTML = stringToday;
 
 
 // var map;
