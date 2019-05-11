@@ -6,8 +6,8 @@ $(document).ready(function () {
     initAutocomplete();
 
 
-    $("#autocomplete").focus(geolocate());
-    $("#autocomplete2").focus(geolocate());
+    $("#start").focus(geolocate());
+    $("#dest").focus(geolocate());
 });
 /** 
  * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
@@ -31,7 +31,7 @@ function initAutocomplete() {
     // location types.
     autocomplete = new google.maps.places.Autocomplete(
         // /** @type {!HTMLInputElement} */
-        (document.getElementById('autocomplete')), {
+        (document.getElementById('start')), {
             types: ['geocode']
         });
     autocomplete.setFields(['address_components', 'geometry']);
@@ -40,7 +40,7 @@ function initAutocomplete() {
     //autocomplete.addListener('place_changed', fillInAddress);
     autocomplete2 = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */
-        (document.getElementById('autocomplete2')), {
+        (document.getElementById('dest')), {
             types: ['geocode']
         });
     autocomplete2.setFields(['address_components', 'geometry']);
@@ -74,8 +74,8 @@ $(document).on('click', '#impactBtn',
     let year = $('#selectYear option:selected').val();
     let make = $('#selectMake option:selected').val();
     let model = $('#selectModel option:selected').val();
-    let startA = $('#autocomplete').val();
-    let destB = $('#autocomplete2').val();
+    let startA = $('#start').val();
+    let destB = $('#dest').val();
 
     console.log("worked");
     window.location.href = "./mytrip.html" + "#" + year + "#" + make + "#"
