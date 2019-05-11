@@ -8,14 +8,14 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/index.css" />
 
   <title>Emission Planner</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+    <button id="navToggler" class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarsExample09"
       aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
       <img src="./images/menu.png" />
     </button>
@@ -44,8 +44,7 @@
     </div>
 
     <div id="settingIcon1" class="dropdown">
-      <button class="btn " type="button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
+      <button class="btn " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img src="./images/settingsIcon.png" />
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -69,53 +68,57 @@
     </div>
   </nav>
 
-  <main class="container d-lg-flex align-items-lg-center height-85vh--lg p-5">
-    <div class="space-2 space-0--lg mt-lg-8">
-      <div class="row justify-content-lg-between align-items-lg-center text-success">
-        <div class="col-lg-5 mb-7 mb-lg-0 ">
-          <!-- Title -->
-          <span class="d-block text-uppercase mb-2">Join Us</span>
-          <h1 class="display-4 font-size-48--md-down  mb-0">For the Change</h1>
-          <!-- End Title -->
+  <main class="d-flex align-items-center height-85vh--lg p-lg-5">
+
+    <div class="container-fluid p-3">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-5 col-lg-6 order-md-1 mb-3">
+          <!-- Image -->
+          <img src="./images/backImage_h.png"
+            class="img-fluid mw-md-150 mw-lg-130 mb-6 mb-md-0 aos-init aos-animate" alt="..." data-aos="fade-up"
+            data-aos-delay="100">
         </div>
 
-        <div id="planTrip" class="col-lg-5">
-          <!-- Signup Form -->
-          <div class="bg-white shadow-sm rounded p-3">
-            <form id="tripForm" class="js-validate" novalidate="novalidate">
-
+        <div class="col-12 col-md-7 col-lg-6 order-md-2 aos-init aos-animate" data-aos="fade-up">
+          <div class="bg-white shadow rounded p-3">
+              <h1 class="display-4 text-success">Join Us</h1>
+              <h1 class="display-4 text-success">See The Difference</h1>
+              <hr class="my-4">
+            <form action="./html/mytrip.html" method="post" id="tripForm" class="js-validate" novalidate="novalidate">
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
-                  <input type="text" class="form-control form__input form-control-lg" name="username" required=""
+                  <input type="text" class="form-control form__input form-control-lg" name="from" required=""
                     placeholder="From" aria-label="Enter your username">
                   <button class="btn" type="button" style="margin-left: 10px; padding: 0"><img form-control
                       src="./images/autolocate.png" alt=""></button>
                 </div>
               </div>
               <!-- End Input -->
-
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
-                  <input type="email" class="form-control form-control-lg form__input" name="email" required=""
+                  <input type="email" class="form-control form-control-lg form__input" name="destination" required=""
                     placeholder="Destination" aria-label="Enter your email address">
                 </div>
               </div>
               <!-- End Input -->
-
-              <button type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3"><a href="./html/mytrip.html">Plan Your Trip
-                Now</a></button>
+              <button type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">Plan Your Trip
+                Now</button>
               <button type="submit" class="btn btn-lg btn-inline btn-primary bg-success text-white mr-1"
-                style="width: 48%"><a href="./html/login.html">Sign In</a></button>
+                style="width: 48%">Sign In</button>
               <button type="submit" class="btn btn-lg btn-inline btn-primary bg-success text-white float-right"
                 style="width: 48%"><a href="./html/login.html">Sign Up</a></button>
             </form>
           </div>
           <!-- End Signup Form -->
+
         </div>
-      </div>
+      </div> <!-- / .row -->
     </div>
+
+
+
   </main>
 
   <footer class="footer-copyright text-right py-3" style="background-color: #85D139;">

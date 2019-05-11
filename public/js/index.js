@@ -10,10 +10,10 @@ $(() => {
       console.log('user: ' + user.displayName);
       console.log('uid: ' + user.uid);
     } else {
-      $('#settingIcon1, #settingIcon2').html('<button class="btn "'
+      $('#settingIcon1, #settingIcon2').html('<button class="btn"'
       + 'type="button" id="signInButton" data-toggle="dropdown" '
       + 'aria-haspopup="true" aria-expanded="false">'
-      + '<a class="nav-link" href="./html/login.html">Sign In/Up</a></button>');
+      + 'Sign In/Up</button>');
       console.log('user: not log in');
     }
   });

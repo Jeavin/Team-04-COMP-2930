@@ -1,12 +1,18 @@
-body {
+html, body {
   min-width: 320px;
+  min-height: 360px;
   height: 100vh;
 }
 
-main {
-  background-image: url("../images/green_backimage.png");
+/* main {
+  height: calc(100vh - 56px - 70px);
+} */
+
+div#backImageContainer {
+  background-image: url("../images/backImage.png");
   background-repeat: no-repeat;
   background-size: contain;
+  
 }
 
 .btn-primary {
@@ -29,14 +35,12 @@ div#planTrip {
 div#settingIcon button, button#signInButton {
   border-color: rgba(0, 0, 0, .1);
 }
-
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
   div#navbarsExample09 {
     order: 4;
   }
 
-  div#settingIcon1,
-  div#settingIcon2 {
+  div#settingIcon1, div#settingIcon2 {
     order: 3;
   }
 
@@ -50,11 +54,25 @@ div#settingIcon button, button#signInButton {
 }
 
 @media (max-width: 576px) {
-  main {
-    padding: 2rem !important;
+  nav, button.btn{
+    padding:.2rem;
   }
 
-  a#logo {
+  button#signInButton {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+
+  main {
+    padding: 2rem !important;
+    height: auto;
+  }
+
+ html, a#logo {
     font-size: 0.98rem;
+  }
+
+  h1 {
+    font-size: 3rem !important;
   }
 }
