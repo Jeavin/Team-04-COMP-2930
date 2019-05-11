@@ -84,3 +84,11 @@ body {
   border: 2px solid #5CC573;
   border-radius: 25px;
 }
+
+#startAddress {
+  margin-top: 20px;
+}
+
+#destination {
+  margin-top: 20px;
+}
