@@ -33,5 +33,44 @@ function initMap(){
   } else {
   cardinfo = '<iframe width="900" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&origin=' + start + '&destination=' + dest + '&waypoints=' + start + '|' + dest + '" allowfullscreen> </iframe>';
   }
+  getDistance();
   $('#maps').append(cardinfo)
 }
+function getDistance()
+  {
+     //Find the distance
+     var distanceService = new google.maps.DistanceMatrixService();
+     var startPosition;
+     var endPosition;
+     while(start.includes("%20")){
+      start = start.replace('%20',' ');
+     }
+
+     while(dest.includes("%20")){
+      dest = dest.replace('%20',' ');
+     }
+
+     startPosition = start;
+     endPosition = dest;
+    //  var startPosition = encodeURIComponent(start);
+     console.log(startPosition);
+    //  console.log(start);
+     distanceService.getDistanceMatrix({
+        origins: [startPosition],
+        destinations: [endPosition],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        durationInTraffic: true,
+        avoidHighways: false,
+        avoidTolls: false
+    },
+    function (response, status) {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+            console.log('Error:', status);
+        } else {
+            console.log(response);
+            $("#distance").text(response.rows[0].elements[0].distance.text).show();
+            $("#time").text(response.rows[0].elements[0].duration.text).show();
+        }
+    });
+  }
