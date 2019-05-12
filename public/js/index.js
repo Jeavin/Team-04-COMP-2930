@@ -5,7 +5,7 @@ $(() => {
   //listens for user authentication status.
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      $('.userName').html('<img class="mr-2 ml-2" src="./images/avatar.png" />'
+      $('.userName').html('<img class="mr-2 ml-2" src="../images/avatar.png" />'
         + user.displayName);
       $('button[data-toggle="modal"]').remove();
       console.log('user: ' + user.displayName);
