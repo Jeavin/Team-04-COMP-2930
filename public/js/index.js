@@ -5,18 +5,22 @@ $(() => {
   //listens for user authentication status.
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      $('.userName').html('<img class="mr-2 ml-2" src="../images/avatar.png" />'
+      $('.userName').html('<img class="mr-2 ml-2" src="./images/avatar.png" height="25"/>'
         + user.displayName);
       $('button[data-toggle="modal"]').remove();
       console.log('user: ' + user.displayName);
       console.log('uid: ' + user.uid);
     } else {
       $('#settingIcon1, #settingIcon2').html('<button class="btn bg-success text-white" id="signInUpButton"'
-        + 'data-toggle="modal" data-target="#exampleModal1"'
-        + 'href="https://team-04-comp-2930.firebaseapp.com/html/login.html">'
+        + 'data-toggle="modal" data-target="#exampleModal1">'
         + 'SIGN IN</button>');
       console.log('user: not log in');
     }
+  });
+
+  $('#tripForm').on('submit', (e)=> {
+    e.preventDefault();
+    alert("hello");
   });
 
   $('#exampleModal1').on('shown.bs.modal', function () {
@@ -43,7 +47,7 @@ $(() => {
     e.preventDefault();
     e.stopPropagation();
     firebase.auth().signOut();
-    window.location.href = "https://team-04-comp-2930.firebaseapp.com/";
+    window.location.href = "./index.html";
   });
 
   if (localStorage.checkBoxValidation && localStorage.checkBoxValidation != '') {
@@ -114,7 +118,7 @@ function handleSignUp() {
             email: email,
         }, function (error) {
             if (error) {
-                // The write failed...
+                // The write failed..
             } else {
                 user.updateProfile({
                     displayName: $('#name').val()
