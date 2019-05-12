@@ -4,6 +4,37 @@ html, body {
   height: 100vh;
 }
 
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+a {
+  outline: 0;
+}
 /* main {
   height: calc(100vh - 56px - 70px);
 } */
@@ -21,12 +52,8 @@ div#contactBackImage {
   background-size: contain;
 }
 
-.btn-primary {
-  background-color: #85D139 !important
-}
-
 a.dropdown-item:hover {
-  background-color: #85D139;
+  background-color:#00C851;
   color: white;
 }
 
@@ -34,11 +61,11 @@ div#settingIcon1 {
   display: none;
 }
 
-div#planTrip {
-  max-width: 570px;
+li.active {
+  border-bottom: 2px solid #007E33;
 }
 
-div#settingIcon a, a#signInUpButton {
+div#settingIcon1 button, button#signInUpButton {
   border-color: rgba(0, 0, 0, .1);
 }
 
