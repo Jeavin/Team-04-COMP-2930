@@ -78,11 +78,49 @@ body {
   width: 100%;
 } */
 
-#maps {
+#map {
   height: 450px;
   margin: 5%;
   border: 2px solid #5CC573;
   border-radius: 25px;
+}
+
+#maps {
+  height: 450px;
+  border: 2px solid #5CC573;
+  border-radius: 25px;
+  /* width: 60%; */
+  /* float: left; */
+}
+
+/* #right-panel {
+  height: 450px;
+  border: 2px solid #5CC573;
+  border-radius: 25px;
+} */
+
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+#right-panel {
+  height: 100%;
+  float: right;
+  width: 390px;
+  overflow: auto;
 }
 
 #startAddress {
