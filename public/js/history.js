@@ -65,6 +65,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         
 
         userData.child("history").on("value", snap => {
+            
+            $("table").children("tbody").remove();
+
             snap.forEach(function(yearMonthSnap) {
                 let monthAndYear = yearMonthSnap.key;
                 let month = monthAndYear.split(" ")[0];
