@@ -1,96 +1,130 @@
 function createTD(string) {
     return $("<td>" + string + "</td>");
 }
+function createHeaderRow(monthAndYear) {
+    let headerRow = $("<tr></tr>");
+    headerRow.addClass("month-header");
+
+    let th = $("<th></th>");
+    th.attr("colspan", 3);
+    th.html(monthAndYear);
+
+    headerRow.append(th);
+
+    return headerRow;
+}
+function createDataRow(date, distance, transport, emission) {
+    let dataRow = $("<tr></tr>");
+    dataRow.addClass("data-row");
+    dataRow.append(createTD(date),
+                   createTD(distance + " km" + "<img src=\"./images/" + transport + ".png\">"),
+                   createTD(emission + " kg"));
+    return dataRow;
+}
+function createSlideRow(start, dest, time) {
+    let slideRow = $("<tr></tr>");
+    slideRow.addClass("slide");
+
+    let td = createTD("").attr("colspan", 3);
+    slideRow.append(td);
+
+    let detailsDiv = $("<div></div>");
+    detailsDiv.addClass("accordion-body collapse details");
+    detailsDiv.append("Start: " + start +
+                      "<br/>Destination: " + dest +
+                      "<br/>Time: " + time + " min");
+    td.append(detailsDiv);
+
+    return slideRow;
+}
+function createFooterRow(month, totalEmission) {
+    let footerRow = $("<tr></tr>");
+    footerRow.addClass("month-footer");
+
+    let th1 = $("<th></th>");
+    th1.html("Total (" + month + ")");
+    let th2 = $("<th></th>");
+    let th3 = $("<th></th>");
+    th3.html(totalEmission + " kg");
+    // footerRow.append($("<th>Total (" + month + ")</th>"),
+    //                  $("<th></th>"),
+    //                  $("<th>" + totalEmission + " kg</th>"));
+    footerRow.append(th1, th2, th3);
+
+    return footerRow;
+}
 
 $(document).ready(function () {
-    
-    var userData;
-    
-    //TAKES USER ID FROM FIREBASE AUTHENTICATION
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            console.log(user.uid);
-            userData = firebase.database().ref().child("users/" + user.uid);
-            
 
-            userData.child("history").on("value", snap => {
-                snap.forEach(function(yearMonthSnap) {
-                    let monthAndYear = yearMonthSnap.key;
-                    let month = monthAndYear.split(" ")[0];
-                    let tbody = $("<tbody></tbody>");
 
-                    let headerRow = $("<tr></tr>");
-                    headerRow.addClass("month-header");
-                    tbody.append(headerRow);
+//TAKES USER ID FROM FIREBASE AUTHENTICATION
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        console.log(user.uid);
+        let userData = firebase.database().ref().child("users/" + user.uid);
+        
 
-                    // let headerCell = $("<th></th>");
-                    // headerCell.html(monthAndYear);
-                    // headerCell.attr("colspan", 3);
-                    // headerRow.append(headerCell);
-                    headerRow.append($("<th colspan=\"3\">" + monthAndYear + "</th>"));
+        userData.child("history").on("value", snap => {
+            snap.forEach(function(yearMonthSnap) {
+                let monthAndYear = yearMonthSnap.key;
+                let month = monthAndYear.split(" ")[0];
+                let year = monthAndYear.split(" ")[1];
+                let tbody = $("<tbody></tbody>");
+                tbody.attr("id", month + year);
 
-                    yearMonthSnap.forEach(function(childSnap) {
-                        let {date, destination, distance, emission, start, time, transport} = childSnap.val();
+                //append month-header
+                tbody.append(createHeaderRow(monthAndYear));
 
-                        let dataRow = $("<tr></tr>");
-                        dataRow.addClass("data-row");
-                        dataRow.append(createTD(date), createTD(distance + " km" + "<img src=\"../images/" + transport + ".png\">"), createTD(emission + " kg"));
-                        tbody.append(dataRow);
-                        dataRow.click(function() {
-                            $(this).next().children("td:first").children("div:first").collapse("toggle");
-                        });
+                let totalEmission = 0;
 
-                        let slideRow = $("<tr></tr>");
-                        slideRow.addClass("slide");
-                        tbody.append(slideRow);
+                yearMonthSnap.forEach(function(childSnap) {
+                    let {date, destination, distance, emission, start, time, transport} = childSnap.val();
 
-                        let td = createTD("").attr("colspan", 3);
-                        slideRow.append(td);
+                    //append data-row
+                    tbody.append(createDataRow(date, distance, transport, emission));
+                    //append slide row (collapsible details panel)
+                    tbody.append(createSlideRow(start, destination, time));
 
-                        let detailsDiv = $("<div class=\"accordion-body collapse details\"></div>");
-                        detailsDiv.append("Start: " + start + "<br/>Destination: " + destination + "<br/>Time: " + time + " min");
-                        td.append(detailsDiv);
-                    });
-
-                    let footerRow = $("<tr></tr>");
-                    footerRow.addClass("month-footer");
-
-                    let totalEmission = 0;
-                    tbody.children("tr.data-row").each(function() {
-                        totalEmission += parseFloat($(this).children().eq(2).text().split(" ")[0]);
-                    });
-
-                    footerRow.append($("<th>Total (" + month + ")</th>"), $("<th></th>"), $("<th>" + totalEmission + " kg</th>"))
-                    tbody.append(footerRow);
-                    
-                    $("table").append(tbody);
-                    
-                    //click listeners
-                    $(".data-row").click(function() {
-                        $(this).next().children("td:first").children("div:first").collapse("toggle");
-                    });
-                    $('.collapse').on('hide.bs.collapse', function() {
-                        $(this).parent().parent().prev().css("background-color", "white");
-                    });
-                    $('.collapse').on('hidden.bs.collapse', function() {
-                        $(this).parent().css("border-top", "none");
-                    });
-                    $('.collapse').on('show.bs.collapse', function() {
-                        // $('.collapse.in').collapse('hide');
-                        $(this).parent().css("border-top", "1px solid #dee2e6");
-                        $(this).parent().parent().prev().css("background-color", "#ececec");
-                    });
-                    $('.collapse').on('showen.bs.collapse', function() {
-                        $(this).css("height", "100%");
-                    });
+                    totalEmission += emission;
                 });
 
-                //Remove loading gif
-                $(".spinner-border").parent().remove();
+                //append month-footer (displays total emissions for the month)
+                tbody.append(createFooterRow(month, totalEmission));
+                
+                $("table").append(tbody); 
             });
-            
-        } else {
-            console.log("no user");
-        }
-    });
+            //click listeners
+            $(".data-row").click(function() {
+                $(this).next().children("td:first").children("div:first").collapse("toggle");
+            });
+            $('.collapse').on('hide.bs.collapse', function() {
+                $(this).parent().parent().prev().css("background-color", "white");
+            });
+            $('.collapse').on('hidden.bs.collapse', function() {
+                $(this).parent().css("border-top", "none");
+            });
+            $('.collapse').on('show.bs.collapse', function() {
+                // $('.collapse.in').collapse('hide');
+                $(this).parent().css("border-top", "1px solid #dee2e6");
+                $(this).parent().parent().prev().css("background-color", "#ececec");
+            });
+            $('.collapse').on('showen.bs.collapse', function() {
+                $(this).css("height", "100%");
+            });
+
+            //Remove loading gif
+            $(".spinner-border").parent().remove();
+        });
+        
+    } else {
+        $(".spinner-border").parent().remove();
+
+        let notSignedInDiv = $("<div></div>");
+        notSignedInDiv.addClass("container-fluid text-center mt-5");
+        notSignedInDiv.text("You need to be signed in in order to view your history.")
+        $("table").after(notSignedInDiv);
+    }
+});
+
+
 });
