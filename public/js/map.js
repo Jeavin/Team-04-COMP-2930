@@ -1,110 +1,88 @@
+// To show today's date
 var today = new Date();
-  const curyear = today.getFullYear();
-  const curmonth = `${today.getMonth() + 1}`.padStart(2, 0);
-  const curday = `${today.getDate()}`.padStart(2, 0);
-  const stringToday = [curyear, curmonth, curday].join('-');
-  console.log(stringToday);
-  document.getElementById("curdate").innerHTML = stringToday;
+const curyear = today.getFullYear();
+const curmonth = `${today.getMonth() + 1}`.padStart(2, 0);
+const curday = `${today.getDate()}`.padStart(2, 0);
+const stringToday = [curyear, curmonth, curday].join('-');
+console.log(stringToday);
+document.getElementById("curdate").innerHTML = stringToday;
 
-
-// var map;
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById('maps'), {
-//     center: {lat: 49.2807323, lng: -123.117211},
-//     zoom: 14
-//   });
-// }
-
+// To split the URL and assign that info
 var url = document.location.href;
 var year = url.split('#')[1];
 var make = url.split('#')[2];
 var model = url.split('#')[3];
 var start = url.split('#')[4];
 var dest = url.split('#')[5];
+
+while(start.includes("%20")){
+    start = start.replace('%20',' ');
+}
+
+while(dest.includes("%20")){
+    dest = dest.replace('%20',' ');
+}
 document.getElementById("startAddress").innerHTML = start;
 document.getElementById("destination").innerHTML = dest;
 
-
-function initMap() {
-    var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer;
-    var map = new google.maps.Map(document.getElementById('maps'), {
-        center: {lat: 49.2807323, lng: -123.117211},
-        zoom: 14
-    });
-    directionsDisplay.setMap(map);
-    calculateAndDisplayRoute(directionsService, directionsDisplay);
-  }
-
-
-
-
+// initialized the google map
 function initMap(){
   var cardinfo;
   if(start === "%E2%9D%A4" && dest ==="%E2%9D%A4"){
     cardinfo = '<iframe src="https://www.google.com/maps/d/embed?mid=144ORnQvKxfyfu9gCNtTiNSg0KtNUMY92&hl=en" width="640" height="480"></iframe>'
     $('#maps').append(cardinfo);
   } else {
-//   cardinfo = '<iframe width="900" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&origin=' + start + '&destination=' + dest + '&waypoints=' + start + '|' + dest + '" allowfullscreen> </iframe>';
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('maps'), {
         center: {lat: 49.2807323, lng: -123.117211},
         zoom: 14
     });
+    var geocoder = new google.maps.Geocoder();
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('right-panel'));
+    geocodeAddress(geocoder, map);
     calculateAndDisplayRoute(directionsService, directionsDisplay);
-    // var newmap = directionsDisplay.getMap();
-    // directionsDisplay.getMap().setZoom(50);
-    console.log(directionsDisplay.getMap().getZoom());
-    // newmap.setZoom(50);
   }
   getDistance();
 }
 
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    while(start.includes("%20")){
-        start = start.replace('%20',' ');
-    }
-  
-    while(dest.includes("%20")){
-        dest = dest.replace('%20',' ');
-    }
+// To adjust center of the map after you show the route
+function geocodeAddress(geocoder, resultsMap) {
+    geocoder.geocode({'address': start}, function(results, status) {
+      if (status === 'OK') {
+        resultsMap.setCenter(results[0].geometry.location);
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
 
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     directionsService.route({
       origin: start,
       destination: dest,
       travelMode: 'DRIVING'
     }, function(response, status) {
       if (status === 'OK') {
+        directionsDisplay.setOptions({ preserveViewport: true });
         directionsDisplay.setDirections(response);
-        directionsDisplay.getMap().setZoom(14);
       } else {
         window.alert('Directions request failed due to ' + status);
       }
     });
   }
 
+//   Find the distance and time between two points.
 function getDistance()
   {
-     //Find the distance
      var distanceService = new google.maps.DistanceMatrixService();
      var startPosition;
      var endPosition;
-     while(start.includes("%20")){
-      start = start.replace('%20',' ');
-     }
-
-     while(dest.includes("%20")){
-      dest = dest.replace('%20',' ');
-     }
 
      startPosition = start;
      endPosition = dest;
-    //  var startPosition = encodeURIComponent(start);
-     console.log(startPosition);
-    //  console.log(start);
+
      distanceService.getDistanceMatrix({
         origins: [startPosition],
         destinations: [endPosition],
