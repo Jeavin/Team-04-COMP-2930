@@ -71,6 +71,7 @@ function displayRouteNames( ) {
         
     let bo = firebase.database().ref().child('users').child(currentUser.userid+'/cars/');
     bo.on("value", snap => {
+        $("#why").empty();    
         snap.forEach(function (childSnaper) {
             var year = childSnaper.val();
 
@@ -161,7 +162,7 @@ function newPerson() {
             g_km: emissions
         });
         location.reload();
-        $("#why").empty();
+        
         });
         
         
