@@ -8,6 +8,10 @@ html, body {
   font-weight: 400;
 }
 
+a#logo, a#logo:hover {
+  color: #007E33 !important;
+}
+
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
@@ -67,6 +71,17 @@ li.active {
 
 div#settingIcon1 button, button#signInUpButton {
   border-color: rgba(0, 0, 0, .1);
+}
+
+@media screen and (min-width: 992px) {
+  div#navbarsExample09 ul:first-child {
+    margin-left: 2.5rem !important;
+    margin-right: 1rem !important;
+  }
+  div#navbarsExample09 ul li {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
 }
 
 @media screen and (max-width: 991px) {
