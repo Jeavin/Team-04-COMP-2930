@@ -4,6 +4,14 @@ html, body {
   height: 100vh;
 }
 
+#faq {
+  color: white;
+}
+
+.bg-success {
+  border-color: #28a745 !important
+}
+
 .form-signin .checkbox {
   font-weight: 400;
 }
@@ -47,7 +55,7 @@ div#backImageContainer {
   background-image: url("../images/backImage.png");
   background-repeat: no-repeat;
   background-size: contain;
-  
+
 }
 
 div#contactBackImage {
