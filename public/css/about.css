@@ -9,5 +9,10 @@
 
 .align-self-start {
   width: 100px;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
+  margin-bottom: 15px;
+}
+
+.p-5 {
+  padding: 15px !important;
 }

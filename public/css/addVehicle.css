@@ -32,6 +32,7 @@ body {
 
 .tabs-nav {
     overflow: hidden;
+    padding: 0;
 
 }
 
