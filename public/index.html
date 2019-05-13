@@ -86,9 +86,9 @@
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
-                  <input type="text" class="form-control form__input form-control-lg" name="from" required=""
-                    placeholder="From" aria-label="From">
-                  <button class="btn" type="button" style="margin-left: 10px; padding: 0"><img form-control
+                  <input id="startAddress" type="text" class="form-control form__input form-control-lg" name="start" required=""
+                    placeholder="Start" aria-label="Start" />
+                  <button id="getLocationBtn" class="btn ml-3 p-0" type="button"><img form-control
                       src="./images/autolocate.png" alt=""></button>
                 </div>
               </div>
@@ -97,7 +97,7 @@
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
                   <input type="text" class="form-control form-control-lg form__input" name="destination" required=""
-                    placeholder="Destination" aria-label="Destination">
+                    placeholder="Destination" aria-label="Destination"/>
                 </div>
               </div>
               <!-- End Input -->
@@ -210,6 +210,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&callback=initMap"></script>
   <script src="./js/firebase_init.js"></script>
   <script src="./js/index.js"></script>
 </body>

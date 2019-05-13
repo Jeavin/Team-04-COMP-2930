@@ -18,10 +18,37 @@ $(() => {
     }
   });
 
-  $('#tripForm').on('submit', (e)=> {
-    e.preventDefault();
-    alert("hello");
+  let geocoder = new google.maps.Geocoder;
+  $('#getLocationBtn').on('click', () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let latlng = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        geocoder.geocode(
+          { 'location': latlng },
+          function (results, status) {
+            if (status === 'OK') {
+              if (results[0]) {
+                $('#startAddress').val(results[0].formatted_address);
+              } else {
+                window.alert('No results found');
+              }
+            } else {
+              window.alert('Geocoder failed due to: ' + status);
+            }
+          });
+      });
+    } else {
+      alert("Location information is unavailable.");
+    }
   });
+
+  // $('#tripForm').on('submit', (e) => {
+  //   e.preventDefault();
+  //   alert("hello");
+  // });
 
   $('#exampleModal1').on('shown.bs.modal', function () {
     $('#modal2CloseBtn').click();
@@ -53,91 +80,91 @@ $(() => {
   if (localStorage.checkBoxValidation && localStorage.checkBoxValidation != '') {
     $('#rememberMe').attr('checked', 'checked');
     $('#inputEmail').val(localStorage.userName);
-} else {
+  } else {
     $('#rememberMe').removeAttr('checked');
     $('#inputEmail').val('');
-}
+  }
 
-document.getElementById('signIn').addEventListener('click', toggleSignIn, false);
-document.getElementById('modalSignUpBtn').addEventListener('click', handleSignUp, false);
+  document.getElementById('signIn').addEventListener('click', toggleSignIn, false);
+  document.getElementById('modalSignUpBtn').addEventListener('click', handleSignUp, false);
 
-$("#signIn").click(function (e) {
+  $("#signIn").click(function (e) {
     e.preventDefault();
     if ($('#rememberMe').is(':checked')) {
-        // save username and password
-        localStorage.userName = $('#inputEmail').val();
-        localStorage.checkBoxValidation = $('#rememberMe').val();
+      // save username and password
+      localStorage.userName = $('#inputEmail').val();
+      localStorage.checkBoxValidation = $('#rememberMe').val();
     } else {
-        localStorage.userName = '';
-        localStorage.checkBoxValidation = '';
-        $('#rememberMe').removeAttr('checked');
+      localStorage.userName = '';
+      localStorage.checkBoxValidation = '';
+      $('#rememberMe').removeAttr('checked');
     }
-});
+  });
 
-function toggleSignIn() {
+  function toggleSignIn() {
     if (firebase.auth().currentUser) {
-        firebase.auth().signOut();
+      firebase.auth().signOut();
     } else {
-        var email = $('#inputEmail').val();
-        var password = $('#inputPassword').val();
-        firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
-            location.reload(true);
-        }).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // [START_EXCLUDE]
-            if (errorCode === 'auth/wrong-password') {
-                alert('Wrong password.');
-            } else {
-                alert(errorMessage);
-            }
-            console.log(error);
-            document.getElementById('signIn').disabled = false;
-            // [END_EXCLUDE]
-        });
-        // [END authwithemail]
+      var email = $('#inputEmail').val();
+      var password = $('#inputPassword').val();
+      firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+        location.reload(true);
+      }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        document.getElementById('signIn').disabled = false;
+        // [END_EXCLUDE]
+      });
+      // [END authwithemail]
     }
     document.getElementById('signIn').disabled = false;
-}
+  }
 
-function handleSignUp() {
+  function handleSignUp() {
     var email = document.getElementById('createEmail').value;
     var password = document.getElementById('createPassword').value;
 
     // Sign in with email and pass.
     // [START createwithemail]
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
-        var database = firebase.database();
+      var database = firebase.database();
 
-        var name = document.getElementById('name').value;
-        var user = firebase.auth().currentUser;
-        console.log(user);
-        database.ref('users/' + user.uid).set({
-            username: name,
-            email: email,
-        }, function (error) {
-            if (error) {
-                // The write failed..
-            } else {
-                user.updateProfile({
-                    displayName: $('#name').val()
-                }).then(function () {
-                    location.reload(true);
-                });
-            }
-        });
-    }).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
+      var name = document.getElementById('name').value;
+      var user = firebase.auth().currentUser;
+      console.log(user);
+      database.ref('users/' + user.uid).set({
+        username: name,
+        email: email,
+      }, function (error) {
+        if (error) {
+          // The write failed..
         } else {
-            alert(errorMessage);
+          user.updateProfile({
+            displayName: $('#name').val()
+          }).then(function () {
+            location.reload(true);
+          });
         }
-        console.log(error);
+      });
+    }).catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
     });
-}
+  }
 
 })
