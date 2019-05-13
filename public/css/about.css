@@ -6,3 +6,8 @@
   background-color: #28a745 !important;
   border-color: #28a745 !important;
 }
+
+.align-self-start {
+  width: 100px;
+  border-radius: 0.3rem;
+}
