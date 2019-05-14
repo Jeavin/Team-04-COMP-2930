@@ -114,6 +114,10 @@ div#settingIcon1 button, button#signInUpButton {
   div#settingIcon2 {
     display: none;
   }
+  .p-5 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -138,6 +142,7 @@ div#settingIcon1 button, button#signInUpButton {
   h1 {
     font-size: 3rem !important;
   }
+  
 }
 
 .p-5 {

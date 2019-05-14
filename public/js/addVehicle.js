@@ -24,7 +24,7 @@ $(document).ready(function () {
             console.log('user: not log in');
         }
         
-        displayRouteNames();
+        
     });
     user = firebase.auth().currentUser;
 
@@ -125,6 +125,9 @@ var tabContents = slice.call(tabs.querySelectorAll('.tabs-content-item'));
 var currentIndex = 0;
 
 function onClick(e) {
+
+    $('#why').append(' <div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div><br><br><br>')
+    displayRouteNames();
     e.preventDefault();
     var tab = this;
     var index = tabItems.indexOf(this);
@@ -145,10 +148,10 @@ tabItems.forEach(function (item) {
 // var strUser = e.options[e.selectedIndex].innerHTML;
 
 function newPerson() {
-    $('#section-1').append(' <br><br><br><div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div>')
+    
     var emissions;
     if (document.getElementById("box1").value != -1 && document.getElementById("box2").value != -1 && document.getElementById("box3").value != -1) {
-
+        $('#section-1').append(' <br><br><br><div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div><br><br><br>')
         
         // $('#why').prepend('<div class="not" id="not"><div class="carName"><label for="year" >' + $('#box3 option:selected').text() + '</label></div><div class="gray"><label for="year" >' + $('#box2 option:selected').text() + '</label><br><label for="year" >' + $('#box1 option:selected').text() + '</label><button class="button2" onclick="removeDummy()">X </button></div></div>')
         var ref = firebase.database().ref();

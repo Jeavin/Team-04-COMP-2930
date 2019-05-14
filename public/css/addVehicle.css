@@ -202,10 +202,9 @@ body {
     position: absolute;
     margin: 30px auto;
     justify-content: center;
-
-  left: 0;
-
-  right: 0;
+    left: 0;
+    right: 0;
+    margin-bottom:100px;
   }
   
   .button span {
@@ -213,6 +212,7 @@ body {
     display: inline-block;
     position: relative;
     transition: 0.5s;
+    
   }
   
   .button span:after {
@@ -267,6 +267,7 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  border-radius: 0.2rem;
 }
 
 .button2:hover {
@@ -274,7 +275,7 @@ body {
   }
 
   footer {
-    
+    margin-top: 40px;
     width: 100%;
     position:fixed;
     bottom: 0;
