@@ -133,3 +133,7 @@ div#settingIcon1 button, button#signInUpButton {
     font-size: 3rem !important;
   }
 }
+
+.p-5 {
+  padding: 15px !important;
+}
