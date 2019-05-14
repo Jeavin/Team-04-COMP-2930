@@ -6,6 +6,12 @@ html, body {
 
 #faq {
   color: white;
+  margin-top: 1rem;
+}
+
+.py-3 {
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
 }
 
 .bg-success {
