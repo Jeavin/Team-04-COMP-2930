@@ -23,7 +23,7 @@ html, body {
 }
 
 a#logo, a#logo:hover {
-  color: #007E33 !important;
+  color: #28a745 !important;
 }
 
 .form-signin .form-control {
@@ -71,7 +71,7 @@ div#contactBackImage {
 }
 
 a.dropdown-item:hover {
-  background-color:#00C851;
+  background-color:#28a745;
   color: white;
 }
 
