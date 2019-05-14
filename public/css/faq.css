@@ -2,26 +2,26 @@
     font-size: 2rem !important;
 }
   
-  #faq {
+  #faq1 {
     max-width: 700px;
     margin: auto;
     padding: 0 0px;
     text-align: center;
   }
   
-  section.faq {
+  section.faq1 {
     padding-top: 2em;
     padding-bottom: 3em;
   }
   
-  #faq ul {
+  #faq1 ul {
     text-align: left;
   }
   .transition, p, ul li i:before, ul li i:after {
     transition: all 0.3s;
   }
   
-  #faq .no-select, #faq h2 {
+  #faq1 .no-select, #faq1 h2 {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -31,13 +31,13 @@
     user-select: none;
   }
   
-  #faq h1 {
+  #faq1 h1 {
     color: #000;
     margin-bottom: 30px;
     margin-top: 0;
   }
   
-  #faq h2 {
+  #faq1 h2 {
     color: #28a745;
     font-family: 'hm_light', sans-serif;
     font-size: 20px;
@@ -53,7 +53,7 @@
     transition: .2s;
   }
   
-  #faq p {
+  #faq1 p {
     color: #333;
     text-align: left;
     font-family: 'hm_light', sans-serif;
@@ -77,13 +77,13 @@
     z-index: 2;
   }
   
-  #faq ul {
+  #faq1 ul {
     list-style: none;
     perspective: 900;
     padding: 0;
     margin: 0;
   }
-  #faq ul li {
+  #faq1 ul li {
     position: relative;
     overflow: hidden;
     padding: 0;
@@ -95,32 +95,32 @@
     box-shadow: 0 3px 10px -2px rgba(0,0,0,0.1);
     -webkit-tap-highlight-color: transparent;
   }
-  #faq ul li + li {
+  #faq1 ul li + li {
     margin-top: 15px;
   }
-  #faq ul li:last-of-type {
+  #faq1 ul li:last-of-type {
     padding-bottom: 0;
   }
-  #faq ul li i {
+  #faq1 ul li i {
     position: absolute;
     transform: translate(-6px, 0);
     margin-top: 28px;
     right: 15px;
   }
-  #faq ul li i:before, ul li i:after {
+  #faq1 ul li i:before, ul li i:after {
     content: "";
     position: absolute;
     background-color: #28a745;
     width: 3px;
     height: 9px;
   }
-  #faq ul li i:before {
+  #faq1 ul li i:before {
     transform: translate(-2px, 0) rotate(45deg);
   }
-  #faq ul li i:after {
+  #faq1 ul li i:after {
     transform: translate(2px, 0) rotate(-45deg);
   }
-  #faq ul li input[type=checkbox] {
+  #faq1 ul li input[type=checkbox] {
     position: absolute;
     cursor: pointer;
     width: 100%;
@@ -129,20 +129,20 @@
     opacity: 0;
     touch-action: manipulation;
   }
-  #faq ul li input[type=checkbox]:checked ~ h2 {
+  #faq1 ul li input[type=checkbox]:checked ~ h2 {
     color: #000;
   }
-  #faq ul li input[type=checkbox]:checked ~ p {
+  #faq1 ul li input[type=checkbox]:checked ~ p {
     /*margin-top: 0;*/
     max-height: 0;
     transition: .3s;
     opacity: 0;
     /*transform: translate(0, 50%);*/
   }
-  #faq ul li input[type=checkbox]:checked ~ i:before {
+  #faq1 ul li input[type=checkbox]:checked ~ i:before {
     transform: translate(2px, 0) rotate(45deg);
   }
-  #faq ul li input[type=checkbox]:checked ~ i:after {
+  #faq1 ul li input[type=checkbox]:checked ~ i:after {
     transform: translate(-2px, 0) rotate(-45deg);
   }
   
