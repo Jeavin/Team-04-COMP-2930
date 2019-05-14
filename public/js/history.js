@@ -17,7 +17,7 @@ function createDataRow(date, distance, transport, emission) {
     let dataRow = $("<tr></tr>");
     dataRow.addClass("data-row");
     dataRow.append(createTD(date),
-                   createTD(distance + " km" + "<img src=\"./images/" + transport + ".png\">"),
+                   createTD(distance + " km" + "<img src=\"./images/" + transport + ".png\" class=\"transportationImg\">"),
                    createTD(emission + " kg"));
     return dataRow;
 }
@@ -29,13 +29,57 @@ function createSlideRow(start, dest, time) {
     slideRow.append(td);
 
     let detailsDiv = $("<div></div>");
-    detailsDiv.addClass("accordion-body collapse details");
-    detailsDiv.append("Start: " + start +
-                      "<br/>Destination: " + dest +
-                      "<br/>Time: " + time + " min");
+    detailsDiv.addClass("accordion-body collapse details pt-2 pb-2");
+
+    detailsDiv.append(createAddressDisplayDiv("Start: ", start).addClass("mb-3"));
+
+    // let arrowImg = $("<img></img>");
+    // arrowImg.attr("src", "./images/Arrow.png");
+    // detailsDiv.append(arrowImg);
+
+    detailsDiv.append(createAddressDisplayDiv("Destination: ", dest));
+
+    //p element for displaying time
+    let timeP = $("<p></p>");
+    timeP.addClass("mb-0 pr-3 text-right");
+    let timeImg = $("<img></img>");
+    timeImg.attr("src", "./images/clock.png");
+    timeImg.css("filter", "invert(100%)");
+    timeImg.addClass("mr-2")
+    timeP.append(timeImg);
+    timeP.append(time + " min");
+
+    detailsDiv.append(timeP);
+
     td.append(detailsDiv);
 
     return slideRow;
+}
+function createColDiv(col, text) {
+    let div = $("<div></div>");
+    div.addClass("col-" + col);
+    div.text(text);
+    return div;
+}
+function createLabelDiv(text) {
+    let label = createColDiv(2, text);
+    label.addClass("font-weight-bold text-left");
+    return label;
+}
+function createAddressDiv(text) {
+    let address = createColDiv(9, text);
+    address.addClass("text-left");
+    return address;
+}
+function createAddressDisplayDiv(labelTxt, address) {
+    let div = $("<div></div>");
+    div.addClass("row");
+
+    div.append(createColDiv(1, "").addClass("col-sm-2"));
+    div.append(createLabelDiv(labelTxt));
+    div.append(createAddressDiv(address).addClass("col-sm-8"));
+
+    return div;
 }
 function createFooterRow(month, totalEmission) {
     let footerRow = $("<tr></tr>");
