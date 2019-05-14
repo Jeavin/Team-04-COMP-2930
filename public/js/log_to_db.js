@@ -3,8 +3,8 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
 function logToDatabase() {
     let start = $("#startAddress").text();
     let dest = $("#destination").text();
-    let distance = parseInt($("#distance").text().slice(0, -3));
-    let time = parseInt($("#time").text().slice(0, -5));
+    let distance = parseFloat($("#distance").text().slice(0, -3));
+    let time = parseFloat($("#time").text().slice(0, -5));
     
     let emission = 123;
     let transport = "car";
@@ -15,7 +15,10 @@ function logToDatabase() {
     let month = months[d.getMonth()];
     let year = d.getFullYear();
     let date = d.getDate();
-    let currentTime = ((date < 10) ? "0"+date : date) +"|"+ d.getHours() +":"+ d.getMinutes() +":"+ d.getSeconds();
+    let currentTime = ("0"+date).slice(-2) +"|"+
+                      ("0"+d.getHours()).slice(-2) +":"+
+                      ("0"+d.getMinutes()).slice(-2) +":"+
+                      ("0"+d.getSeconds()).slice(-2);
     date = month + " " + date;
     firebase.database().ref().on("value", function(snap) {
         historyDB.child(month + " " + year).update({
