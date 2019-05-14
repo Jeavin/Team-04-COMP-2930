@@ -39,7 +39,7 @@
   
   #faq1 h2 {
     color: #28a745;
-    font-family: 'hm_light', sans-serif;
+    /* font-family: 'hm_light', sans-serif; */
     font-size: 20px;
     line-height: 3.8vw;
     text-align: left;
@@ -81,7 +81,8 @@
     list-style: none;
     perspective: 900;
     padding: 0;
-    margin: 0;
+    /* margin: 0; */
+
   }
   #faq1 ul li {
     position: relative;
@@ -180,7 +181,7 @@
   
   h1, h2, h3, h4 {
     margin: .3em 0;
-    font-size: 3.6vw !important;
+    font-size: 14px !important;
   }
   
   ul {
