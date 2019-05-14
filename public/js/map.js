@@ -4,7 +4,6 @@ const curyear = today.getFullYear();
 const curmonth = `${today.getMonth() + 1}`.padStart(2, 0);
 const curday = `${today.getDate()}`.padStart(2, 0);
 const stringToday = [curyear, curmonth, curday].join('-');
-console.log(stringToday);
 document.getElementById("curdate").innerHTML = stringToday;
 
 // To split the URL and assign that info
@@ -22,6 +21,21 @@ while(start.includes("%20")){
 while(dest.includes("%20")){
     dest = dest.replace('%20',' ');
 }
+
+while(year.includes("%20")){
+    year = year.replace('%20',' ');
+}
+
+while(make.includes("%20")){
+    make = make.replace('%20',' ');
+}
+
+while(model.includes("%20")){
+    model = model.replace('%20',' ');
+}
+
+
+document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
 document.getElementById("startAddress").innerHTML = start;
 document.getElementById("destination").innerHTML = dest;
 
@@ -62,7 +76,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     directionsService.route({
       origin: start,
       destination: dest,
-      travelMode: 'DRIVING'
+      travelMode: 'WALKING'
     }, function(response, status) {
       if (status === 'OK') {
         directionsDisplay.setOptions({ preserveViewport: true });
@@ -96,7 +110,6 @@ function getDistance()
         if (status !== google.maps.DistanceMatrixStatus.OK) {
             console.log('Error:', status);
         } else {
-            console.log(response);
             $("#distance").text(response.rows[0].elements[0].distance.text).show();
             $("#time").text(response.rows[0].elements[0].duration.text).show();
         }
