@@ -46,25 +46,8 @@ function initAutocomplete() {
   autocomplete2.setFields(['address_components', 'geometry']);
   //autocomplete2.addListener('place_changed', fillInAddress);
 }
-// To make a button remains highlighted
-// var div = document.getElementById("buttons");
-// var btns = div.getElementsByClassName("button");
-// for (var i = 0; i < btns.length; i++) {
-//   btns[i].addEventListener("click", function () {
-//     var current = document.getElementsByClassName("active");
-//     current[0].className = current[0].className.replace(" active", "");
-//     this.className += " active";
-//   });
-// }
 
-// //Close collapse whenever you click outside of the box
-// $(document).click(function (e) {
-//   if (!($(e.target).is('.card') || $(e.target).is('.input-group') || $(e.target).is('#carYear') || $(e.target).is('#carMake')
-//     || $(e.target).is('#carModel') || $(e.target).is('.custom-select') || $(e.target).is('.input-group-prepend')
-//     || $(e.target).is('.input-group-text'))) {
-//     $('.collapse').collapse('hide');
-//   }
-// });
+
 
 $('#DRIVING').on('click', () => {
   $('#collapseCar').collapse('show');
@@ -83,8 +66,6 @@ $(document).on('click', '#impactBtn',
     let model = $('#selectModel option:selected').val();
     startA = $('#startAddress').val();
     destB = $('#dest').val();
-
-    console.log("worked");
     initMap();
     // window.location.href = "./mytrip.html" + "#" + year + "#" + make + "#"
     // + model + "#"+ startA + "#"+ destB;
@@ -129,10 +110,46 @@ function initMap() {
   if (start === "%E2%9D%A4" && dest === "%E2%9D%A4") {
     cardinfo = '<iframe src="https://www.google.com/maps/d/embed?mid=144ORnQvKxfyfu9gCNtTiNSg0KtNUMY92&hl=en" width="640" height="480"></iframe>'
   } else {
-    cardinfo = '<iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&origin=' + startA + '&destination=' + destB + '&waypoints=' + startA + '|' + destB + '" allowfullscreen> </iframe>';
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var map = new google.maps.Map(document.getElementById('maps'), {
+        center: {lat: 49.2807323, lng: -123.117211},
+        zoom: 14
+    });
+    var geocoder = new google.maps.Geocoder();
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('right-panel'));
+    geocodeAddress(geocoder, map);
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
   }
   getDistance();
-  $('#busMap').append(cardinfo)
+  $('#busMap').html(cardinfo)
+}
+
+// To adjust center of the map after you show the route
+function geocodeAddress(geocoder, resultsMap) {
+  geocoder.geocode({'address': start}, function(results, status) {
+    if (status === 'OK') {
+      resultsMap.setCenter(results[0].geometry.location);
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  directionsService.route({
+    origin: start,
+    destination: dest,
+    travelMode: 'WALKING'
+  }, function(response, status) {
+    if (status === 'OK') {
+      directionsDisplay.setOptions({ preserveViewport: true });
+      directionsDisplay.setDirections(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
 }
 
 function getDistance() {
@@ -150,9 +167,7 @@ function getDistance() {
 
   startPosition = startA;
   endPosition = destB;
-  //  var startPosition = encodeURIComponent(start);
-  console.log(startPosition);
-  //  console.log(start);
+
   distanceService.getDistanceMatrix({
     origins: [startPosition],
     destinations: [endPosition],
@@ -166,7 +181,6 @@ function getDistance() {
       if (status !== google.maps.DistanceMatrixStatus.OK) {
         console.log('Error:', status);
       } else {
-        console.log(response);
         $("#distance").text(response.rows[0].elements[0].distance.text).show();
         $("#time").text(response.rows[0].elements[0].duration.text).show();
       }
