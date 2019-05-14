@@ -70,6 +70,10 @@ $('#DRIVING').on('click', () => {
   $('#collapseCar').collapse('show');
 })
 
+$('#DRIVING').on('click', () => {
+  console.log($(this).id);
+})
+
 $(' #TRANSIT, #BICYCLING, #WALKING').on('click', () => {
   $('#collapseCar').collapse('hide');
 })
