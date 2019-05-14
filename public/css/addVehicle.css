@@ -20,7 +20,7 @@ body {
 .tabs {
     margin:0 auto 0 auto;
     width: 100%;
-    background-color: rgba(210, 235, 191, 1);
+    background-color: #00c851;
 
 }
 
@@ -32,6 +32,8 @@ body {
 
 .tabs-nav {
     overflow: hidden;
+    padding: 0;
+
 }
 
 .tabs-nav-items {
@@ -88,7 +90,7 @@ body {
     outline: 0 none;
     text-decoration: none;
     padding: 13px 0;
-    color: rgb(59, 59, 59);
+    color: rgb(255, 255, 255);
     font-family: segoe ui,Arial,sans-serif;
     font-size: 2.5vw;
     font-weight: bold;
@@ -123,6 +125,7 @@ body {
 
 .tabs-nav-item:hover .tabs-nav-btn {
     color: #ffffff;
+    text-shadow: #ffffff;
 }
 
 .active-tab-nav-item,
@@ -131,7 +134,7 @@ body {
 }
 
 .active-tab-nav-item:hover .tabs-nav-btn {
-    color: rgb(59, 59, 59);
+    color: rgb(0, 0, 0);
 }
 
 .active-tab-nav-item::before {
@@ -157,16 +160,18 @@ body {
 
 #year-label {
     margin-top: 10px;
-    background-color: rgba(210, 235, 191, 1);
+    background-color: #00c851;
     padding: 8px;
+    color: rgb(255, 255, 255);
     
 
 }
 
 #year-label2 {
     margin-top: 30px;
-    background-color: rgba(210, 235, 191, 1);
+    background-color: #00c851;
     padding: 8px;
+    color: rgb(255, 255, 255);
     
 
 }
@@ -185,9 +190,9 @@ body {
     display:block;
 
     border-radius: 4px;
-    background-color: rgba(210, 235, 191, 1);
+    background-color: #00c851;
     border: none;
-    color: rgb(0, 0, 0);
+    color: #ffffff;
     text-align: center;
     font-size: 16px;
     padding: 10px;
@@ -233,7 +238,8 @@ body {
     font-size: 22px;
     margin:0 auto 0 auto;
     width: 100%;
-    background-color: rgba(210, 235, 191, 1);
+    background-color: #00c851;
+    color: white;
   }
 
   .gray{

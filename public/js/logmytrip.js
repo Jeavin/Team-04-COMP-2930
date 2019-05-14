@@ -77,7 +77,6 @@ $(document).on('click', '#impactBtn',
     let startA = $('#start').val();
     let destB = $('#dest').val();
 
-    console.log("worked");
     window.location.href = "./mytrip.html" + "#" + year + "#" + make + "#"
     + model + "#"+ startA + "#"+ destB;
 });

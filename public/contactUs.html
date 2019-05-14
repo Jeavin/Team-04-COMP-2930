@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/faq.css" />
 
   <title>Emission Planner</title>
 </head>
@@ -36,10 +37,10 @@
           <a class="nav-link" href="./mytrip.html">Map</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./about.html">About</a>
+          <a class="nav-link" href="./about.html">About Us</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link">Contact Us <span class="sr-only">(current)</span></a>
+          <a class="nav-link">FAQ <span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
@@ -71,12 +72,33 @@
 
   <main class="align-items-center height-85vh--lg p-5">
 
-    <div id="contactBackImage" class="jumbotron text-white">
-      <h1 class="display-4">How much CO2 gas do you emit per day?</h1>
+    <div class="jumbotron">
+      <h1 class="display-4">Frequently Asked Questions</h1>
       <hr class="my-4">
-      <p>Buses, skytrains, Cars produce a large amount of co2 emissions and it disturbs the weather and ecological
-        patterns. but do you know how much you impact to the environment? by using our app, you will be able to track
-        your daily, weekly, and even montly co2 emissions!</p>
+      <div id="faq1">
+       
+        <ul>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>Hvordan..?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae debitis iusto voluptatum doloribus rem, qui nesciunt labore tempore fugit iste deserunt incidunt error provident repudiandae laudantium quo ipsa unde perspiciatis, nihil autem distinctio! Deserunt, aspernatur.</p>
+          </li>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>Hvorfor..?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quasi, quia provident facere recusandae itaque assumenda fuga veniam dicta earum dolorem architecto facilis nisi pariatur.</p>
+          </li>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <h2>Hvad..?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam quas placeat assumenda mollitia magni consequatur dolorum, quod nihil distinctio aperiam officia alias! Voluptate dolore ex officiis sit, magnam non a, eligendi pariatur aut, earum dolores tenetur ipsam id illo deleniti. Laudantium deserunt eaque ipsam voluptatum consequuntur voluptatibus sed minima ad accusamus debitis eos similique laboriosam, molestiae? Consequatur neque tempore quis. Eligendi, in ut aspernatur esse nesciunt libero.</p>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </main>
 
@@ -159,7 +181,9 @@
   <!--End of Sign Up Modal -->
 
   <footer class="footer-copyright text-right py-3 bg-success">
-    <a class="mr-3" href="#" class=>FAQs</a>
+
+    <p id="faq" class="mr-3" class=>Contact us at emissionsplanner@gmail.com</p>
+
   </footer>
 
   <!-- Firebase init -->
@@ -180,6 +204,7 @@
     crossorigin="anonymous"></script>
   <script src="./js/firebase_init.js"></script>
   <script src="./js/index.js"></script>
+  <script src="./js/faq.js"></script>
 </body>
 
 </html>

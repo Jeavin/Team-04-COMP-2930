@@ -4,6 +4,20 @@ html, body {
   height: 100vh;
 }
 
+#faq {
+  color: white;
+  margin-top: 1rem;
+}
+
+.py-3 {
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
+.bg-success {
+  border-color: #28a745 !important
+}
+
 .form-signin .checkbox {
   font-weight: 400;
 }
@@ -47,7 +61,7 @@ div#backImageContainer {
   background-image: url("../images/backImage.png");
   background-repeat: no-repeat;
   background-size: contain;
-  
+
 }
 
 div#contactBackImage {
@@ -124,4 +138,9 @@ div#settingIcon1 button, button#signInUpButton {
   h1 {
     font-size: 3rem !important;
   }
+}
+
+.p-5 {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }

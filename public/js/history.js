@@ -65,6 +65,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         
 
         userData.child("history").on("value", snap => {
+            
+            $("table").children("tbody").remove();
+
             snap.forEach(function(yearMonthSnap) {
                 let monthAndYear = yearMonthSnap.key;
                 let month = monthAndYear.split(" ")[0];
@@ -72,21 +75,21 @@ firebase.auth().onAuthStateChanged(function (user) {
                 let tbody = $("<tbody></tbody>");
                 tbody.attr("id", month + year);
 
-                //append month-header
-                tbody.append(createHeaderRow(monthAndYear));
-
                 let totalEmission = 0;
 
                 yearMonthSnap.forEach(function(childSnap) {
                     let {date, destination, distance, emission, start, time, transport} = childSnap.val();
 
-                    //append data-row
-                    tbody.append(createDataRow(date, distance, transport, emission));
-                    //append slide row (collapsible details panel)
-                    tbody.append(createSlideRow(start, destination, time));
+                    //prepend slide row (collapsible details panel)
+                    tbody.prepend(createSlideRow(start, destination, time));
+                    //prepend data-row (data row goes above slide row)
+                    tbody.prepend(createDataRow(date, distance, transport, emission));
 
                     totalEmission += emission;
                 });
+
+                //prepend month-header
+                tbody.prepend(createHeaderRow(monthAndYear));
 
                 //append month-footer (displays total emissions for the month)
                 tbody.append(createFooterRow(month, totalEmission));

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/about.css" />
 
   <title>Emission Planner</title>
 </head>
@@ -20,13 +21,13 @@
           aria-label="Toggle navigation">
           <img src="./images/menu.png" />
         </button>
-    
+
         <a id="logo" class="navbar-brand text-success ml-auto mr-auto" href="./index.html">
           <img src="./images/logo.png" width="30" height="30" alt="">
           EmissionPlanner
         </a>
-    
-    
+
+
         <div class="collapse navbar-collapse" id="navbarsExample09">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -39,11 +40,11 @@
               <a class="nav-link">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./contactUs.html">Contact Us</a>
+              <a class="nav-link" href="./contactUs.html">FAQ</a>
             </li>
           </ul>
         </div>
-    
+
         <div id="settingIcon1" class="dropdown">
           <button class="btn " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="./images/settingsIcon.png" />
@@ -56,7 +57,7 @@
             <a class="signOutBtn dropdown-item" href="./index.html">Sign Out</a>
           </div>
         </div>
-    
+
         <div id="settingIcon2" class="dropdown">
           <button class="btn userName text-uppercase" type="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
@@ -71,13 +72,61 @@
 
   <main class="align-items-center height-85vh--lg p-5">
 
-    <div class="jumbotron">
-      <h1 class="display-4">How much CO2 gas do you emit per day?</h1>
+    <div id="topJumbo" class="jumbotron">
+      <h1 class="display-4">About Emissions Planner</h1>
       <hr class="my-4">
       <p>Buses, skytrains, Cars produce a large amount of co2 emissions and it disturbs the weather and ecological
         patterns. but do you know how much you impact to the environment? by using our app, you will be able to track
         your daily, weekly, and even montly co2 emissions!</p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+
+    <div class="jumbotron">
+      <h1 class="display-4">About The Team</h1>
+      <hr class="my-4">
+      <!-- Damon about me -->
+      <div class="media">
+        <img class="align-self-start mr-3" src="./images/DavidFace.jpg" alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0">Damon Ren</h5>
+          <p>This will be about Damon</p>
+        </div>
+      </div>
+
+      <!-- John about me -->
+      <div class="media">
+        <img class="align-self-start mr-3" src="./images/DavidFace.jpg" alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0">John Sin</h5>
+          <p>This will be about John</p>
+        </div>
+      </div>
+
+      <!-- David about me -->
+      <div class="media">
+        <img class="align-self-start mr-3" src="./images/DavidFace.jpg" alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0">David Delatycki</h5>
+          <p>This will be about David</p>
+        </div>
+      </div>
+
+      <!-- Min about me -->
+      <div class="media">
+        <img class="align-self-start mr-3" src="./images/MinFace.jpg" alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0">Min Kong</h5>
+          <p>This will be about Min</p>
+        </div>
+      </div>
+
+      <!-- Jeavin about me -->
+      <div class="media">
+        <img class="align-self-start mr-3" src="./images/JeavinFace.jpg" alt="Jeavin Face">
+        <div class="media-body">
+          <h5 class="mt-0">Jeavin Shoker</h5>
+          <p>This will be about Jeavin</p>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -157,7 +206,7 @@
   <!--End of Sign Up Modal -->
 
   <footer class="footer-copyright text-right py-3 bg-success">
-    <a class="mr-3" href="#" class=>FAQs</a>
+    <p id="faq" class="mr-3">Contact us at emissionsplanner@gmail.com</p>
   </footer>
 
   <!-- Firebase init -->
