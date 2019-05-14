@@ -141,5 +141,6 @@ div#settingIcon1 button, button#signInUpButton {
 }
 
 .p-5 {
-  padding: 15px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }
