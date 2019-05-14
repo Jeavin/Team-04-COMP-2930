@@ -145,7 +145,7 @@ tabItems.forEach(function (item) {
 // var strUser = e.options[e.selectedIndex].innerHTML;
 
 function newPerson() {
-    
+    $('#section-1').append(' <br><br><br><div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div>')
     var emissions;
     if (document.getElementById("box1").value != -1 && document.getElementById("box2").value != -1 && document.getElementById("box3").value != -1) {
 
@@ -161,8 +161,9 @@ function newPerson() {
             Year: $('#box1 option:selected').text(),
             g_km: emissions
         });
-        location.reload();
         
+        
+        location.reload();
         });
         
         
@@ -171,7 +172,6 @@ function newPerson() {
     }
 
 }
-
 function removeDummy() {
    
     
