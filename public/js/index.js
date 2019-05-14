@@ -47,7 +47,8 @@ $(() => {
 
   // $('#tripForm').on('submit', (e) => {
   //   e.preventDefault();
-  //   alert("hello");
+  //   let url = windows.location.href;
+  //   alert(url);
   // });
 
   $('#exampleModal1').on('shown.bs.modal', function () {
