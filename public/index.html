@@ -96,13 +96,12 @@
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
-                  <input type="text" class="form-control form-control-lg form__input" name="destination" required=""
+                  <input id="destination" type="text" class="form-control form-control-lg form__input" name="destination" required=""
                     placeholder="Destination" aria-label="Destination"/>
                 </div>
               </div>
               <!-- End Input -->
-              <button type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3"
-                href="./mytrip.html">Plan Your Trip Now</button>
+              <button id ="planTrip" type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">Plan Your Trip Now</button>
             </form>
             <button class="btn btn-lg btn-inline btn-primary bg-success text-white mr-1" data-toggle="modal"
               data-target="#exampleModal1" style="width: 48%">Sign In</button>
@@ -211,7 +210,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&callback=initMap"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places"></script>
   <script src="./js/firebase_init.js"></script>
   <script src="./js/index.js"></script>
 </body>

@@ -1,3 +1,54 @@
+//Autocomplete for start and destination address
+var autocomplete, autocomplete2;
+$(document).ready(function () {
+  /** 
+   * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
+   */
+  initAutocomplete();
+
+
+  $("#startAddress").focus(geolocate());
+  $("#destination").focus(geolocate());
+});
+
+/** 
+ * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
+ */
+function geolocate() {
+
+  var geolocation = {
+    lat: 49.25,
+    lng: -122.8
+  };
+  var circle = new google.maps.Circle({
+    center: geolocation,
+    radius: 80000
+  });
+  autocomplete.setBounds(circle.getBounds());
+  autocomplete2.setBounds(circle.getBounds());
+}
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search to geographical
+  // location types.
+  autocomplete = new google.maps.places.Autocomplete(
+    // /** @type {!HTMLInputElement} */
+    (document.getElementById('startAddress')), {
+      types: ['geocode']
+    });
+  autocomplete.setFields(['address_components', 'geometry']);
+
+
+  //autocomplete.addListener('place_changed', fillInAddress);
+  autocomplete2 = new google.maps.places.Autocomplete(
+    /** @type {!HTMLInputElement} */
+    (document.getElementById('destination')), {
+      types: ['geocode']
+    });
+  autocomplete2.setFields(['address_components', 'geometry']);
+  //autocomplete2.addListener('place_changed', fillInAddress);
+}
+
 $(() => {
   const database = firebase.database();
   const rootRef = database.ref();
@@ -169,3 +220,12 @@ $(() => {
   }
 
 })
+
+$(document).on('click', '#planTrip',
+  function redirect(e) {
+    e.preventDefault();
+    let startA = $('#startAddress').val();
+    let destB = $('#destination').val();
+    window.location.href = "./map.html" + "#"+ startA + "#"+ destB;
+});
+

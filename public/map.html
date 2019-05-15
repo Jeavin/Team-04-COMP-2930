@@ -204,7 +204,7 @@
                 <img class="media-object" src="./images/carsmall.png" alt="car" style="filter: invert(100%)">
               </div>
               <div class="media-body">
-                <p><br />Vehicle here</p>
+                <p id="vehicle"><br /></p>
               </div>
             </div>
             <div class="media">
@@ -212,7 +212,7 @@
                 <img class="media-object" src="./images/clock.png" alt="clock">
               </div>
               <div class="media-body">
-                <p id="time"><br />Time here</p>
+                <p id="time"><br /></p>
               </div>
             </div>
             <div class="media">
@@ -220,7 +220,7 @@
                 <img class="media-object" src="./images/co2.png" alt="co2">
               </div>
               <div class="media-body">
-                <p id="distance"><br />CO2 emissions here</p>
+                <p id="distance"><br /></p>
               </div>
             </div>
           </div>
@@ -230,27 +230,27 @@
         <div class="col order-1 order-lg-2 border border-danger aos-init aos-animate" data-aos="fade-up">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <button class="nav-link active h-100" id="TRANSIT" data-toggle="tab" href="#busMap" role="tab"
+              <button class="nav-link active h-100 travelMode" id="TRANSIT" data-toggle="tab" href="#busMap" role="tab"
                 aria-controls="home" aria-selected="true" value="TRANSIT">BUS/TRAIN</button>
             </li>
             <li class="nav-item">
-              <button class="nav-link" id="DRIVING" data-toggle="tab" href="#driveMap" role="tab" aria-controls="profile"
+              <button class="nav-link travelMode" id="DRIVING" data-toggle="tab" href="#driveMap" role="tab" aria-controls="profile"
                 aria-selected="false" value="DRIVING">DRIVE</button>
             </li>
             <li class="nav-item">
-              <button class="nav-link" id="WALKING" data-toggle="tab" href="#walkMap" role="tab" aria-controls="contact"
+              <button class="nav-link travelMode" id="WALKING" data-toggle="tab" href="#walkMap" role="tab" aria-controls="contact"
                 aria-selected="false" value="WALKING">WALK</button>
             </li>
             <li class="nav-item">
-              <button class="nav-link" id="BICYCLING" data-toggle="tab" href="#bicycleMap" role="tab" aria-controls="contact" value="BICYCLING"
+              <button class="nav-link travelMode" id="BICYCLING" data-toggle="tab" href="#bicycleMap" role="tab" aria-controls="contact" value="BICYCLING"
                 aria-selected="false">BICYCLE</button>
             </li>
           </ul>
           <div class="tab-content h-100" id="myTabContent">
-            <div class="tab-pane fade show active h-100" id="busMap" role="tabpanel" aria-labelledby="home-tab"></div>
-            <div class="tab-pane fade h-100" id="driveMap" role="tabpanel" aria-labelledby="profile-tab"></div>
+            <div class="tab-pane fade show active h-100" id="maps" role="tabpanel" aria-labelledby="home-tab"></div>
+            <!-- <div class="tab-pane fade h-100" id="driveMap" role="tabpanel" aria-labelledby="profile-tab"></div>
             <div class="tab-pane fade h-100" id="walkMap" role="tabpanel" aria-labelledby="contact-tab"></div>
-            <div class="tab-pane fade h-100" id="bicycleMap" role="tabpanel" aria-labelledby="contact-tab"></div>
+            <div class="tab-pane fade h-100" id="bicycleMap" role="tabpanel" aria-labelledby="contact-tab"></div> -->
           </div>
         </div> <!-- / .row -->
       </div>
@@ -352,9 +352,7 @@
     crossorigin="anonymous"></script>
 
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&callback=initMap"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places&callback=initMap"></script>
 
   <script src="./js/firebase_init.js"></script>
   <!-- <script src="./js/mytrip.js"></script>
