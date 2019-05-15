@@ -1,65 +1,16 @@
-var autocomplete, autocomplete2;
 var tMode = "TRANSIT";
 
-$(document).ready(function () {
-  /** 
-   * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
-   */
-  initAutocomplete();
-
-
-  $("#startAddress").focus(geolocate());
-  $("#dest").focus(geolocate());
-});
-
-/** 
- * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
- */
-function geolocate() {
-
-  var geolocation = {
-    lat: 49.25,
-    lng: -122.8
-  };
-  var circle = new google.maps.Circle({
-    center: geolocation,
-    radius: 80000
-  });
-  autocomplete.setBounds(circle.getBounds());
-  autocomplete2.setBounds(circle.getBounds());
-}
-
-function initAutocomplete() {
-  // Create the autocomplete object, restricting the search to geographical
-  // location types.
-  autocomplete = new google.maps.places.Autocomplete(
-    (document.getElementById('startAddress')), {
-      types: ['geocode']
-    });
-  autocomplete.setFields(['address_components', 'geometry']);
-
-
-  //autocomplete.addListener('place_changed', fillInAddress);
-  autocomplete2 = new google.maps.places.Autocomplete(
-    (document.getElementById('dest')), {
-      types: ['geocode']
-    });
-  autocomplete2.setFields(['address_components', 'geometry']);
-  //autocomplete2.addListener('place_changed', fillInAddress);
-}
 
 
 
 $('#DRIVING').on('click', () => {
   $('#collapseCar').collapse('show');
+  $('#vehicle').show();
 })
-
-// $('#DRIVING').on('click', () => {
-//   console.log($(this).id);
-// })
 
 $(' #TRANSIT, #BICYCLING, #WALKING').on('click', () => {
   $('#collapseCar').collapse('hide');
+  $('#vehicle').hide();
 })
 
 $(".travelMode").click(function() {
@@ -75,9 +26,11 @@ $(document).on('click', '#impactBtn',
     let make = $('#selectMake option:selected').val();
     let model = $('#selectModel option:selected').val();
     start = $('#startAddress').val();
-    dest = $('#dest').val();
-    document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
-    initMap();
+    dest = $('#destination').val();
+    if(!(year === "Choose.." || make === "Choose.." || model === "Choose..")){
+      document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
+    }
+      initMap();
     // window.location.href = "./mytrip.html" + "#" + year + "#" + make + "#"
     // + model + "#"+ startA + "#"+ destB;
   });
@@ -108,7 +61,7 @@ while(dest.includes("%20")){
 }
 
 document.getElementById("startAddress").value = start;
-document.getElementById("dest").value = dest;
+document.getElementById("destination").value = dest;
 // document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
 
 initMap();
@@ -166,20 +119,20 @@ function getDistance() {
   var distanceService = new google.maps.DistanceMatrixService();
   var startPosition;
   var endPosition;
-  while (start.includes("%20")) {
-    start = start.replace('%20', ' ');
-  }
+  // while (start.includes("%20")) {
+  //   start = start.replace('%20', ' ');
+  // }
 
-  while (dest.includes("%20")) {
-    dest = dest.replace('%20', ' ');
-  }
+  // while (dest.includes("%20")) {
+  //   dest = dest.replace('%20', ' ');
+  // }
 
-  startPosition = start;
-  endPosition = dest;
+  // startPosition = start;
+  // endPosition = dest;
 
   distanceService.getDistanceMatrix({
-    origins: [startPosition],
-    destinations: [endPosition],
+    origins: [start],
+    destinations: [dest],
     travelMode: google.maps.TravelMode[tMode],
     unitSystem: google.maps.UnitSystem.METRIC,
     durationInTraffic: true,
