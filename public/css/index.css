@@ -4,6 +4,10 @@ html, body {
   height: 100vh;
 }
 
+#carText{
+  color: white; 
+}
+
 #faq {
   color: white;
   margin-top: 1rem;
@@ -142,7 +146,7 @@ div#settingIcon1 button, button#signInUpButton {
   h1 {
     font-size: 3rem !important;
   }
-  
+
 }
 
 .p-5 {
