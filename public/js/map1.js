@@ -1,6 +1,46 @@
 var tMode = "TRANSIT";
 
+var currentUser={};
 
+
+
+
+$(document).ready(function () {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            $('.userName').html('<img class="mr-2 ml-2" src="./images/avatar.png" />'
+                + user.displayName);
+            console.log('user: ' + user.displayName);
+            console.log('uid: ' + user.uid);
+            currentUser.userid = user.uid;
+
+        } else {
+            $('#settingIcon1, #settingIcon2').html('<button class="btn"'
+                + 'type="button" id="signInButton" data-toggle="dropdown" '
+                + 'aria-haspopup="true" aria-expanded="false">'
+                + 'Sign In/Up</button>');
+            console.log('user: not log in');
+        }
+        
+        
+    });
+    user = firebase.auth().currentUser;
+    loadListOfVehicles();
+    
+  });
+
+  var vehicleAll = firebase.database().ref().child('users').child(currentUser.userid+'/cars/');
+  function loadListOfVehicles() {
+    vehicleAll.on("value", snap => {
+        snap.forEach(function(childSnap) {
+            car = childSnap.key;
+            let option = $("<option></option>");
+            option.attr("value", car);
+            option.html(car);
+            $("#selectYourVehicle").append(option);
+        });
+    });
+} 
 
 
 $('#DRIVING').on('click', () => {
