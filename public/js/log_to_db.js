@@ -1,13 +1,24 @@
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function logToDatabase() {
-    let start = $("#startAddress").text();
-    let dest = $("#destination").text();
-    let distance = parseFloat($("#distance").text().slice(0, -3));
-    let time = parseFloat($("#time").text().slice(0, -5));
+    let start = $("#startAddress").val();
+    let dest = $("#destination").val();
+    let time = $("#time").text();
+    let distanceStr = $("#distance").text().slice(0, -3).split(",");
+    let distance = "";
+    for (let i = 0; i < distanceStr.length; i++) {
+        distance += distanceStr[i];
+    }
+    distance = parseFloat(distance);
     
-    let emission = 123;
-    let transport = "car";
+    let emission;
+    vehicleData.child("/" + $("#selectYear").val() + "/" + $("#selectMake").val() + "/" + $("#selectModel").val()).on("value", snap => {
+        emission = parseFloat((snap.child("CO2 EMISSIONS (g_km)").val() * distance / 1000).toFixed(2));
+    });
+
+    let transport = $("#vehicle").text() + " : " + emission;
+    emission = parseFloat((emission * distance / 1000).toFixed(2));
+    distance = $("#distance").text();
 
     let user = firebase.auth().currentUser;
     let historyDB = firebase.database().ref().child("users/" + user.uid + "/history");
