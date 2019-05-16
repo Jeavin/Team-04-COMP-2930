@@ -2,7 +2,7 @@ var tMode = "TRANSIT";
 
 var currentUser={};
 
-
+let userID;
 
 
 $(document).ready(function () {
@@ -12,7 +12,24 @@ $(document).ready(function () {
                 + user.displayName);
             console.log('user: ' + user.displayName);
             console.log('uid: ' + user.uid);
+            userID = user.uid;
             currentUser.userid = user.uid;
+            // console.log(currentUser.userid);
+            firebase.database().ref().child('users/').child(user.uid+'/cars').on("value", snap => {
+              
+              $("#selectYourVehicle").empty();
+              $("#selectYourVehicle").append($("<option disabled selected>Choose...</option>"));   
+                snap.forEach(function(childSnapy) {
+                  
+                    car = childSnapy.key;
+                    let option2 = $("<option></option>");
+                    option2.attr("value", car);
+                    option2.html(car);
+                    console.log(car);
+                    $("#selectYourVehicle").append(option2);
+                });
+            });
+            
 
         } else {
             $('#settingIcon1, #settingIcon2').html('<button class="btn"'
@@ -24,23 +41,28 @@ $(document).ready(function () {
         
         
     });
-    user = firebase.auth().currentUser;
+    userID = firebase.auth().currentUser.uid;
     loadListOfVehicles();
-    
   });
 
-  var vehicleAll = firebase.database().ref().child('users').child(currentUser.userid+'/cars/');
-  function loadListOfVehicles() {
-    vehicleAll.on("value", snap => {
-        snap.forEach(function(childSnap) {
-            car = childSnap.key;
-            let option = $("<option></option>");
-            option.attr("value", car);
-            option.html(car);
-            $("#selectYourVehicle").append(option);
-        });
-    });
-} 
+  
+//   function loadListOfVehicles() {
+//     var vehicleAll = firebase.database().ref().child('users').child(currentUser.uid+'/cars/');
+//     // console.log(currentUser.userid);
+//     vehicleAll.on("value", snap => {
+      
+//       $("#selectYourVehicle").empty();   
+//         snap.forEach(function(childSnapy) {
+          
+//             car = childSnapy.key;
+//             let option2 = $("<option></option>");
+//             option2.attr("value", car);
+//             option2.html(car);
+//             console.log(car);
+//             $("#selectYourVehicle").append(option2);
+//         });
+//     });
+// } 
 
 
 $('#DRIVING').on('click', () => {
