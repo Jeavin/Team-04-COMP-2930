@@ -49,14 +49,7 @@ $(document).ready(function () {
 
 });
 
-function displayNull() {
-    if($('#why').contents().length == 0) {
-        $('#section-2').empty();
-        $('#section-2').append('<div><h1>No Vehicles Added</h1></div>');
-        return true;
-    }
-    return false;
-}
+
 
 
 function displayRouteNames( ) {
@@ -117,9 +110,9 @@ var tabContents = slice.call(tabs.querySelectorAll('.tabs-content-item'));
 var currentIndex = 0;
 
 function onClick(e) {
-
+    
     $('#why').append(' <div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div><br><br><br>')
-    displayNull();
+    
     displayRouteNames();
     e.preventDefault();
     var tab = this;
