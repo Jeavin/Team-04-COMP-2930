@@ -2,6 +2,9 @@
     font-size: 2rem !important;
 }
   
+main {
+  height: auto;
+}
   #faq1 {
     max-width: 700px;
     margin: auto;

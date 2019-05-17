@@ -20,7 +20,7 @@
       <img src="./images/menu.png" />
     </button>
 
-    <a id="logo" class="navbar-brand text-success ml-auto mr-auto" href="./index.html">
+    <a id="logo" class="navbar-brand text-success ml-auto mr-auto">
       <img src="./images/logo.png" width="30" height="30" alt="">
       EmissionPlanner
     </a>
@@ -32,7 +32,7 @@
           <a class="nav-link">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./logmytrip.html">Map</a>
+          <a class="nav-link" href="./map.html">Map</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./about.html">About</a>
@@ -71,23 +71,23 @@
   <main class="d-flex align-items-center height-85vh--lg p-lg-5">
     <div class="container-fluid p-3">
       <div class="row align-items-center">
-        <div class="col-12 col-md-5 col-lg-6 order-md-1 mb-3">
+        <div class="col-12 col-md-12 col-lg-6 order-md-1 mb-3">
           <!-- Image -->
           <img src="./images/backImage_h.png" class="img-fluid mw-md-150 mw-lg-130 mb-6 mb-md-0 aos-init aos-animate"
             alt=".." data-aos="fade-up" data-aos-delay="100">
         </div>
 
-        <div class="col-12 col-md-7 col-lg-6 order-md-2 aos-init aos-animate" data-aos="fade-up">
+        <div class="col-12 col-md-12 col-lg-6 order-md-2 aos-init aos-animate" data-aos="fade-up">
           <div class="bg-white shadow rounded p-3">
             <h1 class="display-4 text-success">Join Us</h1>
             <h1 class="display-4 text-success">See The Difference</h1>
             <hr class="my-4">
-            <form id="tripForm" class="js-validate">
+            <form id="tripForm" class="js-validate" action="./map.html" method="get">
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
-                  <input id="startAddress" type="text" class="form-control form__input form-control-lg" name="start" required=""
-                    placeholder="Start" aria-label="Start" />
+                  <input id="startAddress" type="text" class="forceSelection form-control form__input form-control-lg" name="start"
+                    required="required" placeholder="Start" aria-label="Start" />
                   <button id="getLocationBtn" class="btn ml-3 p-0" type="button"><img form-control
                       src="./images/autolocate.png" alt=""></button>
                 </div>
@@ -96,16 +96,18 @@
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
-                  <input id="destination" type="text" class="form-control form-control-lg form__input" name="destination" required=""
-                    placeholder="Destination" aria-label="Destination"/>
+                  <input id="destination" type="text" class="form-control form-control-lg form__input"
+                    name="destination" required="required" placeholder="Destination" aria-label="Destination" />
                 </div>
               </div>
               <!-- End Input -->
-              <button id ="planTrip" type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">Plan Your Trip Now</button>
+              <button id="planTrip" type="submit"
+                class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">Plan Your Trip Now</button>
             </form>
             <button class="btn btn-lg btn-inline btn-primary bg-success text-white mr-1" data-toggle="modal"
               data-target="#exampleModal1" style="width: 48%">Sign In</button>
-            <button class="btn btn-lg btn-inline btn-primary bg-success text-white float-right" data-toggle="modal" data-target="#exampleModal2" style="width: 48%">Sign Up</button>
+            <button class="btn btn-lg btn-inline btn-primary bg-success text-white float-right" data-toggle="modal"
+              data-target="#exampleModal2" style="width: 48%">Sign Up</button>
           </div>
           <!-- End Signup Form -->
 
@@ -139,7 +141,8 @@
               </label>
             </div>
           </form>
-          <button  class="btn btn-sm btn-link p-0" data-toggle="modal" data-target="#exampleModal2">Need an account?</button>
+          <button class="btn btn-sm btn-link p-0" data-toggle="modal" data-target="#exampleModal2">Need an
+            account?</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-lg btn-secondary bg-success text-white"
@@ -177,12 +180,14 @@
               </label>
             </div>
           </form>
-          <button class="btn btn-sm btn-link p-0" data-toggle="modal" data-target="#exampleModal1">Already have an account?</button>
+          <button class="btn btn-sm btn-link p-0" data-toggle="modal" data-target="#exampleModal1">Already have an
+            account?</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-lg btn-secondary bg-success text-white"
             data-dismiss="modal">Close</button>
-          <button id="modalSignUpBtn" type="button" class="btn btn-lg btn-primary bg-success text-white">Sign Up</button>
+          <button id="modalSignUpBtn" type="button" class="btn btn-lg btn-primary bg-success text-white">Sign
+            Up</button>
         </div>
       </div>
     </div>
@@ -190,7 +195,7 @@
   <!--End of Sign Up Modal -->
 
   <footer class="footer-copyright text-right py-3 bg-success">
-        <p id="faq" class="mr-3">Contact us at emissionsplanner@gmail.com</p>
+    <p id="faq" class="mr-3">Contact us at emissionsplanner@gmail.com</p>
   </footer>
 
   <!-- Firebase init -->
@@ -203,15 +208,17 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-    <script
+  <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places"></script>
   <script src="./js/firebase_init.js"></script>
+  <script src="./js/map1.js"></script>
   <script src="./js/index.js"></script>
 </body>
 

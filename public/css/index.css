@@ -53,9 +53,9 @@ a#logo, a#logo:hover {
 a {
   outline: 0;
 }
-/* main {
-  height: calc(100vh - 56px - 70px);
-} */
+main {
+  height: calc(100vh - 59.5px - 62.4px);
+}
 
 div#backImageContainer {
   background-image: url("../images/backImage.png");
@@ -99,6 +99,10 @@ div#settingIcon1 button, button#signInUpButton {
 }
 
 @media screen and (max-width: 991px) {
+  main {
+    padding: 2rem !important;
+    height: auto;
+  }
   div#navbarsExample09 {
     order: 4;
   }
@@ -130,10 +134,7 @@ div#settingIcon1 button, button#signInUpButton {
     padding-bottom: .5rem;
   }
 
-  main {
-    padding: 2rem !important;
-    height: auto;
-  }
+
 
  html, a#logo {
     font-size: 0.98rem;
@@ -149,3 +150,4 @@ div#settingIcon1 button, button#signInUpButton {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
+

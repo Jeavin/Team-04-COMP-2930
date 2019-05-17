@@ -9,23 +9,32 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="./css/index.css" />
-  <!-- <link rel="stylesheet" href="./css/mytrip.css" /> -->
-  <!-- <link rel="stylesheet" href="./css/logmytrip.css" /> -->
 
   <title>Emission Planner</title>
   <style>
     main {
-      height: calc(100vh - 59.6px);
+      height: calc(100vh - 59.5px);
     }
-
-    iframe {
-      height: 100%;
-      width: 100%;
+    div#myTabContent {
+      height: calc(100% - 42px);
     }
-
-    @media screen and (min-width: 991px) {
+    @media screen and (min-width: 992px) {
       div#routeInput {
         max-width: 350px;
+      }
+    }
+    @media screen and (max-width: 992px) {
+      div#myTabContent {
+        height: 60vh;
+    }
+    }
+
+    @media screen and (max-width: 567px) {
+      main {
+        padding: .2rem !important;
+      }
+      ul#myTab button {
+        padding:.3rem;
       }
     }
   </style>
@@ -48,16 +57,16 @@
     <div class="collapse navbar-collapse" id="navbarsExample09">
       <ul id="navBar-ul" class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="./index.html">Home </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="./mytrip.html">Map</a>
+          <a class="nav-link">Map <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./contactUs.html">Contact Us</a>
+          <a class="nav-link" href="./contactUs.html">FAQ</a>
         </li>
       </ul>
     </div>
@@ -87,11 +96,11 @@
     </div>
   </nav>
 
-  <main class="d-flex">
+  <main class="d-flex p-1 order border-success">
     <div class="container-fluid">
       <div class="row h-100">
         <!-- input field -->
-        <div id="routeInput" class="col-lg-3 order-2 order-lg-1 h-100 p-3 border border-primary">
+        <div id="routeInput" class="col-lg-3 order-2 order-lg-1 h-100 p-2 p-lg-3 border border-primary">
           <!-- Content in center -->
           <div id="content">
             <!-- <h3>Choose Your Transportation</h3> -->
@@ -160,7 +169,7 @@
                         <label class="input-group-text" style="width: 70px" for="selectYear">Year</label>
                       </div>
                       <select class="custom-select" id="selectYear" onchange="yearSelected()">
-                        <option disabled selected>Choose..</option>
+                        <option disabled selected="true" value="default">Choose..</option>
                       </select>
                     </div>
                   </div>
@@ -170,7 +179,7 @@
                         <label class="input-group-text" style="width: 70px" for="selectMake">Make</label>
                       </div>
                       <select class="custom-select" id="selectMake" onchange="makeSelected()">
-                        <option disabled selected>Choose..</option>
+                        <option disabled selected="true" value="default">Choose..</option>
                       </select>
                     </div>
                   </div>
@@ -180,7 +189,7 @@
                         <label class="input-group-text" style="width: 70px" for="selectModel">Model</label>
                       </div>
                       <select class="custom-select" id="selectModel">
-                        <option disabled selected>Choose..</option>
+                        <option disabled selected="true" value="default">Choose..</option>
                       </select>
                     </div>
                   </div>
@@ -227,27 +236,27 @@
         </div>
         <!--  -->
 
-        <div class="col order-1 order-lg-2 border border-danger aos-init aos-animate" data-aos="fade-up">
+        <div class="col order-1 order-lg-2 border border-danger aos-init aos-animate p-0" data-aos="fade-up">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <button class="nav-link active h-100 travelMode" id="TRANSIT" data-toggle="tab" href="#busMap" role="tab"
                 aria-controls="home" aria-selected="true" value="TRANSIT">BUS/TRAIN</button>
             </li>
             <li class="nav-item">
-              <button class="nav-link travelMode" id="DRIVING" data-toggle="tab" href="#driveMap" role="tab" aria-controls="profile"
-                aria-selected="false" value="DRIVING">DRIVE</button>
+              <button class="nav-link travelMode" id="DRIVING" data-toggle="tab" href="#driveMap" role="tab"
+                aria-controls="profile" aria-selected="false" value="DRIVING">DRIVE</button>
             </li>
             <li class="nav-item">
-              <button class="nav-link travelMode" id="WALKING" data-toggle="tab" href="#walkMap" role="tab" aria-controls="contact"
-                aria-selected="false" value="WALKING">WALK</button>
+              <button class="nav-link travelMode" id="WALKING" data-toggle="tab" href="#walkMap" role="tab"
+                aria-controls="contact" aria-selected="false" value="WALKING">WALK</button>
             </li>
             <li class="nav-item">
-              <button class="nav-link travelMode" id="BICYCLING" data-toggle="tab" href="#bicycleMap" role="tab" aria-controls="contact" value="BICYCLING"
-                aria-selected="false">BICYCLE</button>
+              <button class="nav-link travelMode" id="BICYCLING" data-toggle="tab" href="#bicycleMap" role="tab"
+                aria-controls="contact" value="BICYCLING" aria-selected="false">BICYCLE</button>
             </li>
           </ul>
-          <div class="tab-content h-100" id="myTabContent">
-            <div class="tab-pane fade show active h-100" id="maps" role="tabpanel" aria-labelledby="home-tab"></div>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show h-100 active" id="maps" role="tabpanel" aria-labelledby="home-tab"></div>
             <!-- <div class="tab-pane fade h-100" id="driveMap" role="tabpanel" aria-labelledby="profile-tab"></div>
             <div class="tab-pane fade h-100" id="walkMap" role="tabpanel" aria-labelledby="contact-tab"></div>
             <div class="tab-pane fade h-100" id="bicycleMap" role="tabpanel" aria-labelledby="contact-tab"></div> -->
@@ -339,7 +348,6 @@
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -2,6 +2,10 @@
   color: white;
 }
 
+main {
+  height: auto;
+}
+
 .btn-primary {
   background-color: #28a745 !important;
   border-color: #28a745 !important;
