@@ -42,30 +42,22 @@ $(document).ready(function () {
     });
 
     
-  
-    //     console.log(currentUser.userid);
-    //     let helloe = firebase.database().ref().child("users/" + currentUser.userid + "/cars/");
-    //     helloe.on("value", snap => {
-        
-    //     snap.forEach(function (childSnapshot) {
-    //         console.log(childSnapshot.key);
-    //         var temp = childSnapshot.val();
-    //         var key = childSnapshot.key;
-            
-    //         var year = temp["Year"];
-    //         console.log(year);
-    //         var make = temp["Make"];
-    //         var cardinfo = $('<div class="not" id="not"><div class="carName"><label for="year" >' + key + '</label></div><div class="gray"><label for="year" >' + temp["Make"] + '</label><br><label for="year" >' + temp["Year"] + '</label><button class="button2" onclick="removeDummy()">X </button></div></div>');
-
-
-    //         $("#why").prepend(cardinfo);
-
-
-    //     });
-    // });
+    
+    
+   
     
 
 });
+
+function displayNull() {
+    if($('#why').contents().length == 0) {
+        $('#section-2').empty();
+        $('#section-2').append('<div><h1>No Vehicles Added</h1></div>');
+        return true;
+    }
+    return false;
+}
+
 
 function displayRouteNames( ) {
         
@@ -127,6 +119,7 @@ var currentIndex = 0;
 function onClick(e) {
 
     $('#why').append(' <div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div><br><br><br>')
+    displayNull();
     displayRouteNames();
     e.preventDefault();
     var tab = this;

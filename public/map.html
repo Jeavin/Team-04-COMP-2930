@@ -162,7 +162,7 @@
 
               <div class="collapse" id="collapseCar">
                 <div class="card bg-success text-black card-body mb-3">
-                  <label for="year">Vehicle</label>
+                  <label id="carText" for="year">Vehicle</label>
                   <div id="carYear">
                     <div class="input-group mb-3" style="width: 210px">
                       <div class="input-group-prepend">
@@ -193,6 +193,21 @@
                       </select>
                     </div>
                   </div>
+
+                </div>
+                <div id="savedVehicles" class="card bg-success text-black card-body mb-3">
+                    <label id="carText" for="year">Your Vehicle</label>
+                  <div id="yourVehicles">
+                    <div class="input-group mb-3" style="width: 210px">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" style="width: 70px" for="selectYourVehicle">Vehicles</label>
+                      </div>
+                      <select class="custom-select" id="selectYourVehicle">
+                        <option disabled selected>Choose..</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label id="carText" for="year"><a id="carText" href="./addVehicle.html">Add vehicles to your account</a></label>
                 </div>
               </div>
               <!-- <div class="form-check">
@@ -369,6 +384,15 @@
   <script src="./js/vehicle_data.js"></script>
   <!-- <script src="./js/addVehicle.js"></script> -->
   <script src="./js/index.js"></script>
+  <script>
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+      } else {
+        $('#savedVehicles').remove();
+        console.log('user: not log in');
+      }
+    });
+  </script>
 </body>
 
 </html>

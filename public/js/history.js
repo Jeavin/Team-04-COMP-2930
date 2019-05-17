@@ -14,10 +14,11 @@ function createHeaderRow(monthAndYear) {
     return headerRow;
 }
 function createDataRow(date, distance, transport, emission) {
+    transport = (transport == "transit") ? transport : "car";
     let dataRow = $("<tr></tr>");
     dataRow.addClass("data-row");
     dataRow.append(createTD(date),
-                   createTD(distance + " km" + "<img src=\"./images/" + transport + ".png\" class=\"transportationImg\">"),
+                   createTD(distance + "<img src=\"./images/" + transport + ".png\" class=\"transportationImg\">"),
                    createTD(emission + " kg"));
     return dataRow;
 }
@@ -47,7 +48,7 @@ function createSlideRow(start, dest, time) {
     timeImg.css("filter", "invert(100%)");
     timeImg.addClass("mr-2")
     timeP.append(timeImg);
-    timeP.append(time + " min");
+    timeP.append(time);
 
     detailsDiv.append(timeP);
 
@@ -126,6 +127,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                     //prepend slide row (collapsible details panel)
                     tbody.prepend(createSlideRow(start, destination, time));
+
                     //prepend data-row (data row goes above slide row)
                     tbody.prepend(createDataRow(date, distance, transport, emission));
 

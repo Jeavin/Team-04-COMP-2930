@@ -1,8 +1,6 @@
 $(() => {
-
   var tMode = "TRANSIT";
   let start, dest;
-  initMap();
   let url = decodeURIComponent(document.location.href);
   if (url.split('?')[1]) {
     let urlParts = url.split('?')[1].split('&');
@@ -13,8 +11,107 @@ $(() => {
     initMap();
   }
 
-  //Autocomplete for start and destination address
-  var autocomplete, autocomplete2;
+  var currentUser = {};
+  let userID;
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      $('.userName').html('<img class="mr-2 ml-2" src="./images/avatar.png" />'
+        + user.displayName);
+      console.log('user: ' + user.displayName);
+      console.log('uid: ' + user.uid);
+      userID = user.uid;
+      currentUser.userid = user.uid;
+      // console.log(currentUser.userid);
+      firebase.database().ref().child('users/').child(user.uid + '/cars').on("value", snap => {
+
+        $("#selectYourVehicle").empty();
+        $("#selectYourVehicle").append($("<option disabled selected>Choose...</option>"));
+        snap.forEach(function (childSnapy) {
+
+          car = childSnapy.key;
+          let option2 = $("<option></option>");
+          option2.attr("value", car);
+          option2.html(car);
+          console.log(car);
+          $("#selectYourVehicle").append(option2);
+        });
+      });
+    } else {
+      $('#settingIcon1, #settingIcon2').html('<button class="btn"'
+        + 'type="button" id="signInButton" data-toggle="dropdown" '
+        + 'aria-haspopup="true" aria-expanded="false">'
+        + 'Sign In/Up</button>');
+      console.log('user: not log in');
+    }
+  });
+  // userID = firebase.auth().currentUser.uid;
+  // loadListOfVehicles();
+
+
+
+  //   function loadListOfVehicles() {
+  //     var vehicleAll = firebase.database().ref().child('users').child(currentUser.uid+'/cars/');
+  //     // console.log(currentUser.userid);
+  //     vehicleAll.on("value", snap => {
+
+  //       $("#selectYourVehicle").empty();   
+  //         snap.forEach(function(childSnapy) {
+
+  //             car = childSnapy.key;
+  //             let option2 = $("<option></option>");
+  //             option2.attr("value", car);
+  //             option2.html(car);
+  //             console.log(car);
+  //             $("#selectYourVehicle").append(option2);
+  //         });
+  //     });
+  // } 
+
+
+  let geocoder = new google.maps.Geocoder;
+  $('#getLocationBtn').on('click', () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let latlng = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        geocoder.geocode(
+          { 'location': latlng },
+          function (results, status) {
+            if (status === 'OK') {
+              if (results[0]) {
+                $('#startAddress').val(results[0].formatted_address);
+              } else {
+                window.alert('No results found');
+              }
+            } else {
+              window.alert('Geocoder failed due to: ' + status);
+            }
+          });
+      });
+    } else {
+      alert("Location information is unavailable.");
+    }
+  });
+
+  $('#DRIVING').on('click', () => {
+    $('#collapseCar').collapse('show');
+    $('#vehicle').show();
+  });
+
+  $(' #TRANSIT, #BICYCLING, #WALKING').on('click', () => {
+    $('#collapseCar').collapse('hide');
+    $('#vehicle').hide();
+  });
+
+  $(".travelMode").click(function () {
+    tMode = $(this).val();
+    initMap();
+  });
+
+    //Autocomplete for start and destination address
+    var autocomplete, autocomplete2;
   /** 
    * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
    */
@@ -109,7 +206,7 @@ $(() => {
         // document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
       }
       if (start === '' || dest === '') {
-        
+
       }
       initMap();
     });
