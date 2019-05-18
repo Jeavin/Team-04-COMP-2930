@@ -88,7 +88,7 @@
       <hr class="my-4">
       <!-- Damon about me -->
       <div class="media">
-        <img class="align-self-start mr-3" src="./images/DamonFace.jpg" alt="Generic placeholder image">
+        <img class="align-self-start mr-3" src="./images/DamonFace.jpg" alt="Picture of Damon">
         <div class="media-body">
           <h5 class="mt-0">Damon Ren</h5>
           <p>Damon is a second-term CST student. He previously studied Finance
@@ -102,7 +102,7 @@
 
       <!-- John about me -->
       <div class="media">
-        <img class="align-self-start mr-3" src="./images/JohnFace.jpg" alt="Generic placeholder image">
+        <img class="align-self-start mr-3" src="./images/JohnFace.jpg" alt="Picture of John">
         <div class="media-body">
           <h5 class="mt-0">Bongchul (John) Sin</h5>
           <p>Bongchul (John) is a 26 years old CST student at BCIT. He is interested in developing web and mobile applications and coding in C. He is looking forward to jump into real industry after the graduation.</p>
@@ -111,7 +111,7 @@
 
       <!-- David about me -->
       <div class="media">
-        <img class="align-self-start mr-3" src="./images/DavidFace.jpg" alt="Generic placeholder image">
+        <img class="align-self-start mr-3" src="./images/DavidFace.jpg" alt="Picture of David">
         <div class="media-body">
           <h5 class="mt-0">David Delatycki</h5>
           <p>David is 20 year old student currently studying Computer Systems Technology (CST), at the British Columbia Institute of Techology. David is interested in becoming a software developer after graduation, and using Java as his primary language.</p>
@@ -120,16 +120,16 @@
 
       <!-- Min about me -->
       <div class="media">
-        <img class="align-self-start mr-3" src="./images/MinFace.jpg" alt="Generic placeholder image">
+        <img class="align-self-start mr-3" src="./images/MinFace.jpg" alt="Picture of Min">
         <div class="media-body">
-          <h5 class="mt-0">Min Kong</h5>
-          <p>This will be about Min</p>
+          <h5 class="mt-0">Minseok(Min) Kong</h5>
+          <p>Min is an 18 year old CST student at BCIT in his second term as of May 2019. Some of the lab assignments he has done during his web development course in term 1 can be seen <a href="https://mkong15.students.bcit.ca"  target="_blank">here</a>, and the project he worked on during term 1 can be seen <a href="https://mkong15.students.bcit.ca/safestore/"  target="_blank">here</a>. You can reach him at <a id="MinEmail" onclick="copyMinEmail()" href>eoeoms@naver.com</a></p>
         </div>
       </div>
 
       <!-- Jeavin about me -->
       <div class="media">
-        <img class="align-self-start mr-3" src="./images/JeavinFace.jpg" alt="Jeavin Face">
+        <img class="align-self-start mr-3" src="./images/JeavinFace.jpg" alt="Picture of Jeavin">
         <div class="media-body">
           <h5 class="mt-0">Jeavin Shoker</h5>
           <p>Jeavin is a 23 year old BCIT CST student. He is passionate about learning different computer languages and
@@ -240,6 +240,29 @@
     crossorigin="anonymous"></script>
   <script src="./js/firebase_init.js"></script>
   <script src="./js/index.js" type="text/javascript"></script>
+  <script>
+      function copyMinEmail() {
+          event.preventDefault(); 
+          let email = document.getElementById("MinEmail");
+
+          //select text
+          if (document.body.createTextRange) {
+              const range = document.body.createTextRange();
+              range.moveToElementText(email);
+              range.select();
+          } else if (window.getSelection) {
+              const selection = window.getSelection();
+              const range = document.createRange();
+              range.selectNodeContents(email);
+              selection.removeAllRanges();
+              selection.addRange(range);
+          }
+          
+          document.execCommand("copy"); //copy
+          window.getSelection().removeAllRanges(); //deselect text
+          alert("Copied to clipboard"); //show message
+      }
+  </script>
 </body>
 
 </html>
