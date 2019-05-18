@@ -4,8 +4,12 @@ html, body {
   height: 100vh;
 }
 
+#smallImg {
+  margin-right: 10px;
+}
+
 #carText{
-  color: white; 
+  color: white;
 }
 
 #faq {
@@ -154,4 +158,3 @@ div#settingIcon1 button, button#signInUpButton {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
-
