@@ -57,7 +57,7 @@ $(() => {
   //     // console.log(currentUser.userid);
   //     vehicleAll.on("value", snap => {
 
-  //       $("#selectYourVehicle").empty();   
+  //       $("#selectYourVehicle").empty();
   //         snap.forEach(function(childSnapy) {
 
   //             car = childSnapy.key;
@@ -68,7 +68,7 @@ $(() => {
   //             $("#selectYourVehicle").append(option2);
   //         });
   //     });
-  // } 
+  // }
 
 
   let geocoder = new google.maps.Geocoder();
@@ -115,15 +115,15 @@ $(() => {
 
   //Autocomplete for start and destination address
   var autocomplete, autocomplete2;
-  /** 
-   * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
+  /**
+   * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,.
    */
   initAutocomplete();
   $("#startAddress").focus(geolocate());
   $("#destination").focus(geolocate());
 
-  /** 
-   * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
+  /**
+   * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,.
    */
   function geolocate() {
     var geolocation = {
@@ -241,7 +241,7 @@ $(() => {
         zoom: 14
       });
       directionsDisplay.setMap(map);
-      
+
       geocodeAddress(geocoder, map);
       calculateAndDisplayRoute(directionsService, directionsDisplay);
     }
@@ -295,8 +295,8 @@ $(() => {
         if (status !== google.maps.DistanceMatrixStatus.OK) {
           console.log('Error:', status);
         } else {
-          $('#' + mode + 'distance').text(response.rows[0].elements[0].distance.text);
-          $('#' + mode + 'time').text(response.rows[0].elements[0].duration.text);
+          $('#' + mode + 'distance').text(response.rows[0].elements[0].distance.text).append('<br/>');
+          $('#' + mode + 'time').text(response.rows[0].elements[0].duration.text).append('<br/>');
         }
       });
     });
