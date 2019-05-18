@@ -10,7 +10,10 @@ $(() => {
     $("#destination").val(dest);
     initMap();
   }
-
+  // $.get('https://cors.io/?http://api.mygasfeed.com/stations/radius/49.248499/-123.001375/10/reg/Price/b6onp2tnm0.json?callback=?', function (data, status) {
+  //   console.log('hello');
+  //   console.log(`${data}`);
+  // });
   var currentUser = {};
   let userID;
   firebase.auth().onAuthStateChanged(function (user) {
@@ -47,8 +50,6 @@ $(() => {
   // userID = firebase.auth().currentUser.uid;
   // loadListOfVehicles();
 
-
-
   //   function loadListOfVehicles() {
   //     var vehicleAll = firebase.database().ref().child('users').child(currentUser.uid+'/cars/');
   //     // console.log(currentUser.userid);
@@ -68,7 +69,7 @@ $(() => {
   // } 
 
 
-  let geocoder = new google.maps.Geocoder;
+  let geocoder = new google.maps.Geocoder();
   $('#getLocationBtn').on('click', () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -91,7 +92,7 @@ $(() => {
           });
       });
     } else {
-      alert("Location information is unavailable.");
+      console.log("Location information is unavailable.");
     }
   });
 
@@ -110,8 +111,8 @@ $(() => {
     initMap();
   });
 
-    //Autocomplete for start and destination address
-    var autocomplete, autocomplete2;
+  //Autocomplete for start and destination address
+  var autocomplete, autocomplete2;
   /** 
    * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
    */
@@ -228,21 +229,22 @@ $(() => {
   // document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
 
   function initMap() {
+    $('#routeSteps').empty();
     var cardinfo;
     if (start === "❤" && dest === "❤") {
-      cardinfo = '<iframe src="https://www.google.com/maps/d/embed?mid=1Bzw8XeW1VSzbZImwhCeWfTHMMMJJJ54d" width="100%" height="100%"></iframe>'
+      cardinfo = '<iframe src="https://www.google.com/maps/d/embed?mid=1Bzw8XeW1VSzbZImwhCeWfTHMMMJJJ54d" width="100%" height="100%"></iframe>';
       $('#maps').html(cardinfo);
       return;
     } else {
-      var directionsService = new google.maps.DirectionsService;
-      var directionsDisplay = new google.maps.DirectionsRenderer;
+      var directionsService = new google.maps.DirectionsService();
+      var directionsDisplay = new google.maps.DirectionsRenderer();
       var map = new google.maps.Map(document.getElementById('maps'), {
         center: { lat: 49.2807323, lng: -123.117211 },
         zoom: 14
       });
       var geocoder = new google.maps.Geocoder();
       directionsDisplay.setMap(map);
-      // directionsDisplay.setPanel(document.getElementsByClassName('rcorners')[0]);
+      directionsDisplay.setPanel(document.getElementById('routeSteps'));
       geocodeAddress(geocoder, map);
       calculateAndDisplayRoute(directionsService, directionsDisplay);
     }
