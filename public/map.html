@@ -17,13 +17,15 @@
     }
 
     div#myTabContent {
-      height: calc(100% - 42px);
+      height: 100%
     }
 
     div#routeSteps {
       height: 65%;
     }
-
+    img.media-object {
+      width: 24px;
+    }
     @media screen and (min-width: 992px) {
       div#routeInput {
         max-width: 350px;
@@ -112,7 +114,7 @@
     <div class="container-fluid">
       <div class="row h-100">
         <!-- input field -->
-        <div id="routeInput" class="col-lg-3 order-2 order-lg-1 h-100 p-2 p-lg-3 border border-primary">
+        <div id="routeInput" class="col-lg-3 order-2 order-lg-1 h-100 p-2 p-lg-3 overflow-auto border border-primary">
           <div id="content">
             <form>
               <div id="location">
@@ -185,7 +187,87 @@
               </div>
             </form>
           </div>
-          <div class="rcorners">
+          <div id="accordion">
+
+            <div class="card">
+              <div class="card-header p-1" id="TRANSIT">
+                <h5 class="mb-0">
+                  <button class="btn collapsed travelMode text-left" data-toggle="collapse" data-target="#collapseTransit" aria-expanded="true"
+                    aria-controls="collapseTransit" value="TRANSIT">
+                    Transit<br/>
+                    <img class="media-object" src="./images/carsmall.png" alt="car"><span id="TRANSITdistance">Distance</span>
+                    <img class="media-object" src="./images/clock.png" alt="clock"  style="filter: invert(100%)"><span id="TRANSITtime">Time</span>
+                    <img class="media-object" src="./images/co2.png" alt="co2"  style="filter: invert(100%)"><span id="TRANSITco2">co2</span>
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseTransit" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="TRANSITStep" class="card-body">
+                  Transit Steps...
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header p-1" id="BICYCLING">
+                <h5 class="mb-0">
+                  <button class="btn collapsed travelMode text-left" data-toggle="collapse" data-target="#collapseBicycle" aria-expanded="true"
+                    aria-controls="collapseBicycle" value="BICYCLING">
+                    Bicycle<br/>
+                    <img class="media-object" src="./images/carsmall.png" alt="car"><span id="BICYCLINGdistance">Distance</span>
+                    <img class="media-object" src="./images/clock.png" alt="clock"  style="filter: invert(100%)"><span id="BICYCLINGtime">Time</span>
+                    <img class="media-object" src="./images/co2.png" alt="co2"  style="filter: invert(100%)"><span id="BICYCLINGco2">co2</span>
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseBicycle" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="BICYCLINGStep" class="card-body">
+                    Bicycle Steps...
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header p-1" id="WALKING">
+                <h5 class="mb-0">
+                  <button class="btn collapsed travelMode text-left" data-toggle="collapse" data-target="#collapseWalk"
+                    aria-expanded="false" aria-controls="collapseWalk" value="WALKING">
+                    Walk<br/>
+                    <img class="media-object" src="./images/carsmall.png" alt="car"><span id="WALKINGdistance">Distance</span>
+                    <img class="media-object" src="./images/clock.png" alt="clock"  style="filter: invert(100%)"><span id="WALKINGtime">Time</span>
+                    <img class="media-object" src="./images/co2.png" alt="co2"  style="filter: invert(100%)"><span id="WALKINGco2">co2</span>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseWalk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div id="WALKINGStep" class="card-body">
+                  Walk Steps...
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header p-1" id="DRIVING">
+                <h5 class="mb-0">
+                  <button class="btn collapsed travelMode text-left" data-toggle="collapse" data-target="#collapseDrive"
+                    aria-expanded="false" aria-controls="collapseDrive" value="DRIVING">
+                    Drive<br/>
+                    <img class="media-object" src="./images/carsmall.png" alt="car"><span id="DRIVINGdistance">Distance</span>
+                    <img class="media-object" src="./images/clock.png" alt="clock"  style="filter: invert(100%)"><span id="DRIVINGtime">Time</span>
+                    <img class="media-object" src="./images/co2.png" alt="co2"  style="filter: invert(100%)"><span id="DRIVINGco2">co2</span>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseDrive" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="DRIVINGStep" class="card-body">
+                  Drive Steps...
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="rcorners">
             <div class="media">
               <div class="media-left media-middle">
                 <img class="media-object" src="./images/carsmall.png" alt="car" style="filter: invert(100%)">
@@ -213,12 +295,12 @@
           </div>
           <div id="routeSteps" class="overflow-auto">
 
-          </div>
+          </div> -->
         </div>
         <!--  -->
 
         <div class="col order-1 order-lg-2 border border-danger aos-init aos-animate p-0" data-aos="fade-up">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <button class="nav-link active h-100 travelMode" id="TRANSIT" data-toggle="tab" href="#busMap" role="tab"
                 aria-controls="home" aria-selected="true" value="TRANSIT">BUS/TRAIN</button>
@@ -235,7 +317,7 @@
               <button class="nav-link travelMode" id="BICYCLING" data-toggle="tab" href="#bicycleMap" role="tab"
                 aria-controls="contact" value="BICYCLING" aria-selected="false">BICYCLE</button>
             </li>
-          </ul>
+          </ul> -->
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show h-100 active" id="maps" role="tabpanel" aria-labelledby="home-tab"></div>
             <!-- <div class="tab-pane fade h-100" id="driveMap" role="tabpanel" aria-labelledby="profile-tab"></div>
@@ -346,6 +428,8 @@
   <script src="./js/logmytrip.js"></script> -->
   <script src="./js/map1.js"></script>
   <script src="./js/vehicle_data.js"></script>
+  <script src="./js/autoComplete.js"></script>
+  <script src="./js/autolocate.js"></script>
   <!-- <script src="./js/addVehicle.js"></script> -->
   <script src="./js/index.js"></script>
   <script>

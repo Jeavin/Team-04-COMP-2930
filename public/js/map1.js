@@ -1,6 +1,11 @@
 $(() => {
-  var tMode = "TRANSIT";
+  let map = new google.maps.Map(document.getElementById('maps'), {
+    center: { lat: 49.2807323, lng: -123.117211 },
+    zoom: 14
+  });
+  let tMode = ['TRANSIT', 'DRIVING', 'WALKING', 'BICYCLING'];
   let start, dest;
+  let chosenMode = 'TRANSIT';
   let url = decodeURIComponent(document.location.href);
   if (url.split('?')[1]) {
     let urlParts = url.split('?')[1].split('&');
@@ -10,10 +15,7 @@ $(() => {
     $("#destination").val(dest);
     initMap();
   }
-  // $.get('https://cors.io/?http://api.mygasfeed.com/stations/radius/49.248499/-123.001375/10/reg/Price/b6onp2tnm0.json?callback=?', function (data, status) {
-  //   console.log('hello');
-  //   console.log(`${data}`);
-  // });
+
   var currentUser = {};
   let userID;
   firebase.auth().onAuthStateChanged(function (user) {
@@ -107,7 +109,7 @@ $(() => {
   });
 
   $(".travelMode").click(function () {
-    tMode = $(this).val();
+    chosenMode = $(this).val();
     initMap();
   });
 
@@ -182,36 +184,17 @@ $(() => {
   $('#DRIVING').on('click', () => {
     $('#collapseCar').collapse('show');
     $('#vehicle').show();
-  })
+  });
 
   $(' #TRANSIT, #BICYCLING, #WALKING').on('click', () => {
     $('#collapseCar').collapse('hide');
     $('#vehicle').hide();
-  })
-
-  $(".travelMode").click(function () {
-    tMode = $(this).val();
-    initMap();
   });
 
-
-  $(document).on('click', '#impactBtn',
-    function redirect(e) {
-      e.preventDefault();
-      let year = $('#selectYear option:selected').val();
-      let make = $('#selectMake option:selected').val();
-      let model = $('#selectModel option:selected').val();
-      start = $('#startAddress').val();
-      dest = $('#destination').val();
-      if (!(year === "Choose.." || make === "Choose.." || model === "Choose..")) {
-        // document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
-      }
-      if (start === '' || dest === '') {
-
-      }
-      initMap();
-    });
-
+  $(".travelMode").click(function () {
+    chosenMode = $(this).val();
+    initMap();
+  });
 
   // var today = new Date();
   // const curyear = today.getFullYear();
@@ -227,31 +210,44 @@ $(() => {
   //   dest = dest.replace('%20', ' ');
   // }
   // document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
+  $(document).on('click', '#impactBtn',
+    function redirect(e) {
+      e.preventDefault();
+      let year = $('#selectYear option:selected').val();
+      let make = $('#selectMake option:selected').val();
+      let model = $('#selectModel option:selected').val();
+      start = $('#startAddress').val();
+      dest = $('#destination').val();
+      if (!(year === "Choose.." || make === "Choose.." || model === "Choose..")) {
+        // document.getElementById("vehicle").innerHTML = year + " " + make + " " + model;
+      }
+      if (start !== '' && dest !== '') {
+        initMap();
+      }
+    });
 
   function initMap() {
-    $('#routeSteps').empty();
     var cardinfo;
     if (start === "❤" && dest === "❤") {
       cardinfo = '<iframe src="https://www.google.com/maps/d/embed?mid=1Bzw8XeW1VSzbZImwhCeWfTHMMMJJJ54d" width="100%" height="100%"></iframe>';
       $('#maps').html(cardinfo);
-      return;
     } else {
       var directionsService = new google.maps.DirectionsService();
       var directionsDisplay = new google.maps.DirectionsRenderer();
-      var map = new google.maps.Map(document.getElementById('maps'), {
+      var geocoder = new google.maps.Geocoder();
+
+      map = new google.maps.Map(document.getElementById('maps'), {
         center: { lat: 49.2807323, lng: -123.117211 },
         zoom: 14
       });
-      var geocoder = new google.maps.Geocoder();
       directionsDisplay.setMap(map);
-      directionsDisplay.setPanel(document.getElementById('routeSteps'));
+      
       geocodeAddress(geocoder, map);
       calculateAndDisplayRoute(directionsService, directionsDisplay);
     }
     if ($("#startAddress").val() !== "" && $("#destination").val() !== "") {
       getDistance();
     }
-
   }
 
   // To adjust center of the map after you show the route
@@ -266,10 +262,12 @@ $(() => {
   }
 
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    directionsService.route({
+    tMode.forEach((mode) => {
+      directionsDisplay.setPanel(document.getElementById(mode + 'Step'));
+      directionsService.route({
       origin: start,
       destination: dest,
-      travelMode: google.maps.TravelMode[tMode]
+      travelMode: google.maps.TravelMode[mode]
     }, function (response, status) {
       if (status === 'OK') {
         directionsDisplay.setOptions({ preserveViewport: true });
@@ -278,26 +276,29 @@ $(() => {
         console.log('Directions request failed due to ' + status);
       }
     });
+  });
   }
 
   function getDistance() {
     //Find the distance
     var distanceService = new google.maps.DistanceMatrixService();
-    distanceService.getDistanceMatrix({
-      origins: [start],
-      destinations: [dest],
-      travelMode: google.maps.TravelMode[tMode],
-      unitSystem: google.maps.UnitSystem.METRIC,
-      durationInTraffic: true,
-      avoidHighways: false,
-      avoidTolls: false
-    }, function (response, status) {
-      if (status !== google.maps.DistanceMatrixStatus.OK) {
-        console.log('Error:', status);
-      } else {
-        $("#distance").text(response.rows[0].elements[0].distance.text).show();
-        $("#time").text(response.rows[0].elements[0].duration.text).show();
-      }
+    tMode.forEach((mode) => {
+      distanceService.getDistanceMatrix({
+        origins: [start],
+        destinations: [dest],
+        travelMode: google.maps.TravelMode[mode],
+        unitSystem: google.maps.UnitSystem.METRIC,
+        durationInTraffic: true,
+        avoidHighways: false,
+        avoidTolls: false
+      }, function (response, status) {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+          console.log('Error:', status);
+        } else {
+          $('#' + mode + 'distance').text(response.rows[0].elements[0].distance.text);
+          $('#' + mode + 'time').text(response.rows[0].elements[0].duration.text);
+        }
+      });
     });
   }
-})
+});
