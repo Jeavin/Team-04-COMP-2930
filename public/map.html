@@ -23,9 +23,11 @@
     div#routeSteps {
       height: 65%;
     }
+
     img.media-object {
       width: 24px;
     }
+
     @media screen and (min-width: 992px) {
       div#routeInput {
         max-width: 350px;
@@ -110,11 +112,11 @@
     </div>
   </nav>
 
-  <main class="d-flex p-1 order border-success">
+  <main class="d-flex p-1 order">
     <div class="container-fluid">
       <div class="row h-100">
         <!-- input field -->
-        <div id="routeInput" class="col-lg-3 order-2 order-lg-1 h-100 p-2 p-lg-3 overflow-auto border border-primary">
+        <div id="routeInput" class="col-lg-3 order-2 order-lg-1 h-100 p-2 p-lg-3 overflow-auto">
           <div id="content">
             <form>
               <div id="location">
@@ -128,7 +130,118 @@
                 </div>
               </div>
 
+              <div id="impactBtn">
+                <button class="btn btn-success text-white w-100" type="button" data-toggle="collapse"
+                  data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Let's See Our
+                  Impact</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header p-1" id="TRANSIT">
+                <h5 class="mb-0">
+                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse"
+                    data-target="#collapseTransit" aria-expanded="true" aria-controls="collapseTransit" value="TRANSIT">
+                    <b>Transit</b><br />
+                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
+                      id="TRANSITdistance">Distance<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
+                      style="filter: invert(100%)"><span id="TRANSITtime">Time<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
+                      style="filter: invert(100%)"><span id="TRANSITco2">co2</span>
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseTransit" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="TRANSITStep" class="card-body">
+                  Transit Steps...
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header p-1" id="BICYCLING">
+                <h5 class="mb-0">
+                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse"
+                    data-target="#collapseBicycle" aria-expanded="true" aria-controls="collapseBicycle"
+                    value="BICYCLING">
+                    <b>Bicycle</b><br />
+                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
+                      id="BICYCLINGdistance">Distance<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
+                      style="filter: invert(100%)"><span id="BICYCLINGtime">Time<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
+                      style="filter: invert(100%)"><span id="BICYCLINGco2">co2</span>
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseBicycle" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="BICYCLINGStep" class="card-body">
+                  Bicycle Steps...
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header p-1" id="WALKING">
+                <h5 class="mb-0">
+                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse"
+                    data-target="#collapseWalk" aria-expanded="false" aria-controls="collapseWalk" value="WALKING">
+                    <b>Walk</b><br />
+                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
+                      id="WALKINGdistance">Distance<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
+                      style="filter: invert(100%)"><span id="WALKINGtime">Time<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
+                      style="filter: invert(100%)"><span id="WALKINGco2">co2</span>
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseWalk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div id="WALKINGStep" class="card-body">
+                  Walk Steps...
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header p-1" id="DRIVING">
+                <h5 class="mb-0">
+                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse"
+                    data-target="#collapseDrive" aria-expanded="false" aria-controls="collapseDrive" value="DRIVING">
+                    <b>Drive</b><br />
+                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
+                      id="DRIVINGdistance">Distance<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
+                      style="filter: invert(100%)"><span id="DRIVINGtime">Time<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
+                      style="filter: invert(100%)"><span id="DRIVINGco2">co2</span>
+                  </button>
+                </h5>
+              </div>
+
+
               <div class="collapse" id="collapseCar">
+                <div id="savedVehicles" class="card bg-success text-black card-body mb-3">
+                  <label id="carText" for="year">Your Vehicle</label>
+                  <div id="yourVehicles">
+                    <div class="input-group mb-3" style="width: 210px">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" style="width: 70px" for="selectYourVehicle">Vehicles</label>
+                      </div>
+                      <select class="custom-select" id="selectYourVehicle">
+                        <option disabled selected>Choose..</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label id="carText" for="year"><a id="carText" href="./addVehicle.html">Add vehicles to your
+                      account</a></label>
+                </div>
                 <div class="card bg-success text-black card-body mb-3">
                   <label id="carText" for="year">Vehicle</label>
                   <div id="carYear">
@@ -161,105 +274,9 @@
                       </select>
                     </div>
                   </div>
-
-                </div>
-                <div id="savedVehicles" class="card bg-success text-black card-body mb-3">
-                  <label id="carText" for="year">Your Vehicle</label>
-                  <div id="yourVehicles">
-                    <div class="input-group mb-3" style="width: 210px">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" style="width: 70px" for="selectYourVehicle">Vehicles</label>
-                      </div>
-                      <select class="custom-select" id="selectYourVehicle">
-                        <option disabled selected>Choose..</option>
-                      </select>
-                    </div>
-                  </div>
-                  <label id="carText" for="year"><a id="carText" href="./addVehicle.html">Add vehicles to your
-                      account</a></label>
                 </div>
               </div>
 
-              <div id="impactBtn">
-                <button class="btn btn-success text-white w-100" type="button" data-toggle="collapse"
-                  data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Let's See Our
-                  Impact</button>
-              </div>
-            </form>
-          </div>
-          <div id="accordion">
-
-            <div class="card">
-              <div class="card-header p-1" id="TRANSIT">
-                <h5 class="mb-0">
-                  <button class="btn collapsed travelMode text-left" data-toggle="collapse" data-target="#collapseTransit" aria-expanded="true"
-                    aria-controls="collapseTransit" value="TRANSIT">
-                    <b>Transit</b><br/>
-                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span id="TRANSITdistance">Distance<br/></span>
-                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"  style="filter: invert(100%)"><span id="TRANSITtime">Time<br/></span>
-                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"  style="filter: invert(100%)"><span id="TRANSITco2">co2</span>
-                  </button>
-                </h5>
-              </div>
-
-              <div id="collapseTransit" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                <div id="TRANSITStep" class="card-body">
-                  Transit Steps...
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header p-1" id="BICYCLING">
-                <h5 class="mb-0">
-                  <button class="btn collapsed travelMode text-left" data-toggle="collapse" data-target="#collapseBicycle" aria-expanded="true"
-                    aria-controls="collapseBicycle" value="BICYCLING">
-                    <b>Bicycle</b><br/>
-                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span id="BICYCLINGdistance">Distance<br/></span>
-                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"  style="filter: invert(100%)"><span id="BICYCLINGtime">Time<br/></span>
-                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"  style="filter: invert(100%)"><span id="BICYCLINGco2">co2</span>
-                  </button>
-                </h5>
-              </div>
-
-              <div id="collapseBicycle" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                <div id="BICYCLINGStep" class="card-body">
-                    Bicycle Steps...
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header p-1" id="WALKING">
-                <h5 class="mb-0">
-                  <button class="btn collapsed travelMode text-left" data-toggle="collapse" data-target="#collapseWalk"
-                    aria-expanded="false" aria-controls="collapseWalk" value="WALKING">
-                    <b>Walk</b><br/>
-                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span id="WALKINGdistance">Distance<br/></span>
-                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"  style="filter: invert(100%)"><span id="WALKINGtime">Time<br/></span>
-                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"  style="filter: invert(100%)"><span id="WALKINGco2">co2</span>
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseWalk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div id="WALKINGStep" class="card-body">
-                  Walk Steps...
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header p-1" id="DRIVING">
-                <h5 class="mb-0">
-                  <button class="btn collapsed travelMode text-left" data-toggle="collapse" data-target="#collapseDrive"
-                    aria-expanded="false" aria-controls="collapseDrive" value="DRIVING">
-                    <b>Drive</b><br/>
-                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span id="DRIVINGdistance">Distance<br/></span>
-                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"  style="filter: invert(100%)"><span id="DRIVINGtime">Time<br/></span>
-                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"  style="filter: invert(100%)"><span id="DRIVINGco2">co2</span>
-                  </button>
-                </h5>
-              </div>
               <div id="collapseDrive" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div id="DRIVINGStep" class="card-body">
                   Drive Steps...
@@ -299,7 +316,7 @@
         </div>
         <!--  -->
 
-        <div class="col order-1 order-lg-2 border border-danger aos-init aos-animate p-0" data-aos="fade-up">
+        <div class="col order-1 order-lg-2 aos-init aos-animate p-0" data-aos="fade-up">
           <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <button class="nav-link active h-100 travelMode" id="TRANSIT" data-toggle="tab" href="#busMap" role="tab"
