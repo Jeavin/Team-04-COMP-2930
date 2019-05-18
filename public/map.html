@@ -15,26 +15,38 @@
     main {
       height: calc(100vh - 59.5px);
     }
+
     div#myTabContent {
       height: calc(100% - 42px);
     }
+
+    div#routeSteps {
+      height: 65%;
+    }
+
     @media screen and (min-width: 992px) {
       div#routeInput {
         max-width: 350px;
       }
     }
+
     @media screen and (max-width: 992px) {
       div#myTabContent {
         height: 60vh;
-    }
+      }
+
+      div#routeSteps {
+        height: auto;
+      }
     }
 
     @media screen and (max-width: 567px) {
       main {
         padding: .2rem !important;
       }
+
       ul#myTab button {
-        padding:.3rem;
+        padding: .3rem;
       }
     }
   </style>
@@ -101,54 +113,8 @@
       <div class="row h-100">
         <!-- input field -->
         <div id="routeInput" class="col-lg-3 order-2 order-lg-1 h-100 p-2 p-lg-3 border border-primary">
-          <!-- Content in center -->
           <div id="content">
-            <!-- <h3>Choose Your Transportation</h3> -->
-            <!-- 3 Circular Buttons -->
-            <!-- <div id="buttons">
-              <button class="button button1" style="background-image: url('./images/car.png')" type="button"
-                data-toggle="collapse" data-target="#collapseCar" aria-expanded="false"
-                aria-controls="collapseCar"></button>
-              <button class="button button2" style="background-image: url('./images/bus.png')"></button>
-              <button class="button button3" style="background-image: url('./images/train.png')"></button>
-              <button class="button nobutton active"></button>
-            </div> -->
-
             <form>
-              <!-- <div class="collapse" id="collapseCar">
-                <div class="card bg-warning text-black card-body">
-                  <div id="carYear">
-                    <div class="input-group mb-3" style="width: 210px">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" style="width: 70px" for="selectYear">Year</label>
-                      </div>
-                      <select class="custom-select" id="selectYear" onchange="yearSelected()">
-                        <option disabled selected>Choose..</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div id="carMake">
-                    <div class="input-group mb-3" style="width: 210px">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" style="width: 70px" for="selectMake">Make</label>
-                      </div>
-                      <select class="custom-select" id="selectMake" onchange="makeSelected()">
-                        <option disabled selected>Choose..</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div id="carModel">
-                    <div class="input-group mb-3" style="width: 210px">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" style="width: 70px" for="selectModel">Model</label>
-                      </div>
-                      <select class="custom-select" id="selectModel">
-                        <option disabled selected>Choose..</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
               <div id="location">
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" id="startAddress" placeholder="Start Location" />
@@ -196,7 +162,7 @@
 
                 </div>
                 <div id="savedVehicles" class="card bg-success text-black card-body mb-3">
-                    <label id="carText" for="year">Your Vehicle</label>
+                  <label id="carText" for="year">Your Vehicle</label>
                   <div id="yourVehicles">
                     <div class="input-group mb-3" style="width: 210px">
                       <div class="input-group-prepend">
@@ -207,13 +173,10 @@
                       </select>
                     </div>
                   </div>
-                  <label id="carText" for="year"><a id="carText" href="./addVehicle.html">Add vehicles to your account</a></label>
+                  <label id="carText" for="year"><a id="carText" href="./addVehicle.html">Add vehicles to your
+                      account</a></label>
                 </div>
               </div>
-              <!-- <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Two way trip</label>
-              </div> -->
 
               <div id="impactBtn">
                 <button class="btn btn-success text-white w-100" type="button" data-toggle="collapse"
@@ -247,6 +210,9 @@
                 <p id="distance"><br /></p>
               </div>
             </div>
+          </div>
+          <div id="routeSteps" class="overflow-auto">
+
           </div>
         </div>
         <!--  -->
@@ -364,9 +330,7 @@
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
