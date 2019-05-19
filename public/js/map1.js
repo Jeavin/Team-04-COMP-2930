@@ -1,4 +1,30 @@
 $(() => {
+  //clear selections
+  $("#selectYear").change(function() {
+    $("#selectYourVehicle").val(null);
+  });
+  $("#selectMake").change(function() {
+    $("#selectYourVehicle").val(null);
+  });
+  $("#selectModel").change(function() {
+    $("#selectYourVehicle").val(null);
+  });
+  $("#selectYourVehicle").change(function() {
+    firebase.database().ref().child("users/" + firebase.auth().currentUser.uid + "/cars/" + $("#selectYourVehicle").val()).on("value", snap => {
+      $("#selectYear").val(snap.child("Year").val());
+
+      let make = snap.child("Make").val();
+      $("#selectMake").empty();
+      $("#selectMake").append($("<option value=\"" + make + "\">"+make+"</option>"));
+      $("#selectMake").val(snap.child("Make").val());
+
+      let model = snap.key;
+      $("#selectModel").empty();
+      $("#selectModel").append($("<option value=\"" + model + "\">"+model+"</option>"));
+      $("#selectModel").val(snap.key);
+    });
+  });
+
   let map = new google.maps.Map(document.getElementById('maps'), {
     center: { lat: 49.2807323, lng: -123.117211 },
     zoom: 14
