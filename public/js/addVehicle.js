@@ -145,7 +145,10 @@ function newPerson() {
         ref.on("value", function(snapshot) {
           emissions = snapshot.child("vehicleDatasets/" + $('#box1').val() + "/" + $('#box2').val() + "/" + $('#box3').val() + "/" + "CO2 EMISSIONS (g_km)").val();
          console.log(emissions);
-         firebase.database().ref().child('users').child(currentUser.userid+'/cars/'+$('#box3 option:selected').text()).update({
+         firebase.database().ref().child('users').child(
+             currentUser.userid+'/cars/'+
+             $('#box2 option:selected').text() + ' ' +
+             $('#box3 option:selected').text()).update({
             Make: $('#box2 option:selected').text(),
             Year: $('#box1 option:selected').text(),
             g_km: emissions
