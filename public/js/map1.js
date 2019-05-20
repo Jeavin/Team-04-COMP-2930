@@ -11,7 +11,7 @@ $(() => {
     $('#impactBtn').trigger('click');
   }
 
-  //clear selections
+  //select car
   $("#selectYear").change(function () {
     $("#selectYourVehicle").val(null);
   });
@@ -20,6 +20,10 @@ $(() => {
   });
   $("#selectModel").change(function () {
     $("#selectYourVehicle").val(null);
+    vehicleData.child($("#selectYear").val() + "/" + $("#selectMake").val() + "/" + $("#selectModel").val()).on("value", snap => {
+      let emission = calcEmission(snap.child("CO2 EMISSIONS (g_km)").val(), getDistance($("#DRIVINGdistance").text()));
+      $("#DRIVINGco2").text(emission + " kg");
+    });
   });
   $("#selectYourVehicle").change(function () {
     firebase.database().ref().child("users/" + firebase.auth().currentUser.uid + "/cars/" + $("#selectYourVehicle").val()).on("value", snap => {
@@ -34,6 +38,9 @@ $(() => {
       $("#selectModel").empty();
       $("#selectModel").append($("<option value=\"" + model + "\">" + model + "</option>"));
       $("#selectModel").val(snap.key);
+
+      let emission = calcEmission(snap.child("g_km").val(), getDistance($("#DRIVINGdistance").text()));
+      $("#DRIVINGco2").text(emission + " kg");
     });
   });
 
@@ -65,6 +72,7 @@ $(() => {
         'Sign In/Up</button>');
 
       $('#savedVehicles').remove();
+      $('.logBtn').remove();
       console.log('user: not log in');
     }
     console.log('user: not log in');
@@ -156,8 +164,16 @@ $(() => {
           let modelKey = $("#selectModel").val();
           //if all the values in the select boxes are not empty, retrieve co2
           //emission per km from database to calculate.
-          if (!(yearKey && makeKey && modelKey)) {
+          if (yearKey != null && makeKey != null && modelKey != null) {
+            vehicleData.child(yearKey + "/" + makeKey + "/" + modelKey).on("value", snap => {
+              let emission = calcEmission(snap.child("CO2 EMISSIONS (g_km)").val(), getDistance($("#DRIVINGdistance").text()));
+              $("#DRIVINGco2").text(emission + " kg");
+            });
+          } else {
+            $("#DRIVINGco2").text("Unknown Vehicle");
           }
+        } else if (mode === 'TRANSIT') {
+          $("#TRANSITco2").text(calcEmission(transitEmission, getDistance($("#TRANSITdistance").text())) + " kg");
         }
       }
     });
@@ -176,21 +192,5 @@ $(() => {
   $(".travelMode").click(function (e) {
     let chosenMode = $(this).val();
     $('#' + chosenMode + '-tab').trigger('click');
-  });
-
-  $('#selectModel').on('change', function () {
-    firebase.database().ref().child("users/" + firebase.auth().currentUser.uid + "/cars/" + $("#selectYourVehicle").val()).on("value", snap => {
-      $("#selectYear").val(snap.child("Year").val());
-
-      let make = snap.child("Make").val();
-      $("#selectMake").empty();
-      $("#selectMake").append($("<option value=\"" + make + "\">" + make + "</option>"));
-      $("#selectMake").val(snap.child("Make").val());
-
-      let model = snap.key;
-      $("#selectModel").empty();
-      $("#selectModel").append($("<option value=\"" + model + "\">" + model + "</option>"));
-      $("#selectModel").val(snap.key);
-    });
   });
 });

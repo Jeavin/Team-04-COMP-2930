@@ -7,6 +7,7 @@ $(document).ready(function () {
 });
 
 var vehicleData = firebase.database().ref().child("vehicleDatasets");
+const transitEmission = 48.66;
 var selectedYear;
 var selectedMake;
 function loadListOfYears() {

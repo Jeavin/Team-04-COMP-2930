@@ -148,12 +148,13 @@
                   <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse"
                     data-target="#collapseTransit" aria-expanded="true" aria-controls="collapseTransit" value="TRANSIT">
                     <b>Transit</b><br />
-                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
-                      id="TRANSITdistance">0 km<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/transit.png" alt="car"><span
+                      id="TRANSITdistance">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
-                      style="filter: invert(100%)"><span id="TRANSITtime">0 mins<br /></span>
+                      style="filter: invert(100%)"><span id="TRANSITtime">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
-                      style="filter: invert(100%)"><span id="TRANSITco2">0 gram</span>
+                      style="filter: invert(100%)"><span id="TRANSITco2">-</span>
+                    <span class="float-right btn btn-success logBtn" onclick="logToDB_transit()">LOG</span>
                   </button>
                 </h5>
               </div>
@@ -173,11 +174,11 @@
                     value="BICYCLING">
                     <b>Bicycle</b><br />
                     <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
-                      id="BICYCLINGdistance">0 km<br /></span>
+                      id="BICYCLINGdistance">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
-                      style="filter: invert(100%)"><span id="BICYCLINGtime">0 mins<br /></span>
+                      style="filter: invert(100%)"><span id="BICYCLINGtime">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
-                      style="filter: invert(100%)"><span id="BICYCLINGco2">0 gram</span>
+                      style="filter: invert(100%)"><span id="BICYCLINGco2">0 kg</span>
                   </button>
 
                 </h5>
@@ -197,11 +198,11 @@
                     data-target="#collapseWalk" aria-expanded="false" aria-controls="collapseWalk" value="WALKING">
                     <b>Walk</b><br />
                     <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
-                      id="WALKINGdistance">0 km<br /></span>
+                      id="WALKINGdistance">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
-                      style="filter: invert(100%)"><span id="WALKINGtime">0 mins<br /></span>
+                      style="filter: invert(100%)"><span id="WALKINGtime">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
-                      style="filter: invert(100%)"><span id="WALKINGco2">0 gram</span>
+                      style="filter: invert(100%)"><span id="WALKINGco2">0 kg</span>
                   </button>
                 </h5>
               </div>
@@ -220,11 +221,12 @@
                     data-target="#collapseDrive" aria-expanded="false" aria-controls="collapseDrive" value="DRIVING">
                     <b>Drive</b><br />
                     <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
-                      id="DRIVINGdistance">0 km<br /></span>
+                      id="DRIVINGdistance">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
-                      style="filter: invert(100%)"><span id="DRIVINGtime">0 mins<br /></span>
+                      style="filter: invert(100%)"><span id="DRIVINGtime">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
                       style="filter: invert(100%)"><span id="DRIVINGco2">Unknown Vehicle</span>
+                    <span class="float-right btn btn-success logBtn" onclick="logToDB_car()">LOG</span>
                   </button>
                 </h5>
               </div>
@@ -420,6 +422,7 @@
   <!-- <script src="./js/mytrip.js"></script>
   <script src="./js/logmytrip.js"></script> -->
   <script src="./js/map1.js"></script>
+  <script src="./js/log_to_db.js"></script>
   <script src="./js/vehicle_data.js"></script>
   <script src="./js/autoComplete.js"></script>
   <script src="./js/autolocate.js"></script>

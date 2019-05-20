@@ -86,14 +86,14 @@ function createFooterRow(month, totalEmission) {
     let footerRow = $("<tr></tr>");
     footerRow.addClass("month-footer");
 
+    totalEmission = totalEmission.toFixed(2);
+
     let th1 = $("<th></th>");
     th1.html("Total (" + month + ")");
     let th2 = $("<th></th>");
     let th3 = $("<th></th>");
     th3.html(totalEmission + " kg");
-    // footerRow.append($("<th>Total (" + month + ")</th>"),
-    //                  $("<th></th>"),
-    //                  $("<th>" + totalEmission + " kg</th>"));
+
     footerRow.append(th1, th2, th3);
 
     return footerRow;
@@ -102,7 +102,6 @@ function createFooterRow(month, totalEmission) {
 $(document).ready(function () {
 
 
-//TAKES USER ID FROM FIREBASE AUTHENTICATION
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         console.log(user.uid);
