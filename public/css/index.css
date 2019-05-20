@@ -1,0 +1,160 @@
+html, body {
+  min-width: 320px;
+  min-height: 360px;
+  height: 100vh;
+}
+
+#smallImg {
+  margin-right: 10px;
+}
+
+#carText{
+  color: white;
+}
+
+#faq {
+  color: white;
+  margin-top: 1rem;
+}
+
+.py-3 {
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
+.bg-success {
+  border-color: #28a745 !important
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+a#logo, a#logo:hover {
+  color: #28a745 !important;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+a {
+  outline: 0;
+}
+main {
+  height: calc(100vh - 59.5px - 62.4px);
+}
+
+div#backImageContainer {
+  background-image: url("../images/backImage.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+}
+
+div#contactBackImage {
+  background-image: url("../images/aboutUs.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+a.dropdown-item:hover {
+  background-color:#28a745;
+  color: white;
+}
+
+div#settingIcon1 {
+  display: none;
+}
+
+li.active {
+  border-bottom: 2px solid #007E33;
+}
+
+div#settingIcon1 button, button#signInUpButton {
+  border-color: rgba(0, 0, 0, .1);
+}
+
+@media screen and (min-width: 992px) {
+  div#navbarsExample09 ul:first-child {
+    margin-left: 2.5rem !important;
+    margin-right: 1rem !important;
+  }
+  div#navbarsExample09 ul li {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  main {
+    padding: 2rem !important;
+    height: auto;
+  }
+  div#navbarsExample09 {
+    order: 4;
+  }
+
+  div#settingIcon1, div#settingIcon2 {
+    order: 3;
+  }
+
+  div#settingIcon1 {
+    display: inline;
+  }
+
+  div#settingIcon2 {
+    display: none;
+  }
+  .p-5 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  nav, .btn{
+    padding:.2rem;
+  }
+
+  a#signInButton {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+
+
+
+ html, a#logo {
+    font-size: 0.98rem;
+  }
+
+  h1 {
+    font-size: 3rem !important;
+  }
+
+}
+
+.p-5 {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}

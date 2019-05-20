@@ -1,0 +1,100 @@
+html,
+body {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#table-container {
+  padding: 0;
+  /* height: calc(100% - headerAndFooterHeight); */
+  height: 100%;
+  overflow-y: auto;
+}
+
+table {
+  text-align: center;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+#thead-row th {
+  border-top: none;
+  border-bottom: 2px solid gray;
+  font-weight: normal;
+}
+
+#thead-row th:first-child,
+#thead-row th:nth-child(3) {
+  width: 20%;
+}
+#thead-row th:nth-child(2) {
+  width: 60%;
+}
+
+.month-header {
+  background-color: #f1f1f1;
+}
+
+.month-header th {
+  padding: 0.4rem;
+}
+
+.month-header:hover th {
+  background-color: #f1f1f1;
+}
+
+.month-footer th {
+  border-top: 1px solid gray;
+  padding: 0.4rem;
+}
+
+.month-footer:hover th {
+  background-color: white;
+}
+
+td:nth-child(3),
+.month-footer th:nth-child(3) {
+  text-align: right;
+  padding-right: 6%;
+}
+
+.data-row td:nth-child(2) {
+  padding: 0.3rem;
+}
+
+td img {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  /* border: 1.8px solid black; */
+  /* border-radius: 50%; */
+}
+
+tbody:last-child{
+  border-bottom: 1px solid #dee2e6;
+}
+
+.slide td {
+  padding: 0;
+  border-top: none;
+}
+
+.details {
+  background-color: #BDECC2;
+}
+
+@media (max-width: 768px) {
+  #thead-row th:first-child,
+  #thead-row th:nth-child(3) {
+    width: 30%;
+  }
+  #thead-row th:nth-child(2) {
+    width: 40%;
+  }
+}

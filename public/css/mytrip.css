@@ -1,0 +1,134 @@
+body {
+  background: #BDECC2 !important;
+}
+.speech-bubble {
+	position: relative;
+	background: white;
+  /* margin-top: -20px; */
+  padding-bottom: 25px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 38px solid transparent;
+	border-top-color: white;
+	border-bottom: 0;
+	margin-left: -38px;
+	margin-bottom: -38px;
+}
+
+.media-body{
+  padding-left: 8%;
+}
+.media-object {
+  padding-left: 10%;
+  padding-top: 20%;
+  padding-bottom: 20%;
+}
+
+.media-object3 {
+  margin-left: 40%;
+  padding-top: 20%;
+  padding-bottom: 20%;
+}
+
+.media-object2 {
+  margin-left: 230%;
+}
+
+.rcorners {
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 25px;
+  background: #5CC573;
+  padding: 20px;
+  width: 90%;
+  height: 275px;
+}
+
+.rcorners2 {
+  margin: 0 auto;
+  border-radius: 50px;
+  background: #BDECC2;
+  text-align: center;
+  /* padding: 20px; */
+  width: 60%;
+  height: 50px;
+  line-height: 50px;
+}
+
+.buttondiv {
+  margin: 0 auto;
+  width: 43%;
+  padding-bottom: 5%;
+}
+
+.btn-primary {
+  background-color: #85D139 !important;
+  border-color: #85D139 !important;
+}
+/* 
+.btn {
+  width: 100%;
+} */
+
+#map {
+  height: 450px;
+  margin: 5%;
+  border: 2px solid #5CC573;
+  border-radius: 25px;
+}
+
+#maps {
+  height: 450px;
+  border: 2px solid #5CC573;
+  border-radius: 25px;
+  /* width: 60%; */
+  /* float: left; */
+}
+
+/* #right-panel {
+  height: 450px;
+  border: 2px solid #5CC573;
+  border-radius: 25px;
+} */
+
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+#right-panel {
+  height: 100%;
+  float: right;
+  width: 390px;
+  overflow: auto;
+}
+
+#startAddress {
+  margin-top: 20px;
+  font-size: 2.5vw;
+}
+
+#destination {
+  margin-top: 20px;
+  font-size: 2.5vw;
+}

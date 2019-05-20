@@ -1,0 +1,13 @@
+.page-header{
+  background-color: #D2EBBF !important;
+  color: #6A6464;
+  border-bottom: 0 !important;
+  margin: 0 0 0 !important;
+  display: table-cell;
+  width: 10%;
+}
+
+.page-header h1{
+  margin-left: 10px;
+  font-size: 2em;
+}

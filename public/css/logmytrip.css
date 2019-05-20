@@ -1,0 +1,121 @@
+.button {
+    width: 70px;
+    height: 70px;
+    background-size: 50px 50px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-style: none;
+    margin: 0 calc( (100% - 210px) / 4 );
+    float: left;
+    background-color: white;
+    transition-duration: 0.4s;
+}
+
+.nobutton {
+    display: none;
+}
+
+.active{
+    border: 1.5px solid #56a856;
+    background-color: #FFD056;
+}
+
+.button:checked {
+    background-color: #FFD056;
+    border: 1.5px solid #085519;
+}
+
+.button1{
+    margin-right: 0;
+}
+
+.button3{
+    margin-left: 0;
+}
+
+#carYear h4 {
+    /* margin: 0 0 0 20px; */
+    float: left;
+    font-size: 1em;
+}
+
+#carYear {
+    width: 300px;
+    margin: 0 auto;
+}
+
+#carMake h4 {
+    /* margin: 0 0 0 20px; */
+    float: left;
+    font-size: 1em;
+
+}
+
+#carMake {
+    width: 300px;
+    margin: 0 auto;
+}
+
+#carModel h4 {
+    /* margin: 0 0 0 20px; */
+    float: left;
+    font-size: 1em;
+}
+
+#carModel {
+    width: 300px;
+    margin: 0 auto;
+}
+
+#buttons {
+    width: calc(40% + 210px);
+    margin: 0 auto;
+    height: 100px;
+}
+
+#content {
+    background-color: #BDECC2;
+    border-radius: 10%;
+    height: 100%;
+    margin: 0 20px;
+    margin-top: 20px;
+}
+
+#content h3 {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 1.3em
+}
+
+#impactBtn {
+    margin: 0 auto;
+    width: 200px;
+
+}
+
+.form-group {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.card {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+/* .btn {
+    margin-bottom: 20px;
+} */
+
+.md-form{
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 5%;
+}
+
+.form-check {
+  margin-bottom: 5%;
+  margin-left: 18%;
+}
