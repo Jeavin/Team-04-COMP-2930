@@ -147,7 +147,6 @@ function newPerson() {
          console.log(emissions);
          firebase.database().ref().child('users').child(
              currentUser.userid+'/cars/'+
-             $('#box2 option:selected').text() + ' ' +
              $('#box3 option:selected').text()).update({
             Make: $('#box2 option:selected').text(),
             Year: $('#box1 option:selected').text(),

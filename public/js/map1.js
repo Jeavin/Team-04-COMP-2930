@@ -31,10 +31,9 @@ $(() => {
       $("#selectMake").val(snap.child("Make").val());
 
       let model = snap.key;
-      model = model.replace(make, '');
       $("#selectModel").empty();
       $("#selectModel").append($("<option value=\"" + model + "\">" + model + "</option>"));
-      $("#selectModel").val(model);
+      $("#selectModel").val(snap.key);
     });
   });
 
