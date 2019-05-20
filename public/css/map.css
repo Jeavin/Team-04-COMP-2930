@@ -1,0 +1,205 @@
+.modalB-footer>:not(:last-child) {
+    margin-right: 100px;
+    font-size: 10pt;
+}
+.modalB-footer .btn {
+  background: #BDECC2;
+  border-style: none;
+}
+
+.modalB-body {
+  background-image: url("https://images.unsplash.com/photo-1483825366482-1265f6ea9bc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+  /* opacity: 0.2; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  min-height: 500px;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .wrapper .text {
+    display: block;
+    width: 700px;
+    z-index: 200; }
+    .wrapper .text h1 {
+      margin: 1em 2em 0;
+      -webkit-transform: rotate(1deg);
+      -ms-transform: rotate(1deg);
+      transform: rotate(1deg);
+      background: #fff;
+      padding: 1.2em  3em;
+      display: inline-block; }
+    .wrapper .text h2 {
+      -webkit-transform: rotate(-2deg);
+      -ms-transform: rotate(-2deg);
+      transform: rotate(-2deg);
+      margin: -1em 6em 1em 3em;
+      float: right;
+      background: #f78e1e;
+      padding: 1em 3em;
+      display: inline-block; }
+
+svg {
+  width: 300px;
+  height: auto;
+  z-index: 199; }
+
+.balloons {
+  height: 350px;
+  width: 100%;
+  position: absolute;
+  /* background-color: rgba(255, 255, 255, 0.137);  */
+  z-index: 0;
+}
+
+.balloon {
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  display: block;
+  height: 100px;
+  opacity: 0.8;
+  position: absolute;
+  width: 80px; }
+  .balloon:after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    bottom: -5px;
+    content: "";
+    height: 0;
+    left: 45%;
+    position: absolute;
+    width: 0; }
+
+.balloons h1{
+    /* color: white; */
+    text-align: center;
+}
+
+.balloon1 {
+  background-color: #BDECC2;
+    }
+  .balloon1:after {
+    border-bottom: 10px solid #BDECC2;
+ } 
+
+.balloon2 {
+  background-color: #085519;
+    }
+  .balloon2:after {
+    border-bottom: 10px solid #085519;                  
+ } 
+
+.balloon3 {
+  background-color: #eee;
+    }
+  .balloon3:after {
+    border-bottom: 10px solid #eee;
+ } 
+
+@-webkit-keyframes flyingBalloon {
+  from {
+    bottom: -20%; }
+  to {
+    bottom: 110%; } }
+
+@-moz-keyframes flyingBalloon {
+  from {
+    bottom: -20%; }
+  to {
+    bottom: 110%; } }
+
+@-ms-keyframes flyingBalloon {
+  from {
+    bottom: -20%; }
+  to {
+    bottom: 110%; } }
+
+@-o-keyframes flyingBalloon {
+  from {
+    bottom: -20%; }
+  to {
+    bottom: 110%; } }
+
+@keyframes flyingBalloon {
+  from {
+    bottom: -20%; }
+  to {
+    bottom: 110%; } }
+
+#smile path:nth-of-type(2) {
+  -webkit-animation: wink 3s ease-in-out infinite forwards;
+  animation: wink 3s ease-in-out infinite forwards;
+  opacity: 1; }
+
+#smile path:nth-of-type(1) {
+  -webkit-animation: wink2 3s ease-in-out infinite forwards;
+  animation: wink2 3s ease-in-out infinite forwards;
+  opacity: 0; }
+
+#eye-r path:nth-of-type(1) {
+  -webkit-animation: wink 3s ease-in-out infinite forwards;
+  animation: wink 3s ease-in-out infinite forwards;
+  opacity: 1; }
+
+#eye-r path:nth-of-type(2) {
+  -webkit-animation: wink2 3s ease-in-out infinite forwards;
+  animation: wink2 3s ease-in-out infinite forwards;
+  opacity: 0; }
+
+@-webkit-keyframes wink {
+  0% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes wink {
+  0% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes wink2 {
+  0% {
+    opacity: 0; }
+  80% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
+@keyframes wink2 {
+  0% {
+    opacity: 0; }
+  80% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }

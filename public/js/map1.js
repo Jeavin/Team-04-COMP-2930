@@ -1,6 +1,6 @@
 $(() => {
   initMap();
-
+  let carEm, transitEm;
   let url = decodeURIComponent(document.location.href);
   if (url.split('?')[1]) {
     let urlParts = url.split('?')[1].split('&');
@@ -10,7 +10,6 @@ $(() => {
     $("#destination").val(dest);
     $('#impactBtn').trigger('click');
   }
-
   //select car
   $("#selectYear").change(function () {
     $("#selectYourVehicle").val(null);
@@ -23,6 +22,11 @@ $(() => {
     vehicleData.child($("#selectYear").val() + "/" + $("#selectMake").val() + "/" + $("#selectModel").val()).on("value", snap => {
       let emission = calcEmission(snap.child("CO2 EMISSIONS (g_km)").val(), getDistance($("#DRIVINGdistance").text()));
       $("#DRIVINGco2").text(emission + " kg");
+      //Calculate balloons co2
+      carEm = Math.ceil(emission/0.055);
+      initBalloons(carEm);
+      $('#balloonModal').modal('show');
+      
     });
   });
   $("#selectYourVehicle").change(function () {
@@ -41,6 +45,10 @@ $(() => {
 
       let emission = calcEmission(snap.child("g_km").val(), getDistance($("#DRIVINGdistance").text()));
       $("#DRIVINGco2").text(emission + " kg");
+      //Calculate balloons co2
+      carEm = Math.ceil(emission/0.055);
+      initBalloons(carEm);
+      $('#balloonModal').modal('show');
     });
   });
 
@@ -174,23 +182,71 @@ $(() => {
           }
         } else if (mode === 'TRANSIT') {
           $("#TRANSITco2").text(calcEmission(transitEmission, getDistance($("#TRANSITdistance").text())) + " kg");
+          transitEm = calcEmission(transitEmission, getDistance($("#TRANSITdistance").text()));
         }
       }
     });
   }
-
   $('#DRIVING').on('click', () => {
     $('#collapseCar').collapse('show');
     $('#vehicle').show();
   });
 
-  $(' #TRANSIT, #BICYCLING, #WALKING').on('click', () => {
+  let transitOpen = true;
+  $(' #TRANSIT').on('click', () => {
     $('#collapseCar').collapse('hide');
     $('#vehicle').hide();
+    let em = Math.ceil(transitEm / 0.055);
+    if(transitOpen){
+      initBalloons(em);
+      $('#balloonModal').modal('show');
+      transitOpen = false;
+    }
+  });
+
+  let bicOpen = true;
+  $('#BICYCLING').on('click', () => {
+    $('#collapseCar').collapse('hide');
+    $('#vehicle').hide();
+    if(bicOpen){
+      initBalloons(0);
+      $('#balloonModal').modal('show');
+      bicOpen = false;
+    }
+  });
+
+  let walkOpen = true;
+  $(' #WALKING').on('click', () => {
+    $('#collapseCar').collapse('hide');
+    $('#vehicle').hide();
+    if(walkOpen){
+      initBalloons(0);
+      $('#balloonModal').modal('show');
+      walkOpen = false;
+    }
   });
 
   $(".travelMode").click(function (e) {
     let chosenMode = $(this).val();
     $('#' + chosenMode + '-tab').trigger('click');
   });
+
+  function initBalloons(emit) {
+    clearBalloons();
+    for (var i=0; i < emit; i++) {
+      let balloon = $("<div class = 'balloon balloon" + Math.floor(Math.random()*3 + 1) +"'></div>");
+      balloon.css("animation","flyingBalloon "+ (Math.random()*20 +7) +"s -84s linear infinite");
+      balloon.css("left", Math.random()*100 + "%");
+      balloon.css("z-index", "-1");
+
+      $('.balloons').append(balloon);
+    }
+    $('#exampleModalLongTitle').html("CO2 emissions of today is approximately equivalent to "+ "<br/>" +"<h1 style='text-align: center'>" + emit +" Balloons</h1>");
+  }
+
+  function clearBalloons(){
+    while ($('.balloon').length) {
+      $('.balloon').remove();
+    }
+  }
 });
