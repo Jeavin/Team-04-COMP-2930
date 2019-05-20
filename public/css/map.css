@@ -109,9 +109,13 @@ svg {
   z-index: 199; }
 
 .balloons {
-  height: 350px;
+  height: 100%;
   width: 100%;
   position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
   /* background-color: rgba(255, 255, 255, 0.137);  */
   z-index: 0;
 }
@@ -161,33 +165,33 @@ svg {
 
 @-webkit-keyframes flyingBalloon {
   from {
-    bottom: -20%; }
+    bottom: 0px; }
   to {
-    bottom: 110%; } }
+    bottom: calc(100% - 100px); } }
 
 @-moz-keyframes flyingBalloon {
   from {
-    bottom: -20%; }
+    bottom: 0px; }
   to {
-    bottom: 110%; } }
+    bottom:calc(100% - 100px); } }
 
 @-ms-keyframes flyingBalloon {
   from {
-    bottom: -20%; }
+    bottom: 0px; }
   to {
-    bottom: 110%; } }
+    bottom: calc(100% - 100px); } }
 
 @-o-keyframes flyingBalloon {
   from {
-    bottom: -20%; }
+    bottom: 0px; }
   to {
-    bottom: 110%; } }
+    bottom: calc(100% - 100px); } }
 
 @keyframes flyingBalloon {
   from {
-    bottom: -20%; }
+    bottom: 0px; }
   to {
-    bottom: 110%; } }
+    bottom: calc(100% - 100px);} }
 
 #smile path:nth-of-type(2) {
   -webkit-animation: wink 3s ease-in-out infinite forwards;

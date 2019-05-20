@@ -236,7 +236,9 @@ $(() => {
     for (var i=0; i < emit; i++) {
       let balloon = $("<div class = 'balloon balloon" + Math.floor(Math.random()*3 + 1) +"'></div>");
       balloon.css("animation","flyingBalloon "+ (Math.random()*20 +7) +"s -84s linear infinite");
-      balloon.css("left", Math.random()*100 + "%");
+      balloon.css("left", window.innerWidth >= 567 ?
+      (Math.random()*83 + "%") :
+      (Math.random()*70 + "%"));
       balloon.css("z-index", "-1");
 
       $('.balloons').append(balloon);
