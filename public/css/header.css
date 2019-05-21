@@ -3,8 +3,9 @@
   color: white;
   border-bottom: 0 !important;
   margin: 0 0 0 !important;
-  display: table-cell;
-  width: 10%;
+  padding-bottom: 1px;
+  /* display: table-cell;
+  width: 10%; */
 }
 
 .page-header h1{
