@@ -4,23 +4,11 @@ let start, dest, distance, emission, transport;
 let historyDB;
 
 function logToDB_car() {
-    event.stopPropagation(); //prevents parent element's click listener from firing
-    try {
-        distance = getDistance($("#DRIVINGdistance").text());
-    } catch(e) {
-        return;
-    }
     $("#DRIVING .logBtn").append($("<span class=\"spinner-grow spinner-grow-sm align-baseline\" role=\"status\"></span>"));
     setTimeout(logToDB_car2, 500);
 }
 
 function logToDB_transit() {
-    event.stopPropagation(); //prevents parent element's click listener from firing
-    try {
-        distance = getDistance($("#TRANSITdistance").text());
-    } catch(e) {
-        return;
-    }
     $("#TRANSIT .logBtn").append($("<span class=\"spinner-grow spinner-grow-sm align-baseline\" role=\"status\"></span>"));
     setTimeout(logToDB_transit2, 500);
 }
@@ -28,6 +16,7 @@ function logToDB_transit() {
 function logToDB_car2() {
     setVariables();
     let time = $("#DRIVINGtime").text();
+    distance = getDistance($("#DRIVINGdistance").text());
 
     if ($("#selectYourVehicle").val() != null) {
         userDB.child("cars/" + $("#selectYourVehicle").val()).on("value", snap => {
@@ -39,59 +28,52 @@ function logToDB_car2() {
             emission = calcEmission(snap.child("CO2 EMISSIONS (g_km)").val(), distance);
             transport = $("#selectYear").val() + " " + $("#selectMake").val() + " " + $("#selectModel").val() + " : " + emission;
         });
-    } else {
-        alert("Please select a vehicle first.");
-        $(".spinner-grow").remove();
-        return;
     }
 
     distance = $("#DRIVINGdistance").text();
 
-    firebase.database().ref().on("value", function (snap) {
-        historyDB.child(month + " " + year).update({
-            [currentTime]: {
-                date: date,
-                destination: dest,
-                distance: distance,
-                emission: emission,
-                start: start,
-                time: time,
-                transport: transport
-            }
-        });
-        $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
-        setTimeout(function () {
-            $('#messagePopup').animate({ 'margin-top': -25 }, 200);
-        }, 3 * 1000);
-        $(".spinner-grow").remove();
+    historyDB.child(month + " " + year).update({
+        [currentTime]: {
+            date: date,
+            destination: dest,
+            distance: distance,
+            emission: emission,
+            start: start,
+            time: time,
+            transport: transport
+        }
     });
+    $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
+    setTimeout(function () {
+        $('#messagePopup').animate({ 'margin-top': -25 }, 200);
+    }, 3 * 1000);
+    $(".spinner-grow").remove();
 }
 
 function logToDB_transit2() {
     setVariables();
     let time = $("#TRANSITtime").text();
+    distance = getDistance($("#TRANSITdistance").text());
     emission = calcEmission(transitEmission, distance);
     transport = "transit";
     distance = $("#TRANSITdistance").text();
-
-    firebase.database().ref().on("value", function (snap) {
-        historyDB.child(month + " " + year).update({
-            [currentTime]: {
-                date: date,
-                destination: dest,
-                distance: distance,
-                emission: emission,
-                start: start,
-                time: time,
-                transport: transport
-            }
-        });
-        $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
-        setTimeout(function () {
-            $('#messagePopup').animate({ 'margin-top': -25 }, 200);
-        }, 3 * 1000);
-        $(".spinner-grow").remove();
+    
+    historyDB.child(month + " " + year).update({
+        [currentTime]: {
+            date: date,
+            destination: dest,
+            distance: distance,
+            emission: emission,
+            start: start,
+            time: time,
+            transport: transport
+        }
     });
+    $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
+    setTimeout(function () {
+        $('#messagePopup').animate({ 'margin-top': -25 }, 200);
+    }, 3 * 1000);
+    $(".spinner-grow").remove();
 }
 
 //returns distance as float

@@ -14,15 +14,18 @@ $(() => {
   //select car
   $("#selectYear").change(function () {
     $("#selectYourVehicle").val(null);
+    $("#DRIVING .logBtn").addClass("disabled");
   });
   $("#selectMake").change(function () {
     $("#selectYourVehicle").val(null);
+    $("#DRIVING .logBtn").addClass("disabled");
   });
   $("#selectModel").change(function () {
     $("#selectYourVehicle").val(null);
     vehicleData.child($("#selectYear").val() + "/" + $("#selectMake").val() + "/" + $("#selectModel").val()).on("value", snap => {
       let emission = calcEmission(snap.child("CO2 EMISSIONS (g_km)").val(), getDistance($("#DRIVINGdistance").text()));
       $("#DRIVINGco2").text(emission + " kg");
+      $("#DRIVING .logBtn").removeClass("disabled");
       //Calculate balloons co2
       carEm = Math.ceil(emission / 0.055);
       initBalloons(carEm);
@@ -46,6 +49,7 @@ $(() => {
 
       let emission = calcEmission(snap.child("g_km").val(), getDistance($("#DRIVINGdistance").text()));
       $("#DRIVINGco2").text(emission + " kg");
+      $("#DRIVING .logBtn").removeClass("disabled");
       //Calculate balloons co2
       carEm = Math.ceil(emission / 0.055);
       initBalloons(carEm);
@@ -178,6 +182,7 @@ $(() => {
             vehicleData.child(yearKey + "/" + makeKey + "/" + modelKey).on("value", snap => {
               let emission = calcEmission(snap.child("CO2 EMISSIONS (g_km)").val(), getDistance($("#DRIVINGdistance").text()));
               $("#DRIVINGco2").text(emission + " kg");
+              $("#DRIVING .logBtn").removeClass("disabled");
             });
           } else {
             $("#DRIVINGco2").text("Unknown Vehicle");
@@ -252,5 +257,19 @@ $(() => {
     while ($('.balloon').length) {
       $('.balloon').remove();
     }
-  }
+  } 
 });
+function displayConfirmationModal_car() {
+  event.stopPropagation(); //prevents parent element's click listener from firing
+    if (isNaN(parseInt($("#DRIVINGco2").text().slice(-4, -3)))) { //checks if co2 is displayed
+      // alert("Please select a vehicle first.");
+      return;
+    }
+  $("#logYes").attr("onclick", "logToDB_car()");
+  $("#confirmModal").modal();
+}
+function displayConfirmationModal_transit() {
+  event.stopPropagation(); //prevents parent element's click listener from firing
+  $("#logYes").attr("onclick", "logToDB_transit()");
+  $("#confirmModal").modal();
+}

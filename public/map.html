@@ -110,7 +110,7 @@
                       style="filter: invert(100%)"><span id="TRANSITtime">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
                       style="filter: invert(100%)"><span id="TRANSITco2">-</span>
-                    <span class="float-right btn btn-success logBtn" onclick="logToDB_transit()">LOG</span>
+                    <span class="float-right btn btn-success logBtn" onclick="displayConfirmationModal_transit()">LOG</span>
                   </button>
                 </h5>
               </div>
@@ -182,7 +182,7 @@
                       style="filter: invert(100%)"><span id="DRIVINGtime">-<br /></span>
                     <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
                       style="filter: invert(100%)"><span id="DRIVINGco2">Unknown Vehicle</span>
-                    <span class="float-right btn btn-success logBtn" onclick="logToDB_car()">LOG</span>
+                    <span class="float-right btn btn-success disabled logBtn" onclick="displayConfirmationModal_car()">LOG</span>
                   </button>
                 </h5>
               </div>
@@ -378,6 +378,30 @@
     </div>
   </div>
   <!--End of Sign Up Modal -->
+
+  <!--Yes or No Confirmation Modal for the log button-->
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog mt-5 pt-3" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Log Trip to History</h5>
+          <button id="modal3CloseBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body w-75 m-auto">
+          Would you like to log the details of this trip to your history and keep track of your CO2 emissions?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-lg btn-secondary bg-danger text-white"
+            data-dismiss="modal">No</button>
+          <button id="logYes" type="button" class="btn btn-lg btn-primary bg-success text-white" data-dismiss="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End of Yes or No modal-->
 
   <!-- Firebase init -->
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
