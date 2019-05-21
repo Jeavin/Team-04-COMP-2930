@@ -162,17 +162,17 @@ svg {
 }
 
 .balloon1 {
-  background-color: #BDECC2;
+  background-color: #111;
     }
   .balloon1:after {
-    border-bottom: 10px solid #BDECC2;
+    border-bottom: 10px solid #111;
  } 
 
 .balloon2 {
-  background-color: #085519;
+  background-color: #555;
     }
   .balloon2:after {
-    border-bottom: 10px solid #085519;                  
+    border-bottom: 10px solid #555;                  
  } 
 
 .balloon3 {
