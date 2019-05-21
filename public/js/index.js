@@ -14,7 +14,7 @@ $(() => {
       console.log('user: not log in');
     }
   });
-  
+
   $('#exampleModal1').on('shown.bs.modal', function () {
     $('#modal2CloseBtn').click();
   });
@@ -50,8 +50,8 @@ $(() => {
     $('#inputEmail').val('');
   }
 
-  document.getElementById('signIn').addEventListener('click', toggleSignIn, false);
-  document.getElementById('modalSignUpBtn').addEventListener('click', handleSignUp, false);
+  $('#signIn').on('click', toggleSignIn, false);
+  $('#modalSignUpBtn').on('click', handleSignUp, false);
 
   $("#signIn").click(function (e) {
     e.preventDefault();
