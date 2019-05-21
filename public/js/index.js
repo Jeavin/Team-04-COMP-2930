@@ -50,8 +50,8 @@ $(() => {
     $('#inputEmail').val('');
   }
 
-  $('#signIn').on('click', toggleSignIn, false);
-  $('#modalSignUpBtn').on('click', handleSignUp, false);
+  $('#signIn').on('click', toggleSignIn);
+  $('#modalSignUpBtn').on('click', handleSignUp);
 
   $("#signIn").click(function (e) {
     e.preventDefault();
@@ -131,5 +131,4 @@ $(() => {
       console.log(error);
     });
   }
-
-})
+});
