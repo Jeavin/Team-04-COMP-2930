@@ -159,7 +159,7 @@ body {
 }
 
 #year-label {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
     margin-top: 10px;
     background-color: #28a745;
     padding: 8px;
@@ -169,7 +169,7 @@ body {
 }
 
 #year-label2 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
     margin-top: 30px;
     background-color: #28a745;
     padding: 8px;
@@ -236,7 +236,7 @@ body {
   }
 
   .carName {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
     padding:   5px;
     font-size: 22px;
     margin:0 auto 0 auto;
@@ -246,7 +246,7 @@ body {
   }
 
   .gray{
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      
       padding-bottom: 10px;
       padding-left: 10px;
     background-color: rgb(236, 233, 233); 
