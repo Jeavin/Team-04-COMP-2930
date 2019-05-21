@@ -32,7 +32,7 @@ function createSlideRow(start, dest, time) {
     let detailsDiv = $("<div></div>");
     detailsDiv.addClass("accordion-body collapse details pt-2 pb-2");
 
-    detailsDiv.append(createAddressDisplayDiv("Start: ", start).addClass("mb-3"));
+    detailsDiv.append(createAddressDisplayDiv("Start: ", start));
 
     // let arrowImg = $("<img></img>");
     // arrowImg.attr("src", "./images/Arrow.png");
@@ -73,7 +73,7 @@ function createAddressDiv(text) {
 }
 function createAddressDisplayDiv(labelTxt, address) {
     let div = $("<div></div>");
-    div.addClass("row");
+    div.addClass("row mb-3");
 
     div.append(createColDiv(1, "").addClass("col-sm-2"));
     div.append(createLabelDiv(labelTxt));
