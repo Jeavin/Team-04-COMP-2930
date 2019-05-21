@@ -33,7 +33,7 @@ function initAutocomplete() {
   autocomplete.setFields(['address_components', 'geometry']);
   autocomplete.addListener('place_changed', function () {
     let place = autocomplete.getPlace();
-    if ($('#destination').val() !== "❤" && (!place || !place.geometry)) {
+    if ($('#startAddress').val() !== "❤" && (!place || !place.geometry)) {
       // User entered the name of a Place that was not suggested and
       // pressed the Enter key, or the Place Details request failed.
       document.getElementById('startAddress').value = "";

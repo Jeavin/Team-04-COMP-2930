@@ -13,6 +13,10 @@ div#messagePopup {
   z-index: 999;
 }
 
+a#carText {
+  text-decoration: underline;
+}
+
 main {
   height: calc(100vh - 59.5px);
 }
