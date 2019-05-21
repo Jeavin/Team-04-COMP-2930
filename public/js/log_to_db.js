@@ -1,19 +1,33 @@
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let d, year, month, date, currentTime;
+let start, dest, distance, emission, transport;
+let historyDB;
 
 function logToDB_car() {
     event.stopPropagation(); //prevents parent element's click listener from firing
+    try {
+        distance = getDistance($("#DRIVINGdistance").text());
+    } catch(e) {
+        return;
+    }
+    $("#DRIVING .logBtn").append($("<span class=\"spinner-grow spinner-grow-sm align-baseline\" role=\"status\"></span>"));
+    setTimeout(logToDB_car2, 500);
+}
 
-    let user = firebase.auth().currentUser;
-    let userDB = firebase.database().ref().child("users/" + user.uid);
-    let historyDB = userDB.child("history");
+function logToDB_transit() {
+    event.stopPropagation(); //prevents parent element's click listener from firing
+    try {
+        distance = getDistance($("#TRANSITdistance").text());
+    } catch(e) {
+        return;
+    }
+    $("#TRANSIT .logBtn").append($("<span class=\"spinner-grow spinner-grow-sm align-baseline\" role=\"status\"></span>"));
+    setTimeout(logToDB_transit2, 500);
+}
 
-    let start = $("#startAddress").val();
-    let dest = $("#destination").val();
+function logToDB_car2() {
+    setVariables();
     let time = $("#DRIVINGtime").text();
-    let distance = getDistance($("#DRIVINGdistance").text());
-
-    let emission;
-    let transport;
 
     if ($("#selectYourVehicle").val() != null) {
         userDB.child("cars/" + $("#selectYourVehicle").val()).on("value", snap => {
@@ -27,21 +41,12 @@ function logToDB_car() {
         });
     } else {
         alert("Please select a vehicle first.");
+        $(".spinner-grow").remove();
         return;
     }
 
     distance = $("#DRIVINGdistance").text();
 
-
-    let d = new Date();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
-    let date = d.getDate();
-    let currentTime = ("0" + date).slice(-2) + "|" +
-        ("0" + d.getHours()).slice(-2) + ":" +
-        ("0" + d.getMinutes()).slice(-2) + ":" +
-        ("0" + d.getSeconds()).slice(-2);
-    date = month + " " + date;
     firebase.database().ref().on("value", function (snap) {
         historyDB.child(month + " " + year).update({
             [currentTime]: {
@@ -54,40 +59,21 @@ function logToDB_car() {
                 transport: transport
             }
         });
+        $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
+        setTimeout(function () {
+            $('#messagePopup').animate({ 'margin-top': -25 }, 200);
+        }, 3 * 1000);
+        $(".spinner-grow").remove();
     });
-    $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
-    setTimeout(function () {
-        $('#messagePopup').animate({ 'margin-top': -25 }, 200);
-    }, 3 * 1000);
 }
 
-function logToDB_transit() {
-    event.stopPropagation(); //prevents parent element's click listener from firing
-
-    let user = firebase.auth().currentUser;
-    let userDB = firebase.database().ref().child("users/" + user.uid);
-    let historyDB = userDB.child("history");
-
-    let start = $("#startAddress").val();
-    let dest = $("#destination").val();
+function logToDB_transit2() {
+    setVariables();
     let time = $("#TRANSITtime").text();
-    let distance = getDistance($("#TRANSITdistance").text());
-
-    let emission = calcEmission(transitEmission, distance);
-    let transport = "transit";
-
+    emission = calcEmission(transitEmission, distance);
+    transport = "transit";
     distance = $("#TRANSITdistance").text();
 
-
-    let d = new Date();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
-    let date = d.getDate();
-    let currentTime = ("0" + date).slice(-2) + "|" +
-        ("0" + d.getHours()).slice(-2) + ":" +
-        ("0" + d.getMinutes()).slice(-2) + ":" +
-        ("0" + d.getSeconds()).slice(-2);
-    date = month + " " + date;
     firebase.database().ref().on("value", function (snap) {
         historyDB.child(month + " " + year).update({
             [currentTime]: {
@@ -100,11 +86,12 @@ function logToDB_transit() {
                 transport: transport
             }
         });
+        $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
+        setTimeout(function () {
+            $('#messagePopup').animate({ 'margin-top': -25 }, 200);
+        }, 3 * 1000);
+        $(".spinner-grow").remove();
     });
-    $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
-    setTimeout(function () {
-        $('#messagePopup').animate({ 'margin-top': -25 }, 200);
-    }, 3 * 1000);
 }
 
 //returns distance as float
@@ -115,10 +102,27 @@ function getDistance(text) {
         distance += distanceStrAr[i];
     }
     distance = parseFloat(distance);
+    if (isNaN(distance)) { throw "Distance is NaN."; }
     return distance;
 }
 
 //returns emission in kg, as float
 function calcEmission(emission, distance) {
     return parseFloat((emission * distance / 1000).toFixed(2));
+}
+
+function setVariables() {
+    userDB = firebase.database().ref().child("users/" + firebase.auth().currentUser.uid);
+    historyDB = firebase.database().ref().child("users/" + firebase.auth().currentUser.uid + "/history");
+    start = $("#startAddress").val();
+    dest = $("#destination").val();
+    d = new Date();
+    year = d.getFullYear();
+    month = months[d.getMonth()];
+    date = d.getDate();
+    currentTime = ("0" + date).slice(-2) + "|" +
+        ("0" + d.getHours()).slice(-2) + ":" +
+        ("0" + d.getMinutes()).slice(-2) + ":" +
+        ("0" + d.getSeconds()).slice(-2);
+    date = month + " " + date;
 }
