@@ -1,3 +1,18 @@
+div#messagePopup {
+  text-align: center;
+  color: white;
+  position: fixed;
+  top: 0;
+  padding: 0 5px;
+  line-height: 25px;
+  background-color: #28a745;
+  margin-top: -25px;
+  font-weight: bold;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
 main {
   height: calc(100vh - 59.5px);
 }

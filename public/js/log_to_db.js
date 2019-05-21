@@ -14,7 +14,7 @@ function logToDB_car() {
 
     let emission;
     let transport;
-    
+
     if ($("#selectYourVehicle").val() != null) {
         userDB.child("cars/" + $("#selectYourVehicle").val()).on("value", snap => {
             emission = calcEmission(snap.child("g_km").val(), distance);
@@ -32,17 +32,17 @@ function logToDB_car() {
 
     distance = $("#DRIVINGdistance").text();
 
-    
+
     let d = new Date();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
     let date = d.getDate();
-    let currentTime = ("0"+date).slice(-2) +"|"+
-                      ("0"+d.getHours()).slice(-2) +":"+
-                      ("0"+d.getMinutes()).slice(-2) +":"+
-                      ("0"+d.getSeconds()).slice(-2);
+    let currentTime = ("0" + date).slice(-2) + "|" +
+        ("0" + d.getHours()).slice(-2) + ":" +
+        ("0" + d.getMinutes()).slice(-2) + ":" +
+        ("0" + d.getSeconds()).slice(-2);
     date = month + " " + date;
-    firebase.database().ref().on("value", function(snap) {
+    firebase.database().ref().on("value", function (snap) {
         historyDB.child(month + " " + year).update({
             [currentTime]: {
                 date: date,
@@ -55,6 +55,10 @@ function logToDB_car() {
             }
         });
     });
+    $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
+    setTimeout(function () {
+        $('#messagePopup').animate({ 'margin-top': -25 }, 200);
+    }, 3 * 1000);
 }
 
 function logToDB_transit() {
@@ -74,17 +78,17 @@ function logToDB_transit() {
 
     distance = $("#TRANSITdistance").text();
 
-    
+
     let d = new Date();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
     let date = d.getDate();
-    let currentTime = ("0"+date).slice(-2) +"|"+
-                      ("0"+d.getHours()).slice(-2) +":"+
-                      ("0"+d.getMinutes()).slice(-2) +":"+
-                      ("0"+d.getSeconds()).slice(-2);
+    let currentTime = ("0" + date).slice(-2) + "|" +
+        ("0" + d.getHours()).slice(-2) + ":" +
+        ("0" + d.getMinutes()).slice(-2) + ":" +
+        ("0" + d.getSeconds()).slice(-2);
     date = month + " " + date;
-    firebase.database().ref().on("value", function(snap) {
+    firebase.database().ref().on("value", function (snap) {
         historyDB.child(month + " " + year).update({
             [currentTime]: {
                 date: date,
@@ -97,6 +101,10 @@ function logToDB_transit() {
             }
         });
     });
+    $('#messagePopup').text('Trip was saved.').animate({ 'margin-top': 0 }, 200);
+    setTimeout(function () {
+        $('#messagePopup').animate({ 'margin-top': -25 }, 200);
+    }, 3 * 1000);
 }
 
 //returns distance as float

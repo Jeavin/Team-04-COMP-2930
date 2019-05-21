@@ -12,9 +12,26 @@
   <link rel="stylesheet" href="./css/map.css" />
 
   <title>Emission Planner</title>
+  <style>
+    div#messagePopup {
+      text-align: center;
+      color: white;
+      position: fixed;
+      top: 0;
+      padding: 0 5px;
+      line-height: 25px;
+      background-color: #28a745;
+      margin-top: -25px;
+      font-weight: bold;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="messagePopup"></div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
     <button id="navToggler" class="btn navbar-toggler " type="button" data-toggle="collapse"
       data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
@@ -69,7 +86,7 @@
       </div>
     </div>
   </nav>
-
+  
   <main class="d-flex p-0">
     <div class="container-fluid">
       <div class="row h-100">
@@ -186,58 +203,58 @@
                 </h5>
               </div>
               <div id="collapseDrive" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-              <div class="collapse" id="collapseCar">
-                <div id="savedVehicles" class="card bg-success text-black card-body mb-3">
-                  <label id="carText" for="year">Your Vehicle</label>
-                  <div id="yourVehicles">
-                    <div class="input-group mb-3" style="width: 210px">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" style="width: 70px" for="selectYourVehicle">Vehicles</label>
+                <div class="collapse" id="collapseCar">
+                  <div id="savedVehicles" class="card bg-success text-black card-body mb-3">
+                    <label id="carText" for="year">Your Vehicle</label>
+                    <div id="yourVehicles">
+                      <div class="input-group mb-3" style="width: 210px">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" style="width: 70px" for="selectYourVehicle">Vehicles</label>
+                        </div>
+                        <select class="custom-select" id="selectYourVehicle">
+                          <option disabled selected>Choose..</option>
+                        </select>
                       </div>
-                      <select class="custom-select" id="selectYourVehicle">
-                        <option disabled selected>Choose..</option>
-                      </select>
+                    </div>
+                    <label id="carText" for="year"><a id="carText" href="./addVehicle.html">Add vehicles to your
+                        account</a></label>
+                  </div>
+                  <div class="card bg-success text-black card-body mb-3">
+                    <label id="carText" for="year">Choose Your Vehicle</label>
+                    <div id="carYear">
+                      <div class="input-group mb-3" style="width: 210px">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" style="width: 70px" for="selectYear">Year</label>
+                        </div>
+                        <select class="custom-select" id="selectYear" onchange="yearSelected()">
+                          <option disabled selected="true" value="default">Choose..</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div id="carMake">
+                      <div class="input-group mb-3" style="width: 210px">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" style="width: 70px" for="selectMake">Make</label>
+                        </div>
+                        <select class="custom-select" id="selectMake" onchange="makeSelected()">
+                          <option disabled selected="true" value="default">Choose..</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div id="carModel">
+                      <div class="input-group mb-3" style="width: 210px">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" style="width: 70px" for="selectModel">Model</label>
+                        </div>
+                        <select class="custom-select" id="selectModel">
+                          <option disabled selected="true" value="default">Choose..</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
-                  <label id="carText" for="year"><a id="carText" href="./addVehicle.html">Add vehicles to your
-                      account</a></label>
                 </div>
-                <div class="card bg-success text-black card-body mb-3">
-                  <label id="carText" for="year">Choose Your Vehicle</label>
-                  <div id="carYear">
-                    <div class="input-group mb-3" style="width: 210px">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" style="width: 70px" for="selectYear">Year</label>
-                      </div>
-                      <select class="custom-select" id="selectYear" onchange="yearSelected()">
-                        <option disabled selected="true" value="default">Choose..</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div id="carMake">
-                    <div class="input-group mb-3" style="width: 210px">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" style="width: 70px" for="selectMake">Make</label>
-                      </div>
-                      <select class="custom-select" id="selectMake" onchange="makeSelected()">
-                        <option disabled selected="true" value="default">Choose..</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div id="carModel">
-                    <div class="input-group mb-3" style="width: 210px">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" style="width: 70px" for="selectModel">Model</label>
-                      </div>
-                      <select class="custom-select" id="selectModel">
-                        <option disabled selected="true" value="default">Choose..</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              
+
                 <div id="DRIVINGStep" class="card-body">
                   Drive Steps...
                 </div>
@@ -250,20 +267,20 @@
         <div class="col order-1 order-lg-2 border aos-init aos-animate p-0" data-aos="fade-up">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="TRANSIT-tab" data-toggle="tab" href="#TRANSITmap" role="tab" aria-controls="TRANSITmap"
-                aria-selected="true"></a>
+              <a class="nav-link active" id="TRANSIT-tab" data-toggle="tab" href="#TRANSITmap" role="tab"
+                aria-controls="TRANSITmap" aria-selected="true"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="BICYCLING-tab" data-toggle="tab" href="#BICYCLINGmap" role="tab" aria-controls="BICYCLINGmap"
-                aria-selected="false"></a>
+              <a class="nav-link" id="BICYCLING-tab" data-toggle="tab" href="#BICYCLINGmap" role="tab"
+                aria-controls="BICYCLINGmap" aria-selected="false"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="WALKING-tab" data-toggle="tab" href="#WALKINGmap" role="tab" aria-controls="WALKINGmap"
-                aria-selected="false"></a>
+              <a class="nav-link" id="WALKING-tab" data-toggle="tab" href="#WALKINGmap" role="tab"
+                aria-controls="WALKINGmap" aria-selected="false"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="DRIVING-tab" data-toggle="tab" href="#DRIVINGmap" role="tab" aria-controls="DRIVINGmap"
-                aria-selected="false"></a>
+              <a class="nav-link" id="DRIVING-tab" data-toggle="tab" href="#DRIVINGmap" role="tab"
+                aria-controls="DRIVINGmap" aria-selected="false"></a>
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
@@ -279,7 +296,8 @@
   </main>
 
   <!-- Balloon Modal -->
-  <div class="modal fade" id="balloonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="balloonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
     <div class="modal-dialog mt-5 pt-3" role="document">
       <div class="modal-content">
         <div class="modal-header">
