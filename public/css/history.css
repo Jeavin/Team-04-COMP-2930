@@ -99,13 +99,3 @@ tbody:last-child{
     width: 40%;
   }
 }
-
-@media (max-width: 512px) {
-  .text-left{
-    font-size: 8pt;
-  }
-
-  .font-weight-bold{
-    font-size: 8pt;
-  }
-}
