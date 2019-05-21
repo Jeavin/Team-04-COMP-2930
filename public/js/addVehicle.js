@@ -63,7 +63,7 @@ function displayRouteNames( ) {
             var key = childSnaper.key;
 
             console.log(year);
-            var cardinfo = $('<div class="not" id="not"><div class="carName"><label for="year" >' + key + '</label></div><div class="gray"><label for="year" >' + year["Make"] + '</label><br><label for="year" >' + year["Year"] + '</label><button id="delete" class="button2" onclick="removeDummy()">X </button></div></div>');
+            var cardinfo = $('<div class="not" id="not"><div class="carName"><label for="year" >' + key + '</label></div><div class="gray"><label for="year" >' + year["Make"] + '</label><br><label for="year" >' + year["Year"] + '</label><button id="delete" class="button2" onclick="displayConfirmationModal_transit()">X </button></div></div>');
             $("#why").append(cardinfo);
         });
     });
@@ -163,14 +163,22 @@ function newPerson() {
     }
 
 }
+let smt;
+
 function removeDummy() {
-   
-    
-    console.log(event.srcElement.parentElement.parentElement.firstChild.firstChild.innerHTML);
     var rideRef = firebase.database().ref().child('users').child(currentUser.userid+'/cars/'+
-    event.srcElement.parentElement.parentElement.firstChild.firstChild.innerHTML);
+    smt.parentElement.parentElement.firstChild.firstChild.innerHTML);
                 
                 rideRef.remove();
-                event.srcElement.parentElement.parentElement.remove();
+                smt.parentElement.parentElement.remove();
 }
+
+
+  function displayConfirmationModal_transit() {
+    
+    smt = event.srcElement;
+    $("#logYes").attr("onclick", "removeDummy()");
+
+    $("#confirmModal").modal();
+  }
 

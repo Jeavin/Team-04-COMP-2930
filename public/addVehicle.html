@@ -143,6 +143,30 @@
 
     </div>
 
+    <!--Yes or No Confirmation Modal for the log button-->
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog mt-5 pt-3" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete The Vehicle</h5>
+        <button id="modal3CloseBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body w-75 m-auto">
+        Would you like to delete this vehicle?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-secondary bg-danger text-white"
+          data-dismiss="modal">No</button>
+        <button id="logYes" type="button" class="btn btn-lg btn-primary bg-success text-white" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End of Yes or No modal-->
+
     <footer class="footer-copyright text-right py-3 bg-success">
         <p id="faq" class="mr-3">Contact us at emissionsplanner@gmail.com</p>
     </footer>
