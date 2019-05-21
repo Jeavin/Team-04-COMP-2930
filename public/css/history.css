@@ -86,7 +86,8 @@ tbody:last-child{
 }
 
 .details {
-  background-color: #BDECC2;
+  background-color: #28A745;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -96,5 +97,15 @@ tbody:last-child{
   }
   #thead-row th:nth-child(2) {
     width: 40%;
+  }
+}
+
+@media (max-width: 512px) {
+  .text-left{
+    font-size: 8pt;
+  }
+
+  .font-weight-bold{
+    font-size: 8pt;
   }
 }
