@@ -45,7 +45,6 @@ function createSlideRow(start, dest, time) {
     timeP.addClass("mb-0 pr-3 text-right");
     let timeImg = $("<img></img>");
     timeImg.attr("src", "./images/clock.png");
-    timeImg.css("filter", "invert(100%)");
     timeImg.addClass("mr-2")
     timeP.append(timeImg);
     timeP.append(time);
@@ -68,8 +67,8 @@ function createLabelDiv(text) {
     return label;
 }
 function createAddressDiv(text) {
-    let address = createColDiv(9, text);
-    address.addClass("text-left");
+    let address = createColDiv(12, text);
+    address.addClass("col-sm-8 text-left pl-5");
     return address;
 }
 function createAddressDisplayDiv(labelTxt, address) {
@@ -78,7 +77,7 @@ function createAddressDisplayDiv(labelTxt, address) {
 
     div.append(createColDiv(1, "").addClass("col-sm-2"));
     div.append(createLabelDiv(labelTxt));
-    div.append(createAddressDiv(address).addClass("col-sm-8"));
+    div.append(createAddressDiv(address));
 
     return div;
 }
