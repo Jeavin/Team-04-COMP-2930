@@ -45,7 +45,7 @@ function createSlideRow(start, dest, time) {
     timeP.addClass("mb-0 pr-3 text-right");
     let timeImg = $("<img></img>");
     timeImg.attr("src", "./images/clock.png");
-    timeImg.addClass("mr-2")
+    timeImg.addClass("mr-2");
     timeP.append(timeImg);
     timeP.append(time);
 
@@ -168,7 +168,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         let notSignedInDiv = $("<div></div>");
         notSignedInDiv.addClass("container-fluid text-center mt-5");
-        notSignedInDiv.text("You need to be signed in in order to view your history.")
+        notSignedInDiv.text("You need to be signed in in order to view your history.");
         $("table").after(notSignedInDiv);
     }
 });
