@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="./css/index.css" />
   <link rel="stylesheet" href="./css/map.css" />
 
@@ -17,9 +16,7 @@
 <body>
   <div id="messagePopup"></div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-    <button id="navToggler" class="btn navbar-toggler " type="button" data-toggle="collapse"
-      data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
-      aria-label="Toggle navigation">
+    <button id="navToggler" class="btn navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
       <img src="./images/menu.png" />
     </button>
 
@@ -60,8 +57,7 @@
     </div>
 
     <div id="settingIcon2" class="dropdown">
-      <button class="btn userName text-uppercase" type="button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
+      <button class="btn userName text-uppercase" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="./addVehicle.html">Add Vehicle</a>
@@ -70,7 +66,7 @@
       </div>
     </div>
   </nav>
-  
+
   <main class="d-flex p-0">
     <div class="container-fluid">
       <div class="row h-100">
@@ -81,8 +77,7 @@
               <div id="location">
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" id="startAddress" placeholder="Start Location" />
-                  <button id="getLocationBtn" class="btn ml-3 p-0" type="button"><img src="./images/autolocate.png"
-                      alt=""></button>
+                  <button id="getLocationBtn" class="btn ml-3 p-0" type="button"><img src="./images/autolocate.png" alt=""></button>
                 </div>
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" id="destination" placeholder="Destination" />
@@ -90,8 +85,7 @@
               </div>
 
               <div id="impactBtn">
-                <button class="btn btn-success text-white w-100 mb-3" type="button" data-toggle="collapse"
-                  data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Let's See Our
+                <button class="btn btn-success text-white w-100 mb-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Let's See Our
                   Impact</button>
               </div>
             </form>
@@ -101,15 +95,11 @@
             <div class="card mb-1 mb-lg-2">
               <div class="card-header p-1" id="TRANSIT">
                 <h5 class="mb-0">
-                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse"
-                    data-target="#collapseTransit" aria-expanded="true" aria-controls="collapseTransit" value="TRANSIT">
+                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse" data-target="#collapseTransit" aria-expanded="true" aria-controls="collapseTransit" value="TRANSIT">
                     <b>Transit</b><br />
-                    <img id="smallImg" class="media-object" src="./images/transit.png" alt="car"><span
-                      id="TRANSITdistance">-<br /></span>
-                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
-                      style="filter: invert(100%)"><span id="TRANSITtime">-<br /></span>
-                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
-                      style="filter: invert(100%)"><span id="TRANSITco2">-</span>
+                    <img id="smallImg" class="media-object" src="./images/transit.png" alt="car"><span id="TRANSITdistance">-<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock" style="filter: invert(100%)"><span id="TRANSITtime">-<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2" style="filter: invert(100%)"><span id="TRANSITco2">-</span>
                     <span class="float-right btn btn-success logBtn" onclick="displayConfirmationModal_transit()">LOG</span>
                   </button>
                 </h5>
@@ -125,16 +115,11 @@
             <div class="card mb-1 mb-lg-2">
               <div class="card-header p-1" id="BICYCLING">
                 <h5 class="mb-0">
-                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse"
-                    data-target="#collapseBicycle" aria-expanded="true" aria-controls="collapseBicycle"
-                    value="BICYCLING">
+                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse" data-target="#collapseBicycle" aria-expanded="true" aria-controls="collapseBicycle" value="BICYCLING">
                     <b>Bicycle</b><br />
-                    <img id="smallImg" class="media-object" src="./images/bicycle.png" alt="car"><span
-                      id="BICYCLINGdistance">-<br /></span>
-                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
-                      style="filter: invert(100%)"><span id="BICYCLINGtime">-<br /></span>
-                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
-                      style="filter: invert(100%)"><span id="BICYCLINGco2">0 kg</span>
+                    <img id="smallImg" class="media-object" src="./images/bicycle.png" alt="car"><span id="BICYCLINGdistance">-<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock" style="filter: invert(100%)"><span id="BICYCLINGtime">-<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2" style="filter: invert(100%)"><span id="BICYCLINGco2">0 kg</span>
                   </button>
 
                 </h5>
@@ -150,15 +135,11 @@
             <div class="card mb-1 mb-lg-2">
               <div class="card-header p-1" id="WALKING">
                 <h5 class="mb-0">
-                  <button class="btn collapsed travelMode w-100 text-left" href="#WALKINGmap" data-toggle="collapse"
-                    data-target="#collapseWalk" aria-expanded="false" aria-controls="collapseWalk" value="WALKING">
+                  <button class="btn collapsed travelMode w-100 text-left" href="#WALKINGmap" data-toggle="collapse" data-target="#collapseWalk" aria-expanded="false" aria-controls="collapseWalk" value="WALKING">
                     <b>Walk</b><br />
-                    <img id="smallImg" class="media-object" src="./images/walk.png" alt="car"><span
-                      id="WALKINGdistance">-<br /></span>
-                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
-                      style="filter: invert(100%)"><span id="WALKINGtime">-<br /></span>
-                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
-                      style="filter: invert(100%)"><span id="WALKINGco2">0 kg</span>
+                    <img id="smallImg" class="media-object" src="./images/walk.png" alt="car"><span id="WALKINGdistance">-<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock" style="filter: invert(100%)"><span id="WALKINGtime">-<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2" style="filter: invert(100%)"><span id="WALKINGco2">0 kg</span>
                   </button>
                 </h5>
               </div>
@@ -173,15 +154,11 @@
             <div class="card mb-1 mb-lg-2">
               <div class="card-header p-1" id="DRIVING">
                 <h5 class="mb-0">
-                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse"
-                    data-target="#collapseDrive" aria-expanded="false" aria-controls="collapseDrive" value="DRIVING">
+                  <button class="btn collapsed travelMode w-100 text-left" data-toggle="collapse" data-target="#collapseDrive" aria-expanded="false" aria-controls="collapseDrive" value="DRIVING">
                     <b>Drive</b><br />
-                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span
-                      id="DRIVINGdistance">-<br /></span>
-                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock"
-                      style="filter: invert(100%)"><span id="DRIVINGtime">-<br /></span>
-                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2"
-                      style="filter: invert(100%)"><span id="DRIVINGco2">Unknown Vehicle</span>
+                    <img id="smallImg" class="media-object" src="./images/carsmall.png" alt="car"><span id="DRIVINGdistance">-<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/clock.png" alt="clock" style="filter: invert(100%)"><span id="DRIVINGtime">-<br /></span>
+                    <img id="smallImg" class="media-object" src="./images/co2.png" alt="co2" style="filter: invert(100%)"><span id="DRIVINGco2">Unknown Vehicle</span>
                     <span class="float-right btn btn-success disabled logBtn" onclick="displayConfirmationModal_car()">LOG</span>
                   </button>
                 </h5>
@@ -251,25 +228,20 @@
         <div class="col order-1 order-lg-2 border aos-init aos-animate p-0" data-aos="fade-up">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="TRANSIT-tab" data-toggle="tab" href="#TRANSITmap" role="tab"
-                aria-controls="TRANSITmap" aria-selected="true"></a>
+              <a class="nav-link active" id="TRANSIT-tab" data-toggle="tab" href="#TRANSITmap" role="tab" aria-controls="TRANSITmap" aria-selected="true"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="BICYCLING-tab" data-toggle="tab" href="#BICYCLINGmap" role="tab"
-                aria-controls="BICYCLINGmap" aria-selected="false"></a>
+              <a class="nav-link" id="BICYCLING-tab" data-toggle="tab" href="#BICYCLINGmap" role="tab" aria-controls="BICYCLINGmap" aria-selected="false"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="WALKING-tab" data-toggle="tab" href="#WALKINGmap" role="tab"
-                aria-controls="WALKINGmap" aria-selected="false"></a>
+              <a class="nav-link" id="WALKING-tab" data-toggle="tab" href="#WALKINGmap" role="tab" aria-controls="WALKINGmap" aria-selected="false"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="DRIVING-tab" data-toggle="tab" href="#DRIVINGmap" role="tab"
-                aria-controls="DRIVINGmap" aria-selected="false"></a>
+              <a class="nav-link" id="DRIVING-tab" data-toggle="tab" href="#DRIVINGmap" role="tab" aria-controls="DRIVINGmap" aria-selected="false"></a>
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show h-100 show active" id="TRANSITmap" role="tabpanel"
-              aria-labelledby="TRANSIT-tab">
+            <div class="tab-pane fade show h-100 show active" id="TRANSITmap" role="tabpanel" aria-labelledby="TRANSIT-tab">
             </div>
             <div class="tab-pane fade h-100" id="BICYCLINGmap" role="tabpanel" aria-labelledby="BICYCLING-tab"></div>
             <div class="tab-pane fade h-100" id="WALKINGmap" role="tabpanel" aria-labelledby="WALKING-tab"></div>
@@ -280,8 +252,7 @@
   </main>
 
   <!-- Balloon Modal -->
-  <div class="modal fade" id="balloonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
+  <div class="modal fade" id="balloonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog mt-5 pt-3" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -302,8 +273,7 @@
   </div>
 
   <!-- Sign In Modal -->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog mt-5 pt-3" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -315,11 +285,9 @@
         <div class="modal-body w-75 m-auto">
           <form class="form-signin">
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control mb-4" placeholder="Email address"
-              style="margin-bottom: 10px;border-radius: 0rem;" required autofocus>
+            <input type="email" id="inputEmail" class="form-control mb-4" placeholder="Email address" style="margin-bottom: 10px;border-radius: 0rem;" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control mb-4" placeholder="Password"
-              style="margin-bottom: 10px;border-radius: 0rem;" required>
+            <input type="password" id="inputPassword" class="form-control mb-4" placeholder="Password" style="margin-bottom: 10px;border-radius: 0rem;" required>
             <div class="checkbox mb-3">
               <label>
                 <input id="rememberMe" type="checkbox" value="remember-me"> Remember me
@@ -330,8 +298,7 @@
             account?</button>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-lg btn-secondary bg-success text-white"
-            data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-lg btn-secondary bg-success text-white" data-dismiss="modal">Close</button>
           <button id="signIn" type="button" class="btn btn-lg btn-primary bg-success text-white">Sign In</button>
         </div>
       </div>
@@ -340,8 +307,7 @@
   <!--End of Sign In Modal -->
 
   <!-- Sign Up Modal -->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  mt-5 pt-3" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -357,8 +323,7 @@
                     " required autofocus>
             <input type="text" id="name" class="form-control mb-3" placeholder="User Name" required>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="createPassword" class="form-control mb-3" placeholder="Password"
-              style="margin-bottom: 10px;border-radius: 0rem;" required>
+            <input type="password" id="createPassword" class="form-control mb-3" placeholder="Password" style="margin-bottom: 10px;border-radius: 0rem;" required>
             <div class="checkbox mb-3">
               <label>
                 <input id="rememberMe" type="checkbox" value="remember-me"> Remember me
@@ -369,8 +334,7 @@
             account?</button>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-lg btn-secondary bg-success text-white"
-            data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-lg btn-secondary bg-success text-white" data-dismiss="modal">Close</button>
           <button id="modalSignUpBtn" type="button" class="btn btn-lg btn-primary bg-success text-white">Sign
             Up</button>
         </div>
@@ -380,8 +344,7 @@
   <!--End of Sign Up Modal -->
 
   <!--Yes or No Confirmation Modal for the log button-->
-  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog mt-5 pt-3" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -394,8 +357,7 @@
           Would you like to log the details of this trip to your history and keep track of your CO2 emissions?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-lg btn-secondary bg-danger text-white"
-            data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-lg btn-secondary bg-danger text-white" data-dismiss="modal">No</button>
           <button id="logYes" type="button" class="btn btn-lg btn-primary bg-success text-white" data-dismiss="modal">Yes</button>
         </div>
       </div>
@@ -410,15 +372,10 @@
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places"></script>
 
   <script src="./js/firebase_init.js"></script>
   <!-- <script src="./js/mytrip.js"></script>

@@ -12,15 +12,15 @@ $(() => {
     $('#impactBtn').trigger('click');
   }
   //select car
-  $("#selectYear").change(function () {
+  $("#selectYear").change(function() {
     $("#selectYourVehicle").val(null);
     $("#DRIVING .logBtn").addClass("disabled");
   });
-  $("#selectMake").change(function () {
+  $("#selectMake").change(function() {
     $("#selectYourVehicle").val(null);
     $("#DRIVING .logBtn").addClass("disabled");
   });
-  $("#selectModel").change(function () {
+  $("#selectModel").change(function() {
     $("#selectYourVehicle").val(null);
     vehicleData.child($("#selectYear").val() + "/" + $("#selectMake").val() + "/" + $("#selectModel").val()).on("value", snap => {
       let emission = calcEmission(snap.child("CO2 EMISSIONS (g_km)").val(), getDistance($("#DRIVINGdistance").text()));
@@ -33,7 +33,7 @@ $(() => {
 
     });
   });
-  $("#selectYourVehicle").change(function () {
+  $("#selectYourVehicle").change(function() {
     firebase.database().ref().child("users/" + firebase.auth().currentUser.uid + "/cars/" + $("#selectYourVehicle").val()).on("value", snap => {
       $("#selectYear").val(snap.child("Year").val());
 
@@ -57,7 +57,7 @@ $(() => {
     });
   });
 
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       $('.userName').html(
         '<img class="mr-2 ml-2" src="./images/avatar.png" />' +
@@ -68,7 +68,7 @@ $(() => {
       firebase.database().ref().child('users/').child(user.uid + '/cars').on("value", snap => {
         $("#selectYourVehicle").empty();
         $("#selectYourVehicle").append($("<option disabled selected>Choose...</option>"));
-        snap.forEach(function (childSnapy) {
+        snap.forEach(function(childSnapy) {
 
           car = childSnapy.key;
           let option2 = $("<option></option>");
@@ -99,12 +99,15 @@ $(() => {
       let directionsDisplay = new google.maps.DirectionsRenderer();
       let directionsService = new google.maps.DirectionsService();
       let map = new google.maps.Map(document.getElementById(mode + 'map'), {
-        center: { lat: 49.2807323, lng: -123.117211 },
+        center: {
+          lat: 49.2807323,
+          lng: -123.117211
+        },
         zoom: 14
       });
       directionsDisplay.setMap(map);
       directionsDisplay.setPanel(document.getElementById(mode + 'Step'));
-      let onClickHandler = function () {
+      let onClickHandler = function() {
         let start = $('#startAddress').val();
         let dest = $('#destination').val();
         //for the easter egg
@@ -129,7 +132,9 @@ $(() => {
 
   // To adjust center of the map after you show the route
   function geocodeAddress(geocoder, resultsMap, from) {
-    geocoder.geocode({ 'address': from }, function (results, status) {
+    geocoder.geocode({
+      'address': from
+    }, function(results, status) {
       if (status === 'OK') {
         resultsMap.setCenter(results[0].geometry.location);
       } else {
@@ -144,9 +149,11 @@ $(() => {
       origin: from,
       destination: to,
       travelMode: google.maps.TravelMode[mode]
-    }, function (response, status) {
+    }, function(response, status) {
       if (status === 'OK') {
-        directionsDisplay.setOptions({ preserveViewport: true });
+        directionsDisplay.setOptions({
+          preserveViewport: true
+        });
         directionsDisplay.setDirections(response);
       } else {
         console.log('Directions request failed due to ' + status);
@@ -165,7 +172,7 @@ $(() => {
       durationInTraffic: true,
       avoidHighways: false,
       avoidTolls: false
-    }, function (response, status) {
+    }, function(response, status) {
       if (status !== google.maps.DistanceMatrixStatus.OK) {
         console.log('Error:', status);
       } else {
@@ -233,7 +240,7 @@ $(() => {
     }
   });
 
-  $(".travelMode").click(function (e) {
+  $(".travelMode").click(function(e) {
     let chosenMode = $(this).val();
     $('#' + chosenMode + '-tab').trigger('click');
   });
@@ -257,16 +264,18 @@ $(() => {
     while ($('.balloon').length) {
       $('.balloon').remove();
     }
-  } 
+  }
 });
+
 function displayConfirmationModal_car() {
   event.stopPropagation(); //prevents parent element's click listener from firing
-    if ($("#DRIVING .logBtn").hasClass("disabled")) { //checks if button is disabled
-      return;
-    }
+  if ($("#DRIVING .logBtn").hasClass("disabled")) { //checks if button is disabled
+    return;
+  }
   $("#logYes").attr("onclick", "logToDB_car()");
   $("#confirmModal").modal();
 }
+
 function displayConfirmationModal_transit() {
   event.stopPropagation(); //prevents parent element's click listener from firing
   $("#logYes").attr("onclick", "logToDB_transit()");

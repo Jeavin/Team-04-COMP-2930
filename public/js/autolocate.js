@@ -6,9 +6,10 @@ $('#getLocationBtn').on('click', () => {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      geocoder.geocode(
-        { 'location': latlng },
-        function (results, status) {
+      geocoder.geocode({
+          'location': latlng
+        },
+        function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
               $('#startAddress').val(results[0].formatted_address);

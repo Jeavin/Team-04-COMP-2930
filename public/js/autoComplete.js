@@ -1,13 +1,13 @@
 var autocomplete, autocomplete2;
-/** 
- * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
+/**
+ * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,.
  */
 initAutocomplete();
 $("#startAddress").focus(geolocate());
 $("#destination").focus(geolocate());
 
-/** 
- * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,. 
+/**
+ * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,.
  */
 function geolocate() {
   var geolocation = {
@@ -31,7 +31,7 @@ function initAutocomplete() {
       types: ['geocode']
     });
   autocomplete.setFields(['address_components', 'geometry']);
-  autocomplete.addListener('place_changed', function () {
+  autocomplete.addListener('place_changed', function() {
     let place = autocomplete.getPlace();
     if ($('#startAddress').val() !== "❤" && (!place || !place.geometry)) {
       // User entered the name of a Place that was not suggested and
@@ -39,7 +39,7 @@ function initAutocomplete() {
       document.getElementById('startAddress').value = "";
     }
   });
-  $('#startAddress').on('focusout', function () {
+  $('#startAddress').on('focusout', function() {
     google.maps.event.trigger(autocomplete, 'place_changed');
   });
 
@@ -51,7 +51,7 @@ function initAutocomplete() {
     });
   autocomplete2.setFields(['address_components', 'geometry']);
 
-  autocomplete2.addListener('place_changed', function () {
+  autocomplete2.addListener('place_changed', function() {
     let place = autocomplete2.getPlace();
     if ($('#destination').val() !== "❤" && (!place || !place.geometry)) {
       // User entered the name of a Place that was not suggested and
@@ -59,7 +59,7 @@ function initAutocomplete() {
       document.getElementById('destination').value = "";
     }
   });
-  $('#destination').on('focusout', function () {
+  $('#destination').on('focusout', function() {
     google.maps.event.trigger(autocomplete2, 'place_changed');
   });
   //autocomplete2.addListener('place_changed', fillInAddress);
