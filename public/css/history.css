@@ -10,7 +10,6 @@ body {
 
 #table-container {
   padding: 0;
-  /* height: calc(100% - headerAndFooterHeight); */
   height: 100%;
   overflow-y: auto;
 }
@@ -72,8 +71,6 @@ td img {
   width: 40px;
   height: 40px;
   margin-left: 5px;
-  /* border: 1.8px solid black; */
-  /* border-radius: 50%; */
 }
 
 tbody:last-child{

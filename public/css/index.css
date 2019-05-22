@@ -61,6 +61,7 @@ a#logo, a#logo:hover {
 a {
   outline: 0;
 }
+
 main {
   height: calc(100vh - 59.5px - 62.4px);
 }
@@ -69,7 +70,6 @@ div#backImageContainer {
   background-image: url("../images/backImage.png");
   background-repeat: no-repeat;
   background-size: contain;
-
 }
 
 div#contactBackImage {

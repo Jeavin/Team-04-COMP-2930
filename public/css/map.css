@@ -32,9 +32,11 @@ div#routeSteps {
 img.media-object {
   width: 24px;
 }
+
 ul#myTab {
   height: 0;
 }
+
 @media screen and (min-width: 992px) {
   div#routeInput {
     max-width: 350px;
@@ -73,7 +75,6 @@ ul#myTab {
 
 .modalB-body {
   background-image: url("https://images.unsplash.com/photo-1483825366482-1265f6ea9bc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
-  /* opacity: 0.2; */
   background-repeat: no-repeat;
   background-size: cover;
   height: 400px;
@@ -99,33 +100,41 @@ ul#myTab {
   align-content: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
-  .wrapper .text {
-    display: block;
-    width: 700px;
-    z-index: 200; }
-    .wrapper .text h1 {
-      margin: 1em 2em 0;
-      -webkit-transform: rotate(1deg);
-      -ms-transform: rotate(1deg);
-      transform: rotate(1deg);
-      background: #fff;
-      padding: 1.2em  3em;
-      display: inline-block; }
-    .wrapper .text h2 {
-      -webkit-transform: rotate(-2deg);
-      -ms-transform: rotate(-2deg);
-      transform: rotate(-2deg);
-      margin: -1em 6em 1em 3em;
-      float: right;
-      background: #f78e1e;
-      padding: 1em 3em;
-      display: inline-block; }
+  justify-content: center; 
+}
+
+.wrapper .text {
+  display: block;
+  width: 700px;
+  z-index: 200; 
+}
+
+.wrapper .text h1 {
+  margin: 1em 2em 0;
+  -webkit-transform: rotate(1deg);
+  -ms-transform: rotate(1deg);
+  transform: rotate(1deg);
+  background: #fff;
+  padding: 1.2em  3em;
+  display: inline-block; 
+}
+
+.wrapper .text h2 {
+  -webkit-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  margin: -1em 6em 1em 3em;
+  float: right;
+  background: #f78e1e;
+  padding: 1em 3em;
+  display: inline-block; 
+}
 
 svg {
   width: 300px;
   height: auto;
-  z-index: 199; }
+  z-index: 199; 
+}
 
 .balloons {
   height: 100%;
@@ -135,7 +144,6 @@ svg {
   right: 0;
   top: 0;
   left: 0;
-  /* background-color: rgba(255, 255, 255, 0.137);  */
   z-index: 0;
 }
 
@@ -145,42 +153,44 @@ svg {
   height: 100px;
   opacity: 0.8;
   position: absolute;
-  width: 80px; }
-  .balloon:after {
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    bottom: -5px;
-    content: "";
-    height: 0;
-    left: 45%;
-    position: absolute;
-    width: 0; }
+  width: 80px; 
+}
+
+.balloon:after {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  bottom: -5px;
+  content: "";
+  height: 0;
+  left: 45%;
+  position: absolute;
+  width: 0; 
+}
 
 .balloons h1{
-    /* color: white; */
     text-align: center;
 }
 
 .balloon1 {
   background-color: #111;
-    }
-  .balloon1:after {
-    border-bottom: 10px solid #111;
- } 
+}
+.balloon1:after {
+  border-bottom: 10px solid #111;
+} 
 
 .balloon2 {
   background-color: #555;
-    }
-  .balloon2:after {
-    border-bottom: 10px solid #555;                  
- } 
+}
+.balloon2:after {
+  border-bottom: 10px solid #555;                  
+} 
 
 .balloon3 {
   background-color: #eee;
-    }
-  .balloon3:after {
-    border-bottom: 10px solid #eee;
- } 
+}
+.balloon3:after {
+  border-bottom: 10px solid #eee;
+} 
 
 @-webkit-keyframes flyingBalloon {
   from {

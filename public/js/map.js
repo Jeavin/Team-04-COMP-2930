@@ -201,11 +201,14 @@ $(() => {
       }
     });
   }
+
+  // Click the Drive tab, it will show options to choose for cars
   $('#DRIVING').on('click', () => {
     $('#collapseCar').collapse('show');
     $('#vehicle').show();
   });
 
+  // Click the Transit tab, it will show party balloons only once.
   let transitOpen = true;
   $(' #TRANSIT').on('click', () => {
     $('#collapseCar').collapse('hide');
@@ -218,6 +221,7 @@ $(() => {
     }
   });
 
+  // Click the Bicycle tab, it will show party balloons only once.
   let bicOpen = true;
   $('#BICYCLING').on('click', () => {
     $('#collapseCar').collapse('hide');
@@ -229,6 +233,7 @@ $(() => {
     }
   });
 
+  // Click the Walk tab, it will show party balloons only once.
   let walkOpen = true;
   $(' #WALKING').on('click', () => {
     $('#collapseCar').collapse('hide');
@@ -240,11 +245,13 @@ $(() => {
     }
   });
 
+
   $(".travelMode").click(function(e) {
     let chosenMode = $(this).val();
     $('#' + chosenMode + '-tab').trigger('click');
   });
 
+  // It will append randomly generated balloons to div depends on how much co2 emission
   function initBalloons(emit) {
     clearBalloons();
     for (var i = 0; i < emit; i++) {
@@ -260,6 +267,7 @@ $(() => {
     $('#exampleModalLongTitle').html("CO2 emissions of today is approximately equivalent to " + "<br/>" + "<h1 style='text-align: center'>" + emit + " Balloons</h1>");
   }
 
+  // Clear all the balloons
   function clearBalloons() {
     while ($('.balloon').length) {
       $('.balloon').remove();

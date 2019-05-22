@@ -11,6 +11,7 @@ const transitEmission = 48.66;
 var selectedYear;
 var selectedMake;
 
+// This loads all the years from firebase to dropdown
 function loadListOfYears() {
   vehicleData.on("value", snap => {
     snap.forEach(function(childSnap) {
@@ -23,6 +24,7 @@ function loadListOfYears() {
   });
 }
 
+// Years must be selected first to choose Make and then Model.
 function yearSelected() {
   selectedYear = $("#selectYear").val();
   vehicleData.child(selectedYear).on("value", snap => {
