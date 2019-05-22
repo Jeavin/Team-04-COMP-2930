@@ -158,7 +158,7 @@ body {
 
 }
 
-#year-label {
+.select-label:first-child {
     
     margin-top: 10px;
     background-color: #28a745;
@@ -168,7 +168,7 @@ body {
 
 }
 
-#year-label2 {
+.select-label {
     
     margin-top: 30px;
     background-color: #28a745;
@@ -178,7 +178,7 @@ body {
 
 }
 
-.year-box {
+.select-box {
     width: 100%;
     height: 35px;
     background-color: rgb(236, 233, 233);
@@ -209,7 +209,7 @@ body {
     margin-bottom:100px;
   }
   
-  .button span {
+  .button #add {
     cursor: pointer;
     display: inline-block;
     position: relative;
@@ -217,7 +217,7 @@ body {
     
   }
   
-  .button span:after {
+  /* .button #add:after {
     content: '+';
     position: absolute;
     opacity: 0;
@@ -226,14 +226,14 @@ body {
     transition: 0.5s;
   }
   
-  .button:hover span {
+  .button:hover #add {
     padding-right: 25px;
   }
   
-  .button:hover span:after {
+  .button:hover #add:after {
     opacity: 1;
     right: 0;
-  }
+  } */
 
   .carName {
     
@@ -253,9 +253,13 @@ body {
     
   }
 
-  .not{
+  .carDiv{
       margin: 20px;
       margin-bottom: 20px;
+  }
+
+  .carDiv:last-child{
+      margin-bottom: 70px;
   }
 
   .button2{

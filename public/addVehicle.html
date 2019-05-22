@@ -86,61 +86,42 @@
             <div id="first">
                 <section id="section-1" class="tabs-content-item active-tab-content-item">
 
-                    <div id="year-label">
-                        <label for="year">Year</label>
-
+                    <div class="select-label">
+                        <label for="box1">Year</label>
                     </div>
                     <div>
-                        <select class="year-box" id="box1" onchange="selectYear()">
+                        <select class="select-box" id="box1" onchange="selectYear()">
                             <option disabled selected value="-1" id="first">-- select an option --</option>
                         </select>
                     </div>
 
-                    <div id="year-label2">
-                        <label for="year">Make</label>
-
+                    <div class="select-label">
+                        <label for="box2">Make</label>
                     </div>
                     <div>
-                        <select class="year-box" id="box2" onchange="selectMake()">
+                        <select class="select-box" id="box2" onchange="selectMake()">
                             <option disabled selected value="-1" id="first"> -- select an option -- </option>
-
                         </select>
                     </div>
 
-                    <div id="year-label2">
-                        <label for="year">Model</label>
-
+                    <div class="select-label">
+                        <label for="box3">Model</label>
                     </div>
                     <div>
-                        <select class="year-box" id="box3">
+                        <select class="select-box" id="box3">
                             <option disabled selected value="-1" id="first"> -- select an option -- </option>
-
                         </select>
-                        <button onclick="newPerson()" class="button" style="vertical-align:middle"><span>ADD
-                            </span></button>
+                        <button onclick="addVehicle()" class="button" style="vertical-align:middle">
+                            <span id="add">ADD</span>
+                        </button>
                     </div>
 
                 </section>
             </div>
+
             <section id="section-2" class="tabs-content-item">
-                <div>
-                    <div id="why">
-
-                    </div>
-                </div>
             </section>
-
         </div>
-
-        <!-- <footer>
-
-            <ul class="footer-nav">
-
-                <li class="full"><a href="#portfolio">About</a></li>
-                <li class="full"><a href="#contact">FAQs</a></li>
-            </ul>
-        </footer> -->
-
     </div>
 
     <!--Yes or No Confirmation Modal for the log button-->
@@ -177,14 +158,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

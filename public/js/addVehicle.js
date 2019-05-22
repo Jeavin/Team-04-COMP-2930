@@ -52,19 +52,18 @@ $(document).ready(function () {
 
 
 
-function displayRouteNames( ) {
+function displayCars() {
         
     let bo = firebase.database().ref().child('users').child(currentUser.userid+'/cars/');
     bo.on("value", snap => {
-        $("#why").empty();    
+        $("#section-2").empty();    
         snap.forEach(function (childSnaper) {
             var year = childSnaper.val();
 
             var key = childSnaper.key;
 
-            console.log(year);
-            var cardinfo = $('<div class="not" id="not"><div class="carName"><label for="year" >' + key + '</label></div><div class="gray"><label for="year" >' + year["Make"] + '</label><br><label for="year" >' + year["Year"] + '</label><button id="delete" class="button2" onclick="displayConfirmationModal_transit()">X </button></div></div>');
-            $("#why").append(cardinfo);
+            var cardinfo = $('<div class="carDiv"><div class="carName"><label for="year" >' + key + '</label></div><div class="gray"><label for="year" >' + year["Make"] + '</label><br><label for="year" >' + year["Year"] + '</label><button id="delete" class="button2" onclick="displayConfirmationModal()">X </button></div></div>');
+            $("#section-2").append(cardinfo);
         });
     });
 }
@@ -111,9 +110,9 @@ var currentIndex = 0;
 
 function onClick(e) {
     
-    $('#why').append(' <div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div><br><br><br>')
+    $('#section-2').append(' <div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div><br><br><br>')
     
-    displayRouteNames();
+    displayCars();
     e.preventDefault();
     var tab = this;
     var index = tabItems.indexOf(this);
@@ -133,18 +132,23 @@ tabItems.forEach(function (item) {
 // var e = document.getElementById("box1");
 // var strUser = e.options[e.selectedIndex].innerHTML;
 
-function newPerson() {
+function addVehicle() {
+    if (document.getElementById("box1").value == -1 || document.getElementById("box2").value == -1 || document.getElementById("box3").value == -1) {
+        alert('Please Select All Options');
+        return;
+    }
+    $('#add').append('<span class="spinner-border spinner-border-sm align-baseline ml-1" role="status"></span>');
+    setTimeout(addVehicle2, 500);
+}
+function addVehicle2() {
     
     var emissions;
-    if (document.getElementById("box1").value != -1 && document.getElementById("box2").value != -1 && document.getElementById("box3").value != -1) {
-        $('#section-1').append(' <br><br><br><div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div><br><br><br>')
+    // if (document.getElementById("box1").value != -1 && document.getElementById("box2").value != -1 && document.getElementById("box3").value != -1) {
+        // $('#section-1').append(' <br><br><br><div class="d-flex justify-content-center"><div class="spinner-border mt-5" role="status"><span class="sr-only">Loading..</span></div></div><br><br><br>')
         
-        // $('#why').prepend('<div class="not" id="not"><div class="carName"><label for="year" >' + $('#box3 option:selected').text() + '</label></div><div class="gray"><label for="year" >' + $('#box2 option:selected').text() + '</label><br><label for="year" >' + $('#box1 option:selected').text() + '</label><button class="button2" onclick="removeDummy()">X </button></div></div>')
         var ref = firebase.database().ref();
-        // console.log(ref);
         ref.on("value", function(snapshot) {
           emissions = snapshot.child("vehicleDatasets/" + $('#box1').val() + "/" + $('#box2').val() + "/" + $('#box3').val() + "/" + "CO2 EMISSIONS (g_km)").val();
-         console.log(emissions);
          firebase.database().ref().child('users').child(
              currentUser.userid+'/cars/'+
              $('#box3 option:selected').text()).update({
@@ -158,9 +162,9 @@ function newPerson() {
         });
         
         
-    } else {
-        alert('Please Select All Options');
-    }
+    // } else {
+    //     alert('Please Select All Options');
+    // }
 
 }
 let smt;
@@ -174,11 +178,8 @@ function removeDummy() {
 }
 
 
-  function displayConfirmationModal_transit() {
-    
+function displayConfirmationModal() {
     smt = event.srcElement;
     $("#logYes").attr("onclick", "removeDummy()");
-
     $("#confirmModal").modal();
-  }
-
+}
