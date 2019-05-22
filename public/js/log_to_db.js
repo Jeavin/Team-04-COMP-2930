@@ -3,16 +3,19 @@ let d, year, month, date, currentTime;
 let start, dest, distance, emission, transport;
 let historyDB;
 
+// Sets loading animation (spinner)
 function logToDB_car() {
   $("#DRIVING .logBtn").append($("<span class=\"spinner-grow spinner-grow-sm align-baseline\" role=\"status\"></span>"));
   setTimeout(logToDB_car2, 500);
 }
 
+// Sets loading animation (spinner)
 function logToDB_transit() {
   $("#TRANSIT .logBtn").append($("<span class=\"spinner-grow spinner-grow-sm align-baseline\" role=\"status\"></span>"));
   setTimeout(logToDB_transit2, 500);
 }
 
+// Logs information to database under user's history
 function logToDB_car2() {
   setVariables();
   let time = $("#DRIVINGtime").text();
@@ -54,6 +57,7 @@ function logToDB_car2() {
   $(".spinner-grow").remove();
 }
 
+// Logs information to database under user's history
 function logToDB_transit2() {
   setVariables();
   let time = $("#TRANSITtime").text();
@@ -98,11 +102,12 @@ function getDistance(text) {
   return distance;
 }
 
-//returns emission in kg, as float
+// returns emission in kg, as float
 function calcEmission(emission, distance) {
   return parseFloat((emission * distance / 1000).toFixed(2));
 }
 
+// Set variables needed for logging to database
 function setVariables() {
   userDB = firebase.database().ref().child("users/" + firebase.auth().currentUser.uid);
   historyDB = firebase.database().ref().child("users/" + firebase.auth().currentUser.uid + "/history");
