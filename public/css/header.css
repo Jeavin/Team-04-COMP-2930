@@ -1,10 +1,9 @@
 .page-header{
-  background-color: #D2EBBF !important;
-  color: #6A6464;
+  background-color: #28A745 !important;
+  color: white;
   border-bottom: 0 !important;
   margin: 0 0 0 !important;
-  display: table-cell;
-  width: 10%;
+  padding-bottom: 1px;
 }
 
 .page-header h1{

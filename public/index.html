@@ -6,17 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="icon" href="./images/logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="./css/index.css" />
   <title>Emission Planner</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-    <button id="navToggler" class="btn navbar-toggler " type="button" data-toggle="collapse"
-      data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
-      aria-label="Toggle navigation">
+    <button id="navToggler" class="btn navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
       <img src="./images/menu.png" />
     </button>
 
@@ -48,7 +46,7 @@
         <img src="./images/settingsIcon.png" />
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <h6 class="userName text-uppercase" class="dropdown-header">
+        <h6 class="userName text-uppercase dropdown-header">
         </h6>
         <a class="dropdown-item" href="./addVehicle.html">Add Vehicle</a>
         <a class="dropdown-item" href="./history.html">History</a>
@@ -57,8 +55,7 @@
     </div>
 
     <div id="settingIcon2" class="dropdown">
-      <button class="btn userName text-uppercase" type="button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
+      <button class="btn userName text-uppercase" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="./addVehicle.html">Add Vehicle</a>
@@ -73,8 +70,7 @@
       <div class="row align-items-center">
         <div class="col-12 col-md-12 col-lg-6 order-md-1 mb-3">
           <!-- Image -->
-          <img src="./images/backImage_h.png" class="img-fluid mw-md-150 mw-lg-130 mb-6 mb-md-0 aos-init aos-animate"
-            alt=".." data-aos="fade-up" data-aos-delay="100">
+          <img src="./images/backImage_h.png" class="img-fluid mw-md-150 mw-lg-130 mb-6 mb-md-0 aos-init aos-animate" alt=".." data-aos="fade-up" data-aos-delay="100">
         </div>
 
         <div class="col-12 col-md-12 col-lg-6 order-md-2 aos-init aos-animate" data-aos="fade-up">
@@ -86,28 +82,22 @@
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
-                  <input id="startAddress" type="text" class="forceSelection form-control form__input form-control-lg"
-                    name="start" required="required" placeholder="Start" aria-label="Start" />
-                  <button id="getLocationBtn" class="btn ml-3 p-0" type="button"><img form-control
-                      src="./images/autolocate.png" alt=""></button>
+                  <input id="startAddress" type="text" class="forceSelection form-control form__input form-control-lg" name="start" required="required" placeholder="Start" aria-label="Start" />
+                  <button id="getLocationBtn" class="btn ml-3 p-0" type="button"><img form-control src="./images/autolocate.png" alt=""></button>
                 </div>
               </div>
               <!-- End Input -->
               <!-- Input -->
               <div class="js-form-message mb-3">
                 <div class="js-focus-state input-group input-group form">
-                  <input id="destination" type="text" class="form-control form-control-lg form__input"
-                    name="destination" required="required" placeholder="Destination" aria-label="Destination" />
+                  <input id="destination" type="text" class="form-control form-control-lg form__input" name="destination" required="required" placeholder="Destination" aria-label="Destination" />
                 </div>
               </div>
               <!-- End Input -->
-              <button id="planTrip" type="submit"
-                class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">Plan Your Trip Now</button>
+              <button id="planTrip" type="submit" class="btn btn-lg btn-block btn-primary bg-success text-white mb-3">Plan Your Trip Now</button>
             </form>
-            <button class="btn btn-lg btn-inline btn-primary bg-success text-white mr-1" data-toggle="modal"
-              data-target="#exampleModal1" style="width: 48%">Sign In</button>
-            <button class="btn btn-lg btn-inline btn-primary bg-success text-white float-right" data-toggle="modal"
-              data-target="#exampleModal2" style="width: 48%">Sign Up</button>
+            <button class="btn btn-lg btn-inline btn-primary bg-success text-white mr-1" data-toggle="modal" data-target="#exampleModal1" style="width: 48%">Sign In</button>
+            <button class="btn btn-lg btn-inline btn-primary bg-success text-white float-right" data-toggle="modal" data-target="#exampleModal2" style="width: 48%">Sign Up</button>
           </div>
           <!-- End Signup Form -->
 
@@ -117,8 +107,7 @@
   </main>
 
   <!-- Sign In Modal -->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog mt-5 pt-3" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -130,11 +119,9 @@
         <div class="modal-body w-75 m-auto">
           <form class="form-signin">
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control mb-4" placeholder="Email address"
-              style="margin-bottom: 10px;border-radius: 0rem;" required autofocus>
+            <input type="email" id="inputEmail" class="form-control mb-4" placeholder="Email address" style="margin-bottom: 10px;border-radius: 0rem;" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control mb-4" placeholder="Password"
-              style="margin-bottom: 10px;border-radius: 0rem;" required>
+            <input type="password" id="inputPassword" class="form-control mb-4" placeholder="Password" style="margin-bottom: 10px;border-radius: 0rem;" required>
             <div class="checkbox mb-3">
               <label>
                 <input id="rememberMe" type="checkbox" value="remember-me"> Remember me
@@ -145,8 +132,7 @@
             account?</button>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-lg btn-secondary bg-success text-white"
-            data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-lg btn-secondary bg-success text-white" data-dismiss="modal">Close</button>
           <button id="signIn" type="button" class="btn btn-lg btn-primary bg-success text-white">Sign In</button>
         </div>
       </div>
@@ -155,8 +141,7 @@
   <!--End of Sign In Modal -->
 
   <!-- Sign Up Modal -->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  mt-5 pt-3" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -172,8 +157,7 @@
                     " required autofocus>
             <input type="text" id="name" class="form-control mb-3" placeholder="User Name" required>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="createPassword" class="form-control mb-3" placeholder="Password"
-              style="margin-bottom: 10px;border-radius: 0rem;" required>
+            <input type="password" id="createPassword" class="form-control mb-3" placeholder="Password" style="margin-bottom: 10px;border-radius: 0rem;" required>
             <div class="checkbox mb-3">
               <label>
                 <input id="rememberMe" type="checkbox" value="remember-me"> Remember me
@@ -184,8 +168,7 @@
             account?</button>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-lg btn-secondary bg-success text-white"
-            data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-lg btn-secondary bg-success text-white" data-dismiss="modal">Close</button>
           <button id="modalSignUpBtn" type="button" class="btn btn-lg btn-primary bg-success text-white">Sign
             Up</button>
         </div>
@@ -205,18 +188,11 @@
   <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAscZ2CNummIoeC_ihIV-3sKkjr3QypsU&libraries=places"></script>
   <script src="./js/firebase_init.js"></script>
   <script src="./js/autolocate.js"></script>
   <script src="./js/autoComplete.js"></script>

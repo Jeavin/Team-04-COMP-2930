@@ -1,4 +1,6 @@
 let geocoder = new google.maps.Geocoder();
+//when autolocate icon is cliked, auto fill the Start input filed with the
+//current location
 $('#getLocationBtn').on('click', () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -6,9 +8,10 @@ $('#getLocationBtn').on('click', () => {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      geocoder.geocode(
-        { 'location': latlng },
-        function (results, status) {
+      geocoder.geocode({
+          'location': latlng
+        },
+        function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
               $('#startAddress').val(results[0].formatted_address);

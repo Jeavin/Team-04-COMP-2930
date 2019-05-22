@@ -13,9 +13,9 @@ fs.readFile('MY2004 Fuel Consumption Ratings 5-cycle.json', 'utf8', function rea
     let containerObj = {};
     make[makeKey] = {};
     containerObj[yearKey] = make;
-    
+
     for (let i = 0; i < obj.length; i++) {
-      
+
       if (yearKey != obj[i].YEAR) {
         yearKey = obj[i].YEAR;
         makeKey = obj[i].MAKE;
@@ -53,6 +53,6 @@ fs.readFile('MY2004 Fuel Consumption Ratings 5-cycle.json', 'utf8', function rea
       if (err) {
         console.log(err);
       }
-    }); // write it back 
+    }); // write it back
   }
 });
