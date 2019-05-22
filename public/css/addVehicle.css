@@ -7,7 +7,6 @@ html {
 
 body {
     margin: 0;
- 
 }
 
 *, 
@@ -21,7 +20,6 @@ body {
     margin:0 auto 0 auto;
     width: 100%;
     background-color: #28a745;
-
 }
 
 .tabs-content {
@@ -68,7 +66,6 @@ body {
 }
 
 .tabs-nav-item::before {
-   
     content: '';
     position: absolute;
     display: block;
@@ -84,7 +81,6 @@ body {
 }
 
 .tabs-nav-btn {
-
     position: relative;
     display: block;
     outline: 0 none;
@@ -152,30 +148,22 @@ body {
 }
 
 #section-1 {
-
     padding-left:30px;
     padding-right:30px;
-
 }
 
 .select-label:first-child {
-    
     margin-top: 10px;
     background-color: #28a745;
     padding: 8px;
     color: rgb(255, 255, 255);
-    
-
 }
 
 .select-label {
-    
     margin-top: 30px;
     background-color: #28a745;
     padding: 8px;
     color: rgb(255, 255, 255);
-    
-
 }
 
 .select-box {
@@ -184,13 +172,10 @@ body {
     background-color: rgb(236, 233, 233);
     border: none;
     border-bottom: 2px solid rgb(143, 143, 143);
-    
-
 }
 
 .button {
     display:block;
-
     border-radius: 4px;
     background-color: #28a745;
     border: none;
@@ -207,111 +192,88 @@ body {
     left: 0;
     right: 0;
     margin-bottom:100px;
-  }
+}
   
-  .button #add {
+.button #add {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-    
-  }
-  
-  /* .button #add:after {
-    content: '+';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .button:hover #add {
-    padding-right: 25px;
-  }
-  
-  .button:hover #add:after {
-    opacity: 1;
-    right: 0;
-  } */
+}
 
-  .carName {
-    
+.carName {
     padding:   5px;
     font-size: 22px;
     margin:0 auto 0 auto;
     width: 100%;
     background-color: #28a745;
     color: white;
-  }
+}
 
-  .gray{
-      
-      padding-bottom: 10px;
-      padding-left: 10px;
+.gray{
+    padding-bottom: 10px;
+    padding-left: 10px;
     background-color: rgb(236, 233, 233); 
-    
-  }
+}
 
-  .carDiv{
-      margin: 20px;
-      margin-bottom: 20px;
-  }
+.carDiv{
+    margin: 20px;
+    margin-bottom: 20px;
+}
 
-  .carDiv:last-child{
-      margin-bottom: 70px;
-  }
+.carDiv:last-child{
+    margin-bottom: 70px;
+}
 
-  .button2{
+.button2{
     float: right;
     margin-right:20px;
     background-color: rgb(209, 40, 28); /* Green */
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  width: 30px;
-  margin: 10px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  border-radius: 0.2rem;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 30px;
+    margin: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 0.2rem;
 }
 
 .button2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-  }
+}
 
-  footer {
+footer {
     margin-top: 40px;
     width: 100%;
     position:fixed;
     bottom: 0;
 
-  }
-  
-  h2 {
+}
+
+h2 {
     float: left;
     height: 12px;
     line-height: 12px;
-  }
-  
-  .footer-nav {
+}
+
+.footer-nav {
     text-align: right;
     margin: 0px;
     padding: 0px;
-  }
-  
-  li {
+}
+
+li {
     display: inline-block;
     margin-right: 20px;
-  }
-  
-  .top, .footer-nav li:last-child {
-      margin: 0px;
+}
+
+.top, .footer-nav li:last-child {
+    margin: 0px;
     padding: 0px;
     margin-right: 0;
-  }
-  
-  
+}
+
