@@ -29,6 +29,9 @@ Click the [link](http://team-04-comp-2930.firebaseapp.com/) to use the app.
 - Visual Studio Code
 - Notepad++
 - Chrome/Firefox
+- Firebase
+- Google APIs
+- Javascript, jQuery
 
 ## Authors
 
