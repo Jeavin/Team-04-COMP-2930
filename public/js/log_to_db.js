@@ -1,4 +1,6 @@
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var months = [
+  "January", "February", "March", "April", "May", "June", "July", "August",
+  "September", "October", "November", "December"];
 let d, year, month, date, currentTime;
 let start, dest, distance, emission, transport;
 let historyDB;
@@ -46,7 +48,7 @@ function logToDB_car2() {
   $('#messagePopup').text('Trip was saved.').animate({
     'margin-top': 0
   }, 200);
-  setTimeout(function() {
+  setTimeout(function () {
     $('#messagePopup').animate({
       'margin-top': -25
     }, 200);
@@ -76,7 +78,7 @@ function logToDB_transit2() {
   $('#messagePopup').text('Trip was saved.').animate({
     'margin-top': 0
   }, 200);
-  setTimeout(function() {
+  setTimeout(function () {
     $('#messagePopup').animate({
       'margin-top': -25
     }, 200);

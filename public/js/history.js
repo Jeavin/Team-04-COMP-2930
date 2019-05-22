@@ -1,7 +1,9 @@
+//create a table cell with the parameter as the content
 function createTD(string) {
   return $("<td>" + string + "</td>");
 }
 
+//create table hearder and row
 function createHeaderRow(monthAndYear) {
   let headerRow = $("<tr></tr>");
   headerRow.addClass("month-header");
@@ -15,16 +17,20 @@ function createHeaderRow(monthAndYear) {
   return headerRow;
 }
 
+//create data row containing the histroy
 function createDataRow(date, distance, transport, emission) {
   transport = (transport == "transit") ? transport : "car";
   let dataRow = $("<tr></tr>");
   dataRow.addClass("data-row");
   dataRow.append(createTD(date),
-    createTD(distance + "<img src=\"./images/" + transport + ".png\" class=\"transportationImg\">"),
+    createTD(distance + "<img src=\"./images/" + transport +
+      ".png\" class=\"transportationImg\">"),
     createTD(emission + " kg"));
   return dataRow;
 }
 
+//create a collapse(or drop down) table with the Start, Destination and Time of
+//the trip
 function createSlideRow(start, dest, time) {
   let slideRow = $("<tr></tr>");
   slideRow.addClass("slide");
@@ -36,10 +42,6 @@ function createSlideRow(start, dest, time) {
   detailsDiv.addClass("accordion-body collapse details pt-2 pb-2");
 
   detailsDiv.append(createAddressDisplayDiv("Start: ", start));
-
-  // let arrowImg = $("<img></img>");
-  // arrowImg.attr("src", "./images/Arrow.png");
-  // detailsDiv.append(arrowImg);
 
   detailsDiv.append(createAddressDisplayDiv("Destination: ", dest));
 
@@ -89,6 +91,7 @@ function createAddressDisplayDiv(labelTxt, address) {
   return div;
 }
 
+//create the footer for the history table
 function createFooterRow(month, totalEmission) {
   let footerRow = $("<tr></tr>");
   footerRow.addClass("month-footer");
@@ -106,10 +109,12 @@ function createFooterRow(month, totalEmission) {
   return footerRow;
 }
 
-$(document).ready(function() {
 
-
-  firebase.auth().onAuthStateChanged(function(user) {
+$(document).ready(function () {
+  //listen to user's authentication changes
+  firebase.auth().onAuthStateChanged(function (user) {
+    //if the user is logged in, load all the logged history, which includes the
+    //start, destination, time and CO2 emision of the trips
     if (user) {
       console.log(user.uid);
       let userData = firebase.database().ref().child("users/" + user.uid);
@@ -119,7 +124,7 @@ $(document).ready(function() {
 
         $("table").children("tbody").remove();
 
-        snap.forEach(function(yearMonthSnap) {
+        snap.forEach(function (yearMonthSnap) {
           let monthAndYear = yearMonthSnap.key;
           let month = monthAndYear.split(" ")[0];
           let year = monthAndYear.split(" ")[1];
@@ -128,7 +133,7 @@ $(document).ready(function() {
 
           let totalEmission = 0;
 
-          yearMonthSnap.forEach(function(childSnap) {
+          yearMonthSnap.forEach(function (childSnap) {
             let {
               date,
               destination,
@@ -157,21 +162,21 @@ $(document).ready(function() {
           $("table").append(tbody);
         });
         //click listeners
-        $(".data-row").click(function() {
+        $(".data-row").click(function () {
           $(this).next().children("td:first").children("div:first").collapse("toggle");
         });
-        $('.collapse').on('hide.bs.collapse', function() {
+        $('.collapse').on('hide.bs.collapse', function () {
           $(this).parent().parent().prev().css("background-color", "white");
         });
-        $('.collapse').on('hidden.bs.collapse', function() {
+        $('.collapse').on('hidden.bs.collapse', function () {
           $(this).parent().css("border-top", "none");
         });
-        $('.collapse').on('show.bs.collapse', function() {
+        $('.collapse').on('show.bs.collapse', function () {
           // $('.collapse.in').collapse('hide');
           $(this).parent().css("border-top", "1px solid #dee2e6");
           $(this).parent().parent().prev().css("background-color", "#ececec");
         });
-        $('.collapse').on('showen.bs.collapse', function() {
+        $('.collapse').on('showen.bs.collapse', function () {
           $(this).css("height", "100%");
         });
 
@@ -179,7 +184,7 @@ $(document).ready(function() {
         $(".spinner-border").parent().remove();
       });
 
-    } else {
+    } else {//if the user is not logged in
       $(".spinner-border").parent().remove();
 
       let notSignedInDiv = $("<div></div>");

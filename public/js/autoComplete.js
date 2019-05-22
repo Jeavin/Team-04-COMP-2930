@@ -1,14 +1,12 @@
 var autocomplete, autocomplete2;
-/**
- * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,.
- */
+//Enables the Start and Destination Text input boxes to autocomplete the
+//locatinos from the Google place library
 initAutocomplete();
 $("#startAddress").focus(geolocate());
 $("#destination").focus(geolocate());
 
-/**
- * Enables the Departure and Destination Text inputs boxes to autocomplete the user's geographical location,.
- */
+//Set the boundary for available autocompletion locations for the Start and
+//Destination Text input boxes
 function geolocate() {
   var geolocation = {
     lat: 49.25,
@@ -22,17 +20,20 @@ function geolocate() {
   autocomplete2.setBounds(circle.getBounds());
 }
 
+//Instantiate two new Autocomplete instances for the Start and Destination
+//input fileds
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
   // location types.
   autocomplete = new google.maps.places.Autocomplete(
-    // /** @type {!HTMLInputElement} */
     (document.getElementById('startAddress')), {
       types: ['geocode']
     });
   autocomplete.setFields(['address_components', 'geometry']);
   autocomplete.addListener('place_changed', function() {
     let place = autocomplete.getPlace();
+    //if it is heart emoji, or the locations from Goolge place library, do not
+    //clear the input fileds
     if ($('#startAddress').val() !== "❤" && (!place || !place.geometry)) {
       // User entered the name of a Place that was not suggested and
       // pressed the Enter key, or the Place Details request failed.
@@ -53,6 +54,8 @@ function initAutocomplete() {
 
   autocomplete2.addListener('place_changed', function() {
     let place = autocomplete2.getPlace();
+    //if it is heart emoji, or the locations from Goolge place library, do not
+    //clear the input fileds
     if ($('#destination').val() !== "❤" && (!place || !place.geometry)) {
       // User entered the name of a Place that was not suggested and
       // pressed the Enter key, or the Place Details request failed.

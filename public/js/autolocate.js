@@ -1,4 +1,6 @@
 let geocoder = new google.maps.Geocoder();
+//when autolocate icon is cliked, auto fill the Start input filed with the
+//current location
 $('#getLocationBtn').on('click', () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
