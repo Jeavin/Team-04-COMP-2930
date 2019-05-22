@@ -261,8 +261,7 @@ $(() => {
 });
 function displayConfirmationModal_car() {
   event.stopPropagation(); //prevents parent element's click listener from firing
-    if (isNaN(parseInt($("#DRIVINGco2").text().slice(-4, -3)))) { //checks if co2 is displayed
-      // alert("Please select a vehicle first.");
+    if ($("#DRIVING .logBtn").hasClass("disabled")) { //checks if button is disabled
       return;
     }
   $("#logYes").attr("onclick", "logToDB_car()");
